@@ -61,21 +61,20 @@ map("v", ">", ">gv", opt)
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 
--- bufferline
--- 左右Tab切换
+------------------ bufferline --------------------
+-- tab switching(left and right)
 map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
--- 关闭
---"moll/vim-bbye"
+-- close
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 
--- Telescope
--- 查找文件
+---------------- Telescope Config ----------------
+-- find some files
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
--- 全局搜索
+-- global search
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 
 -- nvim-tree --
@@ -85,34 +84,36 @@ map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 -- short cut of plugins
 local pluginKeys = {}
 -- list if shortcut
--- Telescope 列表中 插入模式快捷键
+-- Telescope shortcut in insert mode on pop list
 pluginKeys.telescopeList = {
   i = {
-    -- 上下移动
+    -- moving up and down
     ["<C-j>"] = "move_selection_next",
     ["<C-k>"] = "move_selection_previous",
     ["<Down>"] = "move_selection_next",
     ["<Up>"] = "move_selection_previous",
-    -- 历史记录
+    -- history record
     ["<C-n>"] = "cycle_history_next",
     ["<C-p>"] = "cycle_history_prev",
-    -- 关闭窗口
+    -- close search window
     ["<C-c>"] = "close",
-    -- 预览窗口上下滚动
+    -- preview window moves up and down
     ["<C-u>"] = "preview_scrolling_up",
     ["<C-d>"] = "preview_scrolling_down",
   },
 }
+
+------------------- TreeList -----------------------
 pluginKeys.nvimTreeList = {
-  -- 打开文件或文件夹
+  -- open file or floder
   { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
-  -- 分屏打开文件
+  -- open file with split
   { key = "v", action = "vsplit" },
   { key = "h", action = "split" },
-  -- 显示隐藏文件
+  -- show hidden files
   { key = "i", action = "toggle_ignored" }, -- Ignore (node_modules)
   { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
-  -- 文件操作
+  -- some op of file
   { key = "<F5>", action = "refresh" },
   { key = "a", action = "create" },
   { key = "d", action = "remove" },
