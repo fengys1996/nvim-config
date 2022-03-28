@@ -20,6 +20,30 @@ packer.startup(
    use("ahmedkhalf/project.nvim")
    -- treesitter
    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+
+   --------------------- LSP --------------------
+    -- lspconfig
+    -- use("neovim/nvim-lspconfig")
+    use({"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer"})
+    -- 补全引擎
+    use("hrsh7th/nvim-cmp")
+    -- snippet 引擎
+    use("hrsh7th/vim-vsnip")
+    -- 补全源
+    use("hrsh7th/cmp-vsnip")
+    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
+    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
+    use("hrsh7th/cmp-path") -- { name = 'path' }
+    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+    -- 常见编程语言代码段
+    use("rafamadriz/friendly-snippets")
+    -- -- ui
+    use("onsails/lspkind-nvim")
+    use("tami5/lspsaga.nvim" )
+    use("simrat39/rust-tools.nvim")
+    use("nvim-lua/plenary.nvim")
+    use("mfussenegger/nvim-dap")
+    use('nvim-telescope/telescope-ui-select.nvim')
 end)
 
 
