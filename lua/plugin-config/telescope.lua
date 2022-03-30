@@ -19,6 +19,6 @@ telescope.setup({
     }
   },
   extensions = {
-     -- 扩展插件配置
+    -- 扩展插件配置
   },
 })
