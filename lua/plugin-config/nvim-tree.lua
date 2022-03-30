@@ -48,6 +48,6 @@ nvim_tree.setup({
   -- npm install -g wsl-open
   -- https://github.com/4U6U57/wsl-open/
   --   system_open = {
-    --     cmd = "wsl-open",
-    --   },
-  })
+  --     cmd = "wsl-open",
+  --   },
+})

@@ -17,5 +17,5 @@ require("plugin-config.dashboard")
 require("plugin-config.project")
 require("plugin-config.nvim-treesitter")
 require('lsp.setup')
-require('lsp.nvim-cmp')
+require('lsp.cmp')
 
