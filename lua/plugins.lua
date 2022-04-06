@@ -1,7 +1,7 @@
 local packer = require("packer")
 packer.startup(
   function(use)
-    -- Packer 可以管理自己本身
+    -- Packer can mangage themselves
     use 'wbthomason/packer.nvim'
     -- tokyonight
     use("folke/tokyonight.nvim")
@@ -25,17 +25,17 @@ packer.startup(
     -- lspconfig
     -- use("neovim/nvim-lspconfig")
     use({"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer"})
-    -- 补全引擎
+    -- completion engine
     use("hrsh7th/nvim-cmp")
-    -- snippet 引擎
+    -- snippet engine
     use("hrsh7th/vim-vsnip")
-    -- 补全源
+    -- complete source
     use("hrsh7th/cmp-vsnip")
-    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
-    use("hrsh7th/cmp-path") -- { name = 'path' }
-    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
-    -- 常见编程语言代码段
+    use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-path")
+    use("hrsh7th/cmp-cmdline")
+    -- common programming language code snippets
     use("rafamadriz/friendly-snippets")
     -- -- ui
     use("onsails/lspkind-nvim")
@@ -50,8 +50,7 @@ packer.startup(
     use('junegunn/gv.vim')
   end)
 
-
--- 每次保存 plugins.lua 自动安装插件
+------ Plugins are automatically installed every time you save this file ------
 pcall(
   vim.cmd,
   [[
