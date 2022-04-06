@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/fys/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gv.vim"] = {
+    loaded = true,
+    path = "/home/fys/.local/share/nvim/site/pack/packer/start/gv.vim",
+    url = "https://github.com/junegunn/gv.vim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/fys/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -203,6 +208,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/fys/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/fys/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "/home/fys/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
+    url = "https://github.com/tpope/vim-rhubarb"
+  },
+  ["vim-signify"] = {
+    loaded = true,
+    path = "/home/fys/.local/share/nvim/site/pack/packer/start/vim-signify",
+    url = "https://github.com/mhinz/vim-signify"
   },
   ["vim-vsnip"] = {
     loaded = true,

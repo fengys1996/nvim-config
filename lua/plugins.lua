@@ -44,6 +44,10 @@ packer.startup(
     use("nvim-lua/plenary.nvim")
     use("mfussenegger/nvim-dap")
     use('nvim-telescope/telescope-ui-select.nvim')
+    use('mhinz/vim-signify')
+    use('tpope/vim-fugitive')
+    use('tpope/vim-rhubarb')
+    use('junegunn/gv.vim')
   end)
 
 
