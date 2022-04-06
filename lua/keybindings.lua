@@ -81,6 +81,9 @@ map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 -- alt + m : open and close tree
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 
+----------------- vim-signify --------------------
+map("n", "<leader>gd", ":SignifyDiff<CR>", opt)
+
 -- short cut of plugins
 local pluginKeys = {}
 -- list if shortcut
