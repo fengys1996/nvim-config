@@ -80,3 +80,7 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 
 vim.o.guifont = "Hack Nerd Font"
+
+vim.g.minimap_width = 10
+vim.g.minimap_auto_start = 1
+vim.g.minimap_auto_start_win_enter = 1

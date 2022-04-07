@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/fys/.local/share/nvim/site/pack/packer/start/gv.vim",
     url = "https://github.com/junegunn/gv.vim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/fys/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/fys/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -133,6 +138,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/fys/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["minimap.vim"] = {
+    loaded = true,
+    path = "/home/fys/.local/share/nvim/site/pack/packer/start/minimap.vim",
+    url = "https://github.com/wfxr/minimap.vim"
   },
   ["nvim-cmp"] = {
     loaded = true,

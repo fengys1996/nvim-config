@@ -16,6 +16,7 @@ require("plugin-config.dashboard")
 -- ~/.local/share/nvim/project_nvim/project_history : recent project history
 require("plugin-config.project")
 require("plugin-config.nvim-treesitter")
+require("plugin-config.indent-blankline")
 require('lsp.setup')
 require('lsp.cmp')
-
+require('lsp.ui')

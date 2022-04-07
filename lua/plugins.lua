@@ -48,6 +48,8 @@ packer.startup(
     use('tpope/vim-fugitive')
     use('tpope/vim-rhubarb')
     use('junegunn/gv.vim')
+    use("lukas-reineke/indent-blankline.nvim")
+    use("wfxr/minimap.vim")
   end)
 
 ------ Plugins are automatically installed every time you save this file ------
