@@ -139,11 +139,6 @@ _G.packer_plugins = {
     path = "/home/fys/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["minimap.vim"] = {
-    loaded = true,
-    path = "/home/fys/.local/share/nvim/site/pack/packer/start/minimap.vim",
-    url = "https://github.com/wfxr/minimap.vim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/fys/.local/share/nvim/site/pack/packer/start/nvim-cmp",

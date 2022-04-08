@@ -82,7 +82,8 @@ map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 
 ----------------- vim-signify --------------------
-map("n", "<leader>gd", ":SignifyDiff<CR>", opt)
+map("n", "<leader>gd", ":Gdiffsplit<CR>", opt)
+map("n", "<leader>gb", ":Git blame<CR>", opt)
 
 -- short cut of plugins
 local pluginKeys = {}
