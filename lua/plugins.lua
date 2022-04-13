@@ -49,6 +49,8 @@ packer.startup(
     use('tpope/vim-rhubarb')
     use('junegunn/gv.vim')
     use("lukas-reineke/indent-blankline.nvim")
+    -- comment
+    use('numToStr/Comment.nvim')
   end)
 
 ------ Plugins are automatically installed every time you save this file ------

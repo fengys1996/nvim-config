@@ -180,5 +180,15 @@ pluginKeys.cmp = function(cmp)
   }
 end
 
-return pluginKeys
+pluginKeys.comment = {
+  toggler = {
+    line = "<leader>cc",
+    block = "<leader>bc",
+  },
+  opleader = {
+    line = "gc",
+    bock = "gb",
+  },
+}
 
+return pluginKeys
