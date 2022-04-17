@@ -69,7 +69,8 @@ map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
 map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+map("n", "<leader>ba", ":BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>", opt)
+-- map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 
 ---------------- Telescope Config ----------------
 -- find some files
@@ -182,8 +183,8 @@ end
 
 pluginKeys.comment = {
   toggler = {
-    line = "<leader>cc",
-    block = "<leader>bc",
+    line = "gcc",
+    block = "gbc",
   },
   opleader = {
     line = "gc",
