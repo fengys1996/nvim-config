@@ -79,8 +79,5 @@ vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
 
-vim.o.guifont = "Hack Nerd Font:h12"
+vim.o.guifont = "Roboto Mono:h12"
 
-vim.g.minimap_width = 10
-vim.g.minimap_auto_start = 1
-vim.g.minimap_auto_start_win_enter = 1
