@@ -80,4 +80,4 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 
 vim.o.guifont = "Roboto Mono:h12"
-
+vim.g.neovide_cursor_animation_length = 0
