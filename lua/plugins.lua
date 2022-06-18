@@ -58,6 +58,15 @@ packer.startup(
     -- comment
     use('numToStr/Comment.nvim')
     use('simrat39/symbols-outline.nvim')
+    use {
+      'saecki/crates.nvim',
+      event = { "BufRead Cargo.toml" },
+      tag = 'v0.2.1',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = function()
+        require('crates').setup()
+      end,
+    }
   end)
 
 ------ Plugins are automatically installed every time you save this file ------
