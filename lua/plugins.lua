@@ -57,6 +57,7 @@ packer.startup(
     use("lukas-reineke/indent-blankline.nvim")
     -- comment
     use('numToStr/Comment.nvim')
+    use('simrat39/symbols-outline.nvim')
   end)
 
 ------ Plugins are automatically installed every time you save this file ------
