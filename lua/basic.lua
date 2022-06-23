@@ -79,5 +79,6 @@ vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
 
-vim.o.guifont = "Roboto Mono:h12"
-vim.g.neovide_cursor_animation_length = 0
+-- vim.o.guifont = "GoMono_Nerd_Font:h10:b"  'b' mean: bold font style.  'i' mean: font italic style
+vim.o.guifont = "GoMono_Nerd_Font:h10"
+
