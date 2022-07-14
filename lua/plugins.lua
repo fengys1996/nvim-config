@@ -21,7 +21,8 @@ packer.startup(
     -- telescope
     use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" }, tag = "nvim-0.6"}
     -- dashboard-nvim
-    use("glepnir/dashboard-nvim")
+    -- use("glepnir/dashboard-nvim")
+    use({"glepnir/dashboard-nvim", commit = "a36b3232c98616149784f2ca2654e77caea7a522" })
     -- project
     use("ahmedkhalf/project.nvim")
     -- treesitter
