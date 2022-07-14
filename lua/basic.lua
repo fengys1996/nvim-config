@@ -81,4 +81,4 @@ vim.o.showmode = false
 
 -- vim.o.guifont = "GoMono_Nerd_Font:h10:b"  'b' mean: bold font style.  'i' mean: font italic style
 vim.o.guifont = "GoMono_Nerd_Font:h10"
-
+vim.g.neovide_input_macos_alt_is_meta = true
