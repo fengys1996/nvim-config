@@ -86,4 +86,8 @@ vim.o.guifont = "GoMono_Nerd_Font:h10"
 vim.g.neovide_input_macos_alt_is_meta = true
 
 -- the theme config of tokyo, values: "storm", "day", "light"
-vim.g.tokyonight_style = "light"
+vim.g.tokyonight_style = "day"
+
+vim.g.symbols_outline = {
+    show_relative_numbers = true
+}

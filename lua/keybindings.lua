@@ -196,4 +196,7 @@ pluginKeys.comment = {
   },
 }
 
+------------------- symbols-outline --------------
+map("n", "<leader>sym", ":SymbolsOutline<CR>", opt)
+
 return pluginKeys
