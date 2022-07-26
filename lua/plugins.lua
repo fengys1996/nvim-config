@@ -69,6 +69,7 @@ packer.startup(
         require('crates').setup()
       end,
     }
+    use('uarun/vim-protobuf')
   end)
 
 ------ Plugins are automatically installed every time you save this file ------
