@@ -1,7 +1,8 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
 end
 
 local packer = require("packer")
@@ -15,15 +16,15 @@ packer.startup(
     -- nvim-tree
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
     -- buffer line
-    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
+    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
     -- lualine
     use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
     use("arkav/lualine-lsp-progress")
     -- telescope
-    use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" }, tag = "nvim-0.6"}
+    use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" }, tag = "nvim-0.6" }
     -- dashboard-nvim
     -- use("glepnir/dashboard-nvim")
-    use({"glepnir/dashboard-nvim", commit = "a36b3232c98616149784f2ca2654e77caea7a522" })
+    use({ "glepnir/dashboard-nvim", commit = "a36b3232c98616149784f2ca2654e77caea7a522" })
     -- project
     use("ahmedkhalf/project.nvim")
     -- treesitter
@@ -32,7 +33,7 @@ packer.startup(
     --------------------- LSP --------------------
     -- lspconfig
     -- use("neovim/nvim-lspconfig")
-    use({"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer"})
+    use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
     -- completion engine
     use("hrsh7th/nvim-cmp")
     -- snippet engine
@@ -47,7 +48,7 @@ packer.startup(
     use("rafamadriz/friendly-snippets")
     -- -- ui
     use("onsails/lspkind-nvim")
-    use("tami5/lspsaga.nvim" )
+    use("tami5/lspsaga.nvim")
     use("simrat39/rust-tools.nvim")
     use("nvim-lua/plenary.nvim")
     use("mfussenegger/nvim-dap")

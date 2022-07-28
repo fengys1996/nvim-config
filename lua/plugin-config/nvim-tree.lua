@@ -4,36 +4,12 @@ if not status then
   return
 end
 
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    arrow_open = "",
-    arrow_closed = "",
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
-
 -- 列表操作快捷键
 local list_keys = require('keybindings').nvimTreeList
 
 nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
   auto_reload_on_write = true,
   disable_netrw = false,
-  hide_root_folder = false,
   hijack_cursor = false,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
@@ -44,6 +20,33 @@ nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
   sort_by = "name",
   -- project plugin need this config
   update_cwd = true,
+  renderer = {
+    icons = {
+      glyphs = {
+
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          deleted = "",
+          untracked = "U",
+          ignored = "◌",
+        },
+        folder = {
+          arrow_open = "",
+          arrow_closed = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+        },
+      }
+    }
+  },
   view = {
     width = 30,
     height = 30,

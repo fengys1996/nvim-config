@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 
 local map = vim.api.nvim_set_keymap
 -- noremap mean no remapping, slient indicates that no redundant information will be output.
-local opt = {noremap = true, silent = true }
+local opt = { noremap = true, silent = true }
 
 -- windows split shortcut key --
 
@@ -111,22 +111,22 @@ pluginKeys.telescopeList = {
 --------------------------- TreeList -------------------------------
 pluginKeys.nvimTreeList = {
   -- open file or floder
-{ key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
+  { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
   -- open file with split
-{ key = "v", action = "vsplit" },
-{ key = "h", action = "split" },
+  { key = "v", action = "vsplit" },
+  { key = "h", action = "split" },
   -- show hidden files
-{ key = "i", action = "toggle_ignored" }, -- Ignore (node_modules)
-{ key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
+  { key = "i", action = "toggle_ignored" }, -- Ignore (node_modules)
+  { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
   -- some op of file
-{ key = "<F5>", action = "refresh" },
-{ key = "a", action = "create" },
-{ key = "d", action = "remove" },
-{ key = "r", action = "rename" },
-{ key = "x", action = "cut" },
-{ key = "c", action = "copy" },
-{ key = "p", action = "paste" },
-{ key = "s", action = "system_open" },
+  { key = "<F5>", action = "refresh" },
+  { key = "a", action = "create" },
+  { key = "d", action = "remove" },
+  { key = "r", action = "rename" },
+  { key = "x", action = "cut" },
+  { key = "c", action = "copy" },
+  { key = "p", action = "paste" },
+  { key = "s", action = "system_open" },
 }
 
 ---------------- lsp callback plugin key map config ---------------------
@@ -176,7 +176,7 @@ pluginKeys.cmp = function(cmp)
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({
-      select = true ,
+      select = true,
       behavior = cmp.ConfirmBehavior.Replace
     }),
     -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
