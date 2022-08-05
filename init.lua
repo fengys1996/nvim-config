@@ -7,6 +7,9 @@ require("plugins")
 -- theme config
 require("colorscheme")
 
+require("keybindings.mod")
+require("keybindings")
+
 -- plugin config
 require("plugin-config.nvim-tree")
 require("plugin-config.lualine")

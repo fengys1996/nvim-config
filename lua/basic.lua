@@ -12,7 +12,7 @@ vim.wo.cursorline = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 -- 右侧参考线，超过表示代码太长了，考虑换行
-vim.wo.colorcolumn = "80"
+-- vim.wo.colorcolumn = "80"
 -- 缩进2个空格等于一个Tab
 vim.o.tabstop = 2
 vim.bo.tabstop = 2
@@ -80,7 +80,7 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 
 -- vim.o.guifont = "GoMono_Nerd_Font:h10:b"  'b' mean: bold font style.  'i' mean: font italic style
-vim.o.guifont = "GoMono_Nerd_Font:h15"
+vim.o.guifont = "GoMono_Nerd_Font:h13"
 
 -- the alt key mapping only for neovide (newer version) https://github.com/neovide/neovide/pull/1366
 vim.g.neovide_input_macos_alt_is_meta = true
