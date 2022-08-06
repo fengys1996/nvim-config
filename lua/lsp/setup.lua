@@ -20,7 +20,7 @@ end
 ------------------ language server config ---------------------
 -- todo: https://github.com/williamboman/nvim-lsp-installer/discussions/636
 -- https://github.com/williamboman/nvim-lsp-installer#setup
-lsp_installer.on_server_ready(function (server)
+lsp_installer.on_server_ready(function(server)
   local config = servers[server.name]
   if config == nil then
     return

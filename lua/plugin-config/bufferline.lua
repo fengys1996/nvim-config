@@ -14,7 +14,7 @@ bufferline.setup({
     right_mouse_command = "Bdelete! %d",
     -- sidebar config
     offsets = {
-    {
+      {
         filetype = "NvimTree",
         text = "File Explorer",
         highlight = "Directory",
@@ -22,7 +22,7 @@ bufferline.setup({
       },
     },
     diagnostics = "nvim_lsp",
-    name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
+    name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
       -- remove extension from markdown files for example
       if buf.name:match('%.md') then
         -- return vim.fn.fnamemodify(buf.name, ':t:r')
