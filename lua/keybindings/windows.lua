@@ -7,7 +7,7 @@ local opt = { noremap = true, silent = true }
 -- cancel s default function
 map("n", "s", "", opt)
 -- split horizontally
-map("n", "sh", ":vsp<CR>", opt)
+map("n", "ss", ":vsp<CR>", opt)
 -- split vertically
 map("n", "sv", ":sp<CR>", opt)
 
@@ -23,12 +23,11 @@ map("n", "<A-k>", "<C-w>k", opt)
 map("n", "<A-l>", "<C-w>l", opt)
 
 -- width adjustment of window
-map("n", "s,", ":vertical resize -2<CR>", opt)
-map("n", "s.", ":vertical resize +2<CR>", opt)
-
+map("n", "sl", ":vertical resize -2<CR>", opt)
+map("n", "sh", ":vertical resize +2<CR>", opt)
 -- height adjustment of window
-map("n", "sj", ":resize +2<CR>", opt)
-map("n", "sk", ":resize -2<CR>", opt)
+map("n", "sk", ":resize +2<CR>", opt)
+map("n", "sj", ":resize -2<CR>", opt)
 
 -- equal scaling adjustment of window
 map("n", "s=", "<C-w>=", opt)
