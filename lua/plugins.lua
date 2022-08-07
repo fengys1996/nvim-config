@@ -70,6 +70,7 @@ packer.startup(
         require('crates').setup()
       end,
     }
+    use('simrat39/inlay-hints.nvim')
     use('uarun/vim-protobuf')
   end)
 
