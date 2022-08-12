@@ -40,4 +40,8 @@ This is my nvim config written in pure lua. Support encoding rust.
 7. Enjoy it!
 
 # Recommended GUI
-neovide: https://github.com/neovide/neovide
+- neovide: https://github.com/neovide/neovide
+- alacritty: https://github.com/alacritty/alacritty
+    ```
+    cp ~/.config/other/alacritty.yml ~/.config/alacritty/alacritty.yml
+    ```
