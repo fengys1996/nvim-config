@@ -72,6 +72,7 @@ packer.startup(
     }
     use('simrat39/inlay-hints.nvim')
     use('uarun/vim-protobuf')
+    use('windwp/nvim-autopairs')
   end)
 
 ------ Plugins are automatically installed every time you save this file ------
