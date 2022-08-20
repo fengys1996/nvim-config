@@ -80,7 +80,8 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 
 -- vim.o.guifont = "GoMono_Nerd_Font:h10:b"  'b' mean: bold font style.  'i' mean: font italic style
-vim.o.guifont = "GoMono_Nerd_Font:h13"
+-- vim.o.guifont = "GoMono_Nerd_Font:h10"
+vim.o.guifont = "Hack_Nerd_Font:h10"
 
 -- the alt key mapping only for neovide (newer version) https://github.com/neovide/neovide/pull/1366
 vim.g.neovide_input_macos_alt_is_meta = true

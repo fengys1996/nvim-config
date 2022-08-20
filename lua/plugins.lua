@@ -73,6 +73,7 @@ packer.startup(
     use('simrat39/inlay-hints.nvim')
     use('uarun/vim-protobuf')
     use('windwp/nvim-autopairs')
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
   end)
 
 ------ Plugins are automatically installed every time you save this file ------

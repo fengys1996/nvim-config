@@ -3,5 +3,5 @@ local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
 
 ----------------- vim-signify --------------------
-map("n", "<leader>gd", ":Gdiffsplit<CR>", opt)
+map("n", "<leader>gd", ":Gvdiffsplit<CR>", opt)
 map("n", "<leader>gb", ":Git blame<CR>", opt)
