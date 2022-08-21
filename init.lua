@@ -23,6 +23,8 @@ require("plugin-config.indent-blankline")
 require("plugin-config.comment")
 require("plugin-config.nvim-autopaire")
 require("plugin-config.nvim-ufo")
+require("plugin-config.undo")
 require('lsp.setup')
 require('lsp.cmp')
 require('lsp.ui')
+

@@ -74,6 +74,7 @@ packer.startup(
     use('uarun/vim-protobuf')
     use('windwp/nvim-autopairs')
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+    use('simnalamburt/vim-mundo')
   end)
 
 ------ Plugins are automatically installed every time you save this file ------

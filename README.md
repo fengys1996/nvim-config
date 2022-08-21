@@ -18,6 +18,12 @@ This is my nvim config written in pure lua. Support encoding rust.
         brew tap homebrew/cask-fonts
         brew install --cask font-hack-nerd-font
         ```
+    - install pynvim and mkdir undo dir 
+       ```
+       pip3 install pynvim
+       mkdir ~/.nvim/undo
+       ```
+
 2. Install your favorite fonts， for example：
     ```
     mac:
