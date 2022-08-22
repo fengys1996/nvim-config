@@ -44,7 +44,7 @@ local server_opts = {
   --   debounce_text_changes = 150,
   -- },
   on_attach = function(client, bufnr)
-    ih.on_attach(client, bufnr)
+    -- ih.on_attach(client, bufnr)
     -- disable formatting, and handle by specialized plugin
     -- client.server_capabilities.document_formatting = false
     -- client.server_capabilities.document_range_formatting = false
@@ -52,9 +52,16 @@ local server_opts = {
       vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
 
-    -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     -- binding key
     require("keybindings").maplsp(buf_set_keymap)
+
+    -- specify keybindings
+    -- hover action
+    vim.keymap.set("n", "gh", require("rust-tools").hover_actions.hover_actions, {buffer = bufnr});
+    -- Code action group
+    vim.keymap.set("n", "<Leader>ca", require("rust-tools").code_action_group.code_action_group, { buffer = bufnr })
+    -- Rust runnables
+    vim.keymap.set("n", "<leader>rrs", require("rust-tools").runnables.runnables, {buffer = bufnr})
   end,
 }
 
@@ -66,7 +73,9 @@ return {
         on_initialized = function()
           ih.set_all()
         end,
-        autoSetHints = false,
+        inlay_hints = {
+          auto = false,
+        }
       },
       -- The "server" property provided in rust-tools setup function are the
       -- settings rust-tools will provide to lspconfig during init.            --

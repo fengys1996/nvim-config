@@ -79,9 +79,6 @@ pluginKeys.maplsp = function(mapbuf)
   -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 
------------------------ Rust Language ------------------------------
-map("n", "<leader>rrs", ":RustRunnables<CR>", opt)
-
 pluginKeys.cmp = function(cmp)
   return {
     -- prev item
