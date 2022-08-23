@@ -31,7 +31,7 @@ require("inlay-hints").setup({
     type = {
       separator = ", ",
       format = function(hints)
-        return string.format(" » (%s)", hints)
+        return string.format(" => (%s)", hints)
       end,
     },
   }
@@ -40,11 +40,12 @@ require("inlay-hints").setup({
 local ih = require("inlay-hints")
 
 local server_opts = {
-  -- flags = {
-  --   debounce_text_changes = 150,
-  -- },
+  flags = {
+    -- https://github.com/neovim/neovim/issues/14087
+    debounce_text_changes = 250,
+  },
   on_attach = function(client, bufnr)
-    -- ih.on_attach(client, bufnr)
+    ih.on_attach(client, bufnr)
     -- disable formatting, and handle by specialized plugin
     -- client.server_capabilities.document_formatting = false
     -- client.server_capabilities.document_range_formatting = false
@@ -59,9 +60,11 @@ local server_opts = {
     -- hover action
     vim.keymap.set("n", "gh", require("rust-tools").hover_actions.hover_actions, {buffer = bufnr});
     -- Code action group
-    vim.keymap.set("n", "<Leader>ca", require("rust-tools").code_action_group.code_action_group, { buffer = bufnr })
+    -- vim.keymap.set("n", "<Leader>ca", require("rust-tools").code_action_group.code_action_group, { buffer = bufnr })
     -- Rust runnables
-    vim.keymap.set("n", "<leader>rrs", require("rust-tools").runnables.runnables, {buffer = bufnr})
+    vim.keymap.set("n", "<leader>ru", require("rust-tools").runnables.runnables, {buffer = bufnr})
+    -- Rust Expand Macro
+    vim.keymap.set("n", "<leader>re", require("rust-tools").expand_macro.expand_macro, {buffer = bufnr})
   end,
 }
 
