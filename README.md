@@ -2,6 +2,11 @@ This is my nvim config written in pure lua. Support encoding rust.
 
 # How to use?
 1. Install some dependent libs first.
+    - xclip
+        ```
+        mac
+        brew install xclip
+        ```
     - BurntSushi/ripgrep
         ```
         mac: 
