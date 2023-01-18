@@ -1,30 +1,23 @@
--- base config of neovim
+local core_conf_files = {
+	"globals.vim",
+}
+
+-- source all the core config files
+for _, name in ipairs(core_conf_files) do
+	local path = string.format("%s/vimscript/%s", vim.fn.stdpath('config'), name)
+	local source_cmd = "source " .. path
+	vim.cmd(source_cmd)
+end
+
+vim.g.nvim7 = (vim.version().minor == 7)
+
 require("basic")
-
--- plugin manager(dir: ~/.local/share/nvim/site/pack/packer/start)
 require("plugins")
+require("neovide")
 
--- theme config
-require("colorscheme")
+require("impatient")
+require("impatient").enable_profile()
 
-require("keybindings.mod")
-require("keybindings")
-
--- plugin config
-require("plugin-config.nvim-tree")
-require("plugin-config.lualine")
-require("plugin-config.bufferline")
-require("plugin-config.telescope")
-require("plugin-config.dashboard")
--- ~/.local/share/nvim/project_nvim/project_history : recent project history
-require("plugin-config.project")
-require("plugin-config.nvim-treesitter")
-require("plugin-config.indent-blankline")
-require("plugin-config.comment")
-require("plugin-config.nvim-autopaire")
-require("plugin-config.nvim-ufo")
-require("plugin-config.undo")
-require('lsp.setup')
-require('lsp.cmp')
-require('lsp.ui')
-
+require("plugin_config.mod")
+require("keymap.core")
+require("keymap.lsp")
