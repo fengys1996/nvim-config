@@ -29,7 +29,7 @@ vim.wo.signcolumn = "yes"
 
 -- right line: If it exceeds, it means that the code is too
 -- long, consider wrapping
-vim.wo.colorcolumn = "80"
+-- vim.wo.colorcolumn = "80"
 
 -- search is case insensitive, unless uppercase is included
 vim.o.ignorecase = true
@@ -79,10 +79,6 @@ end
 if vim.g.is_mac then
 	vim.o.guifont = "JetBrains_Mono:h14"
 end
-
--- the alt key mapping only for neovide (newer version)
--- https://github.com/neovide/neovide/pull/1366
-vim.g.neovide_input_macos_alt_is_meta = true
 
 -- config of diagnostic
 vim.diagnostic.config({
