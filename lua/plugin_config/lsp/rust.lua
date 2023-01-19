@@ -1,4 +1,5 @@
 local server_opt = {
+	autostart = false,
 	settings = {
 		standalone = false,
 		["rust-analyzer"] = {

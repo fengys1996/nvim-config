@@ -3,6 +3,7 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 local opts = {
+	autostart = false,
 	settings = {
 		Lua = {
 			runtime = {
