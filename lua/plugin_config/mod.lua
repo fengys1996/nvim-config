@@ -2,7 +2,7 @@ require 'plugin_config.dashboard'
 
 -- storm/day/moon/night
 require('tokyonight').setup({
-	style = "day"
+	style = "storm"
 })
 local colorscheme = 'tokyonight'
 local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
