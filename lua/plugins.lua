@@ -63,11 +63,12 @@ require('packer').startup(function(use)
 	use { "folke/trouble.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
 
 	use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
-	use 'glepnir/dashboard-nvim'
+	-- use 'glepnir/dashboard-nvim'
 	use 'ahmedkhalf/project.nvim'
 	use 'lewis6991/impatient.nvim'
 	-- use { 'Shatur/neovim-session-manager', require = { 'nvim-lua/plenary.nvim' } }
 	use 'tpope/vim-surround'
+	use 'stevearc/dressing.nvim'
 	use 'Fengys123/nvim-checker'
 
 	-- Automatically set up your configuration after cloning packer.nvim

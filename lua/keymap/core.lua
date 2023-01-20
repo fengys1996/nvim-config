@@ -150,6 +150,7 @@ map("n", "<C-e>", ":lua require('telescope.builtin').oldfiles()<CR>", opt)
 -- map("n", "<leader>lk", ":lua require('telescope.builtin').keymaps()<CR>", opt)
 
 -- map("n", "gr", ":lua require('telescope.builtin').lsp_references()<CR>", opt)
+map("n", "<C-l>", ":Telescope projects<CR>", opt)
 
 
 --------------------------------------------------
@@ -172,8 +173,8 @@ map("n", "<leader>G", ":G<CR>", opt)
 --------------------------------------------------
 -- session manager
 --------------------------------------------------
-map("n", "<leader>ls", ":SessionManager load_session<CR>", opt)
-map("n", "<leader>lr", ":SessionManager delete_session<CR>", opt)
+-- map("n", "<leader>ls", ":SessionManager load_session<CR>", opt)
+-- map("n", "<leader>lr", ":SessionManager delete_session<CR>", opt)
 
 
 

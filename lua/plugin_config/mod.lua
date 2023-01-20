@@ -1,4 +1,4 @@
-require 'plugin_config.dashboard'
+-- require 'plugin_config.dashboard'
 
 -- storm/day/moon/night
 require('tokyonight').setup({
