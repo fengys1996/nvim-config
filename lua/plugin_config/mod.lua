@@ -25,7 +25,7 @@ require 'plugin_config.lsp.clangd'
 require 'plugin_config.lsp.rust'
 require 'plugin_config.lsp.lua'
 require 'plugin_config.gitsigns'
-
+require 'plugin_config.org'
 
 require('Comment').setup()
 require('hop').setup()
