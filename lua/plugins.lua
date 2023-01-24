@@ -71,6 +71,9 @@ require('packer').startup(function(use)
 	use 'stevearc/dressing.nvim'
 	use 'Fengys123/nvim-checker'
 	use 'nvim-orgmode/orgmode'
+	use 'RRethy/vim-illuminate'
+	use 'nvim-zh/better-escape.vim'
+	use 'danilamihailov/beacon.nvim'
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

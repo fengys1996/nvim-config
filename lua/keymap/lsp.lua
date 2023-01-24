@@ -6,7 +6,6 @@
 local opt = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
-map("n", "<C-l>", ":Telescope projects<CR>", opt)
 map("n", "<leader>rl", ":LspStart<CR>", opt)
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
