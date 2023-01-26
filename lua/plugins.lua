@@ -66,7 +66,7 @@ require('packer').startup(function(use)
 	-- use 'glepnir/dashboard-nvim'
 	use 'ahmedkhalf/project.nvim'
 	use 'lewis6991/impatient.nvim'
-	-- use { 'Shatur/neovim-session-manager', require = { 'nvim-lua/plenary.nvim' } }
+
 	use 'tpope/vim-surround'
 	use 'stevearc/dressing.nvim'
 	use 'Fengys123/nvim-checker'

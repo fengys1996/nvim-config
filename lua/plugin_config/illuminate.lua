@@ -16,6 +16,9 @@ illuminate.configure({
 	filetypes_denylist = {
 		'dirvish',
 		'fugitive',
+		'NvimTree',
+		'qf',
+		'Outline',
 	},
 	filetypes_allowlist = {},
 	modes_denylist = {},

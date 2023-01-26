@@ -104,23 +104,6 @@ map("n", "<leader>ll", ":NvimTreeFindFile<CR>", opt)
 
 
 ------------------------------------------------------------
--- bufferline
-------------------------------------------------------------
-
--- tab swith
--- map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
--- map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
-
--- bufferline close
--- map("n", "<C-w>", ":Bdelete!<CR>", opt)
--- map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
--- map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
--- map("n", "<leader>ba", ":BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>", opt)
--- map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
-
-
-
-------------------------------------------------------------
 -- hop
 ------------------------------------------------------------
 map('', 'f',
@@ -150,7 +133,7 @@ map("n", "<C-e>", ":lua require('telescope.builtin').oldfiles()<CR>", opt)
 -- map("n", "<leader>lk", ":lua require('telescope.builtin').keymaps()<CR>", opt)
 
 -- map("n", "gr", ":lua require('telescope.builtin').lsp_references()<CR>", opt)
-map("n", "<C-L>", ":Telescope projects<CR>", opt)
+map("n", "<leader>P", ":Telescope projects<CR>", opt)
 
 
 --------------------------------------------------

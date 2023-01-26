@@ -15,6 +15,8 @@ require("basic")
 require("plugins")
 require("neovide")
 
+require("command")
+
 require("impatient")
 require("impatient").enable_profile()
 

@@ -5,7 +5,12 @@ end
 
 -- storm/day/moon/night
 tokyonight.setup({
-	style = "storm"
+	style = "storm",
+	transparent = true,
+	styles = {
+		sidebars = "transparent", -- style for sidebars, see below
+	},
+	sidebars = { "qf", "help", "NvimTree", "Outline" },
 })
 
 local colorscheme = 'tokyonight'
