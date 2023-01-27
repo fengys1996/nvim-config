@@ -38,13 +38,13 @@ cmp.setup({
 		-- documentation = cmp.config.window.bordered(),
 	},
 	formatting = {
-		fields = { 'menu', 'abbr', 'kind' },
+		fields = { 'abbr', 'kind', 'menu' },
 		format = function(entry, item)
 			local menu_icon = {
-				nvim_lsp = 'λ',
-				vsnip = '⋗',
-				buffer = 'Ω',
-				path = '🖫',
+				nvim_lsp = 'LSP',
+				vsnip = 'VS',
+				buffer = 'BUF',
+				path = 'PATH',
 			}
 			item.menu = menu_icon[entry.source.name]
 			return item

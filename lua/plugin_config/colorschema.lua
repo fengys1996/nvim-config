@@ -5,8 +5,8 @@ end
 
 -- storm/day/moon/night
 tokyonight.setup({
-	style = "storm",
-	transparent = true,
+	style = "day",
+	transparent = false,
 	styles = {
 		sidebars = "transparent", -- style for sidebars, see below
 	},

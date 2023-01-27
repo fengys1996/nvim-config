@@ -19,6 +19,8 @@ local keymap = {
 		-- preview window moves up and down
 		["<C-u>"] = "preview_scrolling_up",
 		["<C-d>"] = "preview_scrolling_down",
+		["<C-v>"] = "select_vertical",
+		["<C-h>"] = "select_horizontal",
 	},
 }
 
@@ -29,15 +31,15 @@ telescope.setup({
 	},
 	pickers = {
 		-- optional themes: dropdown, cursor, ivy
-		find_files = {
-			theme = "ivy",
-		},
+		-- find_files = {
+		-- 	theme = "ivy",
+		-- },
 		live_grep = {
 			theme = "ivy",
 		},
-		lsp_references = {
-			theme = "cursor",
-		}
+		-- lsp_references = {
+		-- 	theme = "cursor",
+		-- }
 	},
 	extensions = {},
 })
