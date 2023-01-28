@@ -1,3 +1,5 @@
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 local server_opt = {
 	autostart = false,
 	settings = {
@@ -9,6 +11,7 @@ local server_opt = {
 			},
 		},
 	},
+	capabilities = capabilities,
 	on_attach = function(_, bufnr)
 		local function mapbuf(...)
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
