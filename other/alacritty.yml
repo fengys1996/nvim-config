@@ -1,5 +1,5 @@
 window:
-  opacity: 1.0
+  opacity: 0.5
 
 alt_send_esc: false
 
@@ -7,13 +7,13 @@ font:
   normal:
     family: "Hack Nerd Font"
     style: Regular
-  size: 14.0
+  size: 9.0
   offset:
     x: 2
-    y: 10
+    y: 2
   glyph_offset:
     x: 1
-    y: 5
+    y: 1
 
 key_bindings:
   - { key: J,        mods: Alt,           chars: "\x1bj"                       }
