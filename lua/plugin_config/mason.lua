@@ -13,5 +13,5 @@ if not status_2 then
 end
 
 mason_lspconfig.setup({
-	ensure_installed = { "sumneko_lua", "rust_analyzer", "taplo", "cmake" }
+	ensure_installed = { "sumneko_lua", "rust_analyzer", "taplo", "cmake", "gopls" }
 })
