@@ -1,10 +1,4 @@
-local status, nvim_treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then
-	vim.notify("not found nvim_treesitter")
-	return
-end
-
-nvim_treesitter.setup {
+local opts = {
 	ensure_installed = { "lua", "rust", "toml" },
 	auto_install = true,
 	highlight = {
@@ -17,4 +11,14 @@ nvim_treesitter.setup {
 		extended_mode = true,
 		max_file_lines = nil,
 	}
+}
+
+return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		version = false,
+		build = ":TSUpdate",
+		event = "BufReadPost",
+		opts = opts,
+	},
 }

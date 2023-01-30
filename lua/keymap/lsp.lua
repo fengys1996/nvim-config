@@ -1,14 +1,4 @@
---------------------------------------------------
--- noremap=true: indicates that no remapping
--- slient=true: indicates that no redundant
--- information will be output
---------------------------------------------------
 local opt = { noremap = true, silent = true }
-local map = vim.api.nvim_set_keymap
-
-map("n", "<leader>rl", ":LspStart<CR>", opt)
-
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
 return {
 	maplsp = function(mapbuf)

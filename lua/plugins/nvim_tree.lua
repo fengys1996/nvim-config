@@ -1,9 +1,3 @@
-local status, nvim_tree = pcall(require, "nvim-tree")
-if not status then
-	vim.notify("not found nvim-tree")
-	return
-end
-
 local list_keys = {
 	{ key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
 	{ key = "v", action = "vsplit" },
@@ -28,7 +22,7 @@ local list_keys = {
 	{ key = "-", action = "dir_up" }
 }
 
-nvim_tree.setup {
+local opts = {
 	auto_reload_on_write = true,
 	disable_netrw = false,
 	hijack_cursor = false,
@@ -154,4 +148,17 @@ nvim_tree.setup {
 			profile = false,
 		},
 	},
+};
+
+
+return {
+	{
+		"kyazdani42/nvim-tree.lua",
+		opts = opts,
+		dependencies = { "arkav/lualine-lsp-progress", "kyazdani42/nvim-web-devicons" },
+		keys = {
+			{ "<A-m>", "<cmd>NvimTreeToggle<cr>" },
+			{ "<leader>ll", "<cmd>NvimTreeFindFile<cr>" },
+		},
+	}
 }
