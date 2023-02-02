@@ -1,10 +1,4 @@
-local status, lualine = pcall(require, "lualine")
-if not status then
-	vim.notify("not found lualine")
-	return
-end
-
-lualine.setup({
+local opts = {
 	options = {
 		theme = "nord",
 		component_separators = { left = "|", right = "|" },
@@ -59,4 +53,23 @@ lualine.setup({
 			},
 		},
 	},
-})
+};
+
+return {
+	{
+		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
+		dependencies = { "kyazdani42/nvim-web-devicons", "arkav/lualine-lsp-progress", },
+		opts = opts,
+	},
+	{
+		"stevearc/dressing.nvim",
+		config = function()
+		end,
+	},
+	{
+		"danilamihailov/beacon.nvim",
+		config = function()
+		end
+	}
+}
