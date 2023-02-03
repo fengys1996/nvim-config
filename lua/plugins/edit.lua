@@ -33,6 +33,26 @@ local illuminate = function()
 	})
 end
 
+local symbols = {
+	highlight_hovered_item = false,
+	auto_preview = false,
+	show_relative_numbers = true,
+	keymaps = {
+		close = { "<Esc>", "q" },
+		goto_location = "<Cr>",
+		focus_location = "o",
+		hover_symbol = "<C-space>",
+		toggle_preview = "K",
+		rename_symbol = "r",
+		code_actions = "a",
+		fold = "h",
+		unfold = "l",
+		fold_all = "W",
+		unfold_all = "E",
+		fold_reset = "R",
+	},
+}
+
 return {
 	{
 		"phaazon/hop.nvim",
@@ -74,5 +94,19 @@ return {
 		"RRethy/vim-illuminate",
 		event = "BufEnter",
 		config = illuminate,
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = "BufEnter",
+		config = function()
+		end
+	},
+	{
+		"simrat39/symbols-outline.nvim",
+		keys = {
+			{ "<A-n>", ":SymbolsOutline<CR>" },
+		},
+		event = "VeryLazy",
+		opts = symbols,
 	}
 }
