@@ -80,6 +80,7 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"hrsh7th/vim-vsnip",
+		"rafamadriz/friendly-snippets",
 	},
 	config = config
 }
