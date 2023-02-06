@@ -30,10 +30,6 @@ local config = function()
 
 			-- rust expand macro
 			mapbuf("n", "<leader>re", "<cmd>lua require('rust-tools').expand_macro.expand_macro()<CR>", opt)
-
-			mapbuf("n", "<leader>cl", ':lua require"nvim-checker".clippy()<CR>', opt)
-			mapbuf("n", "<leader>ch", ':lua require"nvim-checker".check()<CR>', opt)
-			mapbuf("n", "<leader>ct", ':lua require"nvim-checker".test()<CR>', opt)
 		end,
 	}
 
@@ -55,7 +51,7 @@ return {
 		"simrat39/rust-tools.nvim",
 		event = "VeryLazy",
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/nvim-cmp", "neovim/nvim-lspconfig",
-			"williamboman/mason-lspconfig.nvim", "Fengys123/nvim-checker", },
+			"williamboman/mason-lspconfig.nvim", },
 		config = config,
 	},
 	{
@@ -64,5 +60,15 @@ return {
 		event = "VeryLazy",
 		tag = "v0.2.1",
 		config = true,
+	},
+	{
+		"Fengys123/nvim-checker",
+		keys = {
+			{ "<leader>cl", ":lua require'nvim-checker'.clippy()<CR>" },
+			{ "<leader>ch", ":lua require'nvim-checker'.check()<CR>" },
+			{ "<leader>cl", ":lua require'nvim-checker'.test()<CR>" },
+		},
+		config = function()
+		end
 	}
 }
