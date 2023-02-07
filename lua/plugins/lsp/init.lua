@@ -1,7 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = "VeryLazy",
+		dependencies = { "williamboman/mason-lspconfig", "williamboman/mason.nvim" },
 		keys = {
 			{ "<leader>rl", ":LspStart<cr>" },
 		},
@@ -14,7 +14,6 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
-		event = "VeryLazy",
 		opts = {
 			ensure_installed = { "sumneko_lua", "rust_analyzer", "taplo", "cmake", "gopls" }
 		}
@@ -22,7 +21,6 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
-		event = "VeryLazy",
 		cmd = "Mason",
 		config = true,
 	},
