@@ -66,7 +66,7 @@ return {
 		keys = {
 			{ "<leader>cl", ":lua require'nvim-checker'.clippy()<CR>" },
 			{ "<leader>ch", ":lua require'nvim-checker'.check()<CR>" },
-			{ "<leader>cl", ":lua require'nvim-checker'.test()<CR>" },
+			{ "<leader>ct", ":lua require'nvim-checker'.test()<CR>" },
 		},
 		config = function()
 		end
