@@ -56,8 +56,10 @@ return {
 		"ahmedkhalf/project.nvim",
 		config = function()
 			require("project_nvim").setup({
+				silent_chdir = false,
 				detection_methods = { "pattern" },
-				patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln" },
+				-- patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln" },
+				patterns = { "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln" },
 			})
 		end
 	},
@@ -65,7 +67,6 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "ahmedkhalf/project.nvim", },
 		cmd = "Telescope",
-		version = false,
 		keys = keys,
 		config = config,
 	}
