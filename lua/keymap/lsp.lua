@@ -6,7 +6,7 @@ return {
 		-- if vim.g.nvim7 then
 		-- 	mapbuf('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
 		-- else
-		-- 	mapbuf('n', '<leader>f', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opt)
+		mapbuf('n', '<leader>f', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opt)
 		-- end
 		-- rename
 		mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)

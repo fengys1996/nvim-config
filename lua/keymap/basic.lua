@@ -12,7 +12,7 @@ map("n", "<leader>gd", ":Gvdiffsplit<CR>", opt)
 map("n", "<leader>gb", ":Git blame<CR>", opt)
 map("n", "<leader>G", ":G<CR>", opt)
 
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 
 --------------------------------------------------
 -- system copy and paste
