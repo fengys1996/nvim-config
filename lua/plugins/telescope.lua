@@ -58,8 +58,7 @@ return {
 			require("project_nvim").setup({
 				silent_chdir = false,
 				detection_methods = { "pattern" },
-				-- patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln" },
-				patterns = { "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln" },
+				patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln" },
 			})
 		end
 	},
