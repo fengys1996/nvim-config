@@ -92,7 +92,7 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-		event = "BufEnter",
+		event = "VeryLazy",
 		config = illuminate,
 	},
 	{
