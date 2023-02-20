@@ -7,6 +7,9 @@
 local opt = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
+-- forbid recording a macro via q
+map("n", "q", "", opt)
+
 map("n", "<leader>rl", ":LspStart<CR>", opt)
 map("n", "<leader>gd", ":Gvdiffsplit<CR>", opt)
 map("n", "<leader>gb", ":Git blame<CR>", opt)
