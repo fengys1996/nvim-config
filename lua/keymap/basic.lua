@@ -11,7 +11,11 @@ local map = vim.api.nvim_set_keymap
 map("n", "q", "", opt)
 
 map("n", "<leader>rl", ":LspStart<CR>", opt)
-map("n", "<leader>gd", ":Gvdiffsplit<CR>", opt)
+if vim.g.screen_vertical then
+	map("n", "<leader>gd", ":Ghdiffsplit<CR>", opt)
+else
+	map("n", "<leader>gd", ":Gvdiffsplit<CR>", opt)
+end
 map("n", "<leader>gb", ":Git blame<CR>", opt)
 map("n", "<leader>G", ":G<CR>", opt)
 

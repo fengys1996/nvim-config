@@ -6,6 +6,9 @@
 -- vim.wo:{name}: window-local varible
 --------------------------------------------------
 
+-- set screen vertical
+vim.g.screen_vertical = true
+
 -- set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
