@@ -11,10 +11,6 @@ local config = function()
 			entries = "custom" -- can be "custom", "wildmenu" or "native"
 		},
 		preselect = cmp.PreselectMode.None,
-		completion = {
-			autocomplete = true,
-			completeopt = 'menu,menuone,noinsert,noselect'
-		},
 		mapping = cmp.mapping.preset.insert({
 			['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
 			['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
