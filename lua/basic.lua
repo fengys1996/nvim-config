@@ -7,7 +7,7 @@
 --------------------------------------------------
 
 -- set screen vertical
-vim.g.screen_vertical = true
+vim.g.screen_vertical = false
 
 -- set leader key
 vim.g.mapleader = " "

@@ -57,7 +57,7 @@ return {
 	{
 		"phaazon/hop.nvim",
 		tag = "v1.3.0",
-		event = "BufEnter",
+		event = "VeryLazy",
 		keys = {
 			{ "f",
 				"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>" },
@@ -70,34 +70,35 @@ return {
 	},
 	{
 		"tpope/vim-surround",
-		event = "BufEnter",
+		event = "VeryLazy",
 		config = function()
 		end,
 	},
 	{
 		"numToStr/Comment.nvim",
-		event = "BufEnter",
+		event = "VeryLazy",
 		config = true,
 	},
 	{
 		"windwp/nvim-autopairs",
-		event = "BufEnter",
+		event = "VeryLazy",
 		config = true,
 	},
 	{
 		"nvim-zh/better-escape.vim",
-		event = "BufEnter",
+		event = "VeryLazy",
 		config = function()
 		end
 	},
 	{
 		"RRethy/vim-illuminate",
-		event = "VeryLazy",
+		event = "BufEnter",
+		enabled = false,
 		config = illuminate,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "BufEnter",
+		event = "VeryLazy",
 		config = function()
 		end
 	},
