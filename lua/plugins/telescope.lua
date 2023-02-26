@@ -22,6 +22,10 @@ local opts = {
 	defaults = {
 		initial_mode = "insert",
 		mappings = keymap,
+		cache_picker = {
+			num_pickers = -1,
+			limit_entries = 100,
+		},
 	},
 	pickers = {
 		-- optional themes: dropdown, cursor, ivy
@@ -43,6 +47,7 @@ local keys = {
 	{ "<C-p>", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
 	{ "<C-b>", "<cmd>lua require('telescope.builtin').buffers()<cr>" },
 	{ "<C-e>", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
+	{ "<C-r>", "<cmd>lua require('telescope.builtin').pickers()<cr>" },
 	{ "<leader>P", "<cmd>Telescope projects<cr>" },
 }
 
