@@ -92,8 +92,7 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-		event = "BufEnter",
-		enabled = false,
+		event = { "BufReadPost", "BufNewFile" },
 		config = illuminate,
 	},
 	{
