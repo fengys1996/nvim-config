@@ -43,7 +43,7 @@ function module.setup()
 			require("keymap.lsp").maplsp(mapbuf)
 		end,
 	}
-	require 'lspconfig'.sumneko_lua.setup(opts)
+	require 'lspconfig'.lua_ls.setup(opts)
 end
 
 return module
