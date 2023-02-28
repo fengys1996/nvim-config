@@ -1,7 +1,7 @@
 local opts = {
 	options = {
-		-- options: nord
-		theme = "tokyonight",
+		-- options: nord, tokyonight
+		theme = "auto",
 		component_separators = { left = "|", right = "|" },
 		globalstatus = true,
 		section_separators = { left = " ", right = "" },
