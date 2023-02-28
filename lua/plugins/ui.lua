@@ -72,5 +72,11 @@ return {
 		"danilamihailov/beacon.nvim",
 		config = function()
 		end
-	}
+	},
+	{
+  		-- amongst your other plugins
+		'akinsho/toggleterm.nvim',
+		version = "*",
+		config = true
+	},
 }
