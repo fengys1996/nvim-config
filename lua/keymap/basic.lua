@@ -54,6 +54,7 @@ map("n", "<leader>Q", ":<C-U>qa!<CR>", opt)
 
 map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>q", ":q<CR>", opt)
+map("n", "<leader>c", ":bd!<CR>", opt)
 
 
 
