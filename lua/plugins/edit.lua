@@ -34,7 +34,7 @@ local illuminate = function()
 end
 
 local symbols = {
-	highlight_hovered_item = false,
+	highlight_hovered_item = true,
 	auto_preview = false,
 	show_relative_numbers = true,
 	keymaps = {

@@ -4,7 +4,10 @@
 -- vim.w.{name}: window varible
 -- vim.bo.{name}: buffer-local varible
 -- vim.wo:{name}: window-local varible
+-- vim.opt:{name}: equals ":set"
 --------------------------------------------------
+
+vim.opt.updatetime = 500
 
 -- set screen vertical
 vim.g.screen_vertical = false
