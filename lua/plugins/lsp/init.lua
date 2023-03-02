@@ -1,7 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = { "williamboman/mason-lspconfig", "williamboman/mason.nvim" },
+		dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig" },
 		keys = {
 			{ "<leader>rl", ":LspStart<cr>" },
 		},
@@ -14,7 +14,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
+		dependencies = { "williamboman/mason.nvim" },
 		opts = {
 			ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "cmake", "gopls", "erlangls" }
 		}
