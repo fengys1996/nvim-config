@@ -73,4 +73,12 @@ return {
 		config = function()
 		end
 	},
+	{
+		"lewis6991/satellite.nvim",
+		config = true,
+	},
+	{
+		"kevinhwang91/nvim-bqf",
+		config = true,
+	}
 }

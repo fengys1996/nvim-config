@@ -1,12 +1,13 @@
 return {
 	-- nord
 	{
-		"shaunsingh/nord.nvim",
-		enabled = false,
+		-- "shaunsingh/nord.nvim",
+		"Fengys123/nord.nvim",
+		-- enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.g.nord_contrast = true
+			vim.g.nord_contrast = false
 			vim.g.nord_borders = false
 			vim.g.nord_disable_background = false
 			vim.g.nord_italic = false
@@ -18,6 +19,7 @@ return {
 	-- tokyonight
 	{
 		"folke/tokyonight.nvim",
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()

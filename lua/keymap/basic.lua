@@ -93,7 +93,7 @@ map("n", "_", ":resize -2<CR>", opt)
 --------------------------------------------------
 -- terminal
 --------------------------------------------------
-
+map("n", "<leader>t", ":ToggleTerm<CR>", opt)
 -- map("n", "<leader>t", ":sp | terminal<CR>", opt)
 -- map("n", "<leader>at", ":terminal<CR>", opt)
 -- map("n", "<leader>rt", ":vsp | terminal<CR>", opt)

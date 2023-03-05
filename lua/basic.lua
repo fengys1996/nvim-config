@@ -7,6 +7,8 @@
 -- vim.opt:{name}: equals ":set"
 --------------------------------------------------
 
+-- vim.cmd "colorscheme habamax"
+
 vim.opt.updatetime = 500
 
 -- set screen vertical
