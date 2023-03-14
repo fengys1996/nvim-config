@@ -37,6 +37,7 @@ local symbols = {
 	highlight_hovered_item = true,
 	auto_preview = false,
 	show_relative_numbers = true,
+	width = 20,
 	keymaps = {
 		close = { "<Esc>", "q" },
 		goto_location = "<Cr>",
