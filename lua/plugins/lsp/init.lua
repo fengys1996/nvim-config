@@ -9,6 +9,7 @@ return {
 			require("plugins.lsp.lua").setup()
 			require("plugins.lsp.golang").setup()
 			require("plugins.lsp.erlang").setup()
+			require("plugins.lsp.clangd").setup()
 		end
 
 	},
@@ -16,7 +17,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
 		opts = {
-			ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "cmake", "gopls", "erlangls" }
+			ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "cmake", "gopls", "erlangls", "clangd" }
 		}
 
 	},
