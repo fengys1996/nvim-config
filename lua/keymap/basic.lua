@@ -9,6 +9,7 @@ local map = vim.api.nvim_set_keymap
 
 -- forbid recording a macro via q
 map("n", "q", "", opt)
+map("v", "q", "", opt)
 
 map("n", "<leader>rl", ":LspStart<CR>", opt)
 if vim.g.screen_vertical then
