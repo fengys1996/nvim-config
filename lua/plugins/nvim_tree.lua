@@ -158,7 +158,7 @@ return {
 		dependencies = { "arkav/lualine-lsp-progress", "kyazdani42/nvim-web-devicons" },
 		keys = {
 			{ "<A-m>", "<cmd>NvimTreeToggle<cr>" },
-			{ "<leader>ll", "<cmd>NvimTreeFindFile<cr>" },
+			{ "<leader>ll", "<cmd>NvimTreeFocus<cr>" },
 		},
 	}
 }
