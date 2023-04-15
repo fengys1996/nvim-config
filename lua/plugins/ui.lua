@@ -1,3 +1,4 @@
+-- local config = require "config"
 local opts = {
 	options = {
 		-- options: nord, tokyonight
@@ -56,6 +57,41 @@ local opts = {
 	},
 };
 
+local bqf_opts = {
+    func_map = {
+        open = '<CR>',
+        openc = 'o',
+        drop = 'O',
+        split = '<C-x>',
+        vsplit = '<C-v>',
+        splitc = '<C-n>',
+        vsplitc = '<C-b>',
+        tab = 't',
+        tabb = 'T',
+        tabc = '<C-t>',
+        tabdrop = '',
+        ptogglemode = 'zp',
+        ptoggleitem = 'p',
+        ptoggleauto = 'P',
+        pscrollup = '<C-b>',
+        pscrolldown = '<C-f>',
+        pscrollorig = 'zo',
+        prevfile = '<C-p>',
+        nextfile = '<C-n>',
+        prevhist = '<',
+        nexthist = '>',
+        lastleave = [['"]],
+        stoggleup = '<S-Tab>',
+        stoggledown = '<Tab>',
+        stogglevm = '<Tab>',
+        stogglebuf = [['<Tab>]],
+        sclear = 'z<Tab>',
+        filter = 'zn',
+        filterr = 'zN',
+        fzffilter = 'zf'
+    },
+};
+
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -79,7 +115,9 @@ return {
 		config = true,
 	},
 	{
-		"kevinhwang91/nvim-bqf",
-		config = true,
+		"Fengys123/nvim-bqf",
+		config = function ()
+			require("bqf").setup(bqf_opts);
+		end
 	}
 }
