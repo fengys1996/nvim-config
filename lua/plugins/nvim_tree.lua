@@ -59,7 +59,7 @@ local opts = {
 		}
 	},
 	view = {
-		width = 30,
+		width = 50,
 		side = "left",
 		preserve_window_proportions = false,
 		number = true,
