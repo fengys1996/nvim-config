@@ -105,7 +105,7 @@ return {
 	{
 		"simrat39/symbols-outline.nvim",
 		keys = {
-			{ "<A-n>", ":SymbolsOutline<CR>" },
+			{ "<A-n>", "<cmd>SymbolsOutline<cr>", mode = { "n", "i", "t" } },
 		},
 		event = "VeryLazy",
 		opts = symbols,

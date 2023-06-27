@@ -204,8 +204,8 @@ return {
 		opts = opts,
 		dependencies = { "arkav/lualine-lsp-progress", "kyazdani42/nvim-web-devicons" },
 		keys = {
-			{ "<A-m>",      "<cmd>NvimTreeToggle<cr>" },
-			{ "<leader>ll", "<cmd>NvimTreeFocus<cr>" },
+			{ "<A-m>",      "<cmd>NvimTreeToggle<cr>", mode = { "n", "i", "t" } },
+			{ "<leader>ll", "<cmd>NvimTreeFocus<cr>",  mode = { "n" } },
 		},
 	}
 }
