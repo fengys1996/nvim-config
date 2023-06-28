@@ -3,7 +3,7 @@ return {
 	{
 		-- "shaunsingh/nord.nvim",
 		"Fengys123/nord.nvim",
-		-- enabled = false,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -19,11 +19,11 @@ return {
 	-- tokyonight
 	{
 		"folke/tokyonight.nvim",
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme tokyonight-storm]])
+			vim.cmd([[colorscheme tokyonight-day]])
 		end
 	}
 }
