@@ -54,6 +54,16 @@ local symbols = {
 	},
 }
 
+local imselect = {
+	default_im_select       = "keyboard-us",
+
+	set_default_events      = { "VimEnter", "FocusGained", "InsertLeave", "CmdlineLeave" },
+
+	set_previous_events     = { "InsertEnter" },
+
+	keep_quiet_on_no_binary = false
+}
+
 return {
 	{
 		"phaazon/hop.nvim",
@@ -110,5 +120,9 @@ return {
 		},
 		event = "VeryLazy",
 		opts = symbols,
+	},
+	{
+		"keaising/im-select.nvim",
+		opts = imselect,
 	}
 }
