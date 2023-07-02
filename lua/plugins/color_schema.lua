@@ -1,3 +1,8 @@
+local tokyonight = {
+	transparent = false,
+	terminal_colors = true,
+}
+
 return {
 	-- nord
 	{
@@ -22,8 +27,10 @@ return {
 		enabled = true,
 		lazy = false,
 		priority = 1000,
+		-- opts = tokyonight,
 		config = function()
-			vim.cmd([[colorscheme tokyonight-day]])
+			require("tokyonight").setup(tokyonight);
+			vim.cmd([[colorscheme tokyonight-storm]])
 		end
 	}
 }
