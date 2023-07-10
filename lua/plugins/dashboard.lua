@@ -24,6 +24,7 @@ local opts = {
 return {
 	{
 		"glepnir/dashboard-nvim",
+		enabled = false,
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 		event = 'VimEnter',
 		opts = opts,
