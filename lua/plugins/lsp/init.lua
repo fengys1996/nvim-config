@@ -17,7 +17,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
 		opts = {
-			ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "cmake", "gopls", "erlangls", "clangd" }
+			-- ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "cmake", "gopls", "erlangls", "clangd" }
+			ensure_installed = { "lua_ls", "rust_analyzer", "taplo", "gopls", "clangd" }
 		}
 
 	},
