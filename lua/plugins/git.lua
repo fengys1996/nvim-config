@@ -93,5 +93,11 @@ return {
 		event = "VeryLazy",
 		config = function()
 		end,
+	},
+	{
+		"junegunn/gv.vim",
+		event = "VeryLazy",
+		config = function()
+		end,
 	}
 }

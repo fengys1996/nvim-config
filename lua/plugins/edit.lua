@@ -64,9 +64,6 @@ local imselect = {
 	keep_quiet_on_no_binary = false
 }
 
-local hop = require('hop')
-local directions = require('hop.hint').HintDirection
-
 return {
 	{
 		"phaazon/hop.nvim",
@@ -75,13 +72,16 @@ return {
 		keys = {
 			{ "f",
 				function()
-					hop.hint_char1({
-						direction = directions.AFTER_CURSOR,
+					require 'hop'.hint_char1({
+						direction = require('hop.hint').HintDirection.AFTER_CURSOR,
 						current_line_only = true
 					})
 				end },
 			{ "F", function()
-				hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+				require 'hop'.hint_char1({
+					direction = require('hop.hint').HintDirection.BEFORE_CURSOR,
+					current_line_only = true
+				})
 			end },
 			{ "s", "<cmd>HopChar2AC<cr>" },
 			{ "S", "<cmd>HopChar2BC<cr>" },
