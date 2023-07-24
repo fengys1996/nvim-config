@@ -64,20 +64,28 @@ local imselect = {
 	keep_quiet_on_no_binary = false
 }
 
+local hop = require('hop')
+local directions = require('hop.hint').HintDirection
+
 return {
 	{
 		"phaazon/hop.nvim",
-		tag = "v1.3.0",
+		tag = "v2.0.0",
 		event = "VeryLazy",
 		keys = {
 			{ "f",
-				"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>" },
-			{ "F",
-				"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>" },
+				function()
+					hop.hint_char1({
+						direction = directions.AFTER_CURSOR,
+						current_line_only = true
+					})
+				end },
+			{ "F", function()
+				hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+			end },
 			{ "s", "<cmd>HopChar2AC<cr>" },
 			{ "S", "<cmd>HopChar2BC<cr>" },
 		},
-		config = true,
 	},
 	{
 		"tpope/vim-surround",
