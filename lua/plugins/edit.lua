@@ -70,22 +70,39 @@ return {
 		tag = "v2.0.0",
 		event = "VeryLazy",
 		keys = {
-			{ "f",
-				function()
-					require 'hop'.hint_char1({
-						direction = require('hop.hint').HintDirection.AFTER_CURSOR,
-						current_line_only = true
-					})
-				end },
-			{ "F", function()
-				require 'hop'.hint_char1({
-					direction = require('hop.hint').HintDirection.BEFORE_CURSOR,
-					current_line_only = true
-				})
-			end },
 			{ "s", "<cmd>HopChar2AC<cr>" },
 			{ "S", "<cmd>HopChar2BC<cr>" },
 		},
+		config = function()
+			local hop = require('hop')
+			local directions = require('hop.hint').HintDirection
+
+			hop.setup()
+
+			vim.keymap.set('', 'f', function()
+				hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+			end, { remap = true })
+
+			vim.keymap.set('', 'F', function()
+				hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+			end, { remap = true })
+
+			vim.keymap.set('', 't', function()
+				hop.hint_char1({
+					direction = directions.AFTER_CURSOR,
+					current_line_only = true,
+					hint_offset = -1
+				})
+			end, { remap = true })
+
+			vim.keymap.set('', 'T', function()
+				hop.hint_char1({
+					direction = directions.BEFORE_CURSOR,
+					current_line_only = true,
+					hint_offset = 1
+				})
+			end, { remap = true })
+		end
 	},
 	{
 		"tpope/vim-surround",
