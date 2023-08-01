@@ -20,7 +20,7 @@ end
 map("n", "<leader>gb", ":Git blame<CR>", opt)
 map("n", "<leader>G", ":G<CR>", opt)
 
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format{async = true}]]
+vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.format{async = true}]]
 
 --------------------------------------------------
 -- system copy and paste
