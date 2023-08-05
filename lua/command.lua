@@ -10,4 +10,15 @@ end
 
 vim.api.nvim_create_user_command('Rgpath', 'lua require("command").live_grep_in_path()', {})
 
+vim.api.nvim_create_user_command('Crates', function(opt)
+	if string.lower(opt.args) == "toggle" then
+		require("crates").toggle()
+	end
+end, {
+	nargs = 1,
+	complete = function()
+		return { 'toggle' }
+	end,
+})
+
 return module

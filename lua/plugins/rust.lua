@@ -43,7 +43,6 @@ local config = function()
 		server = server_opt,
 	}
 	require("rust-tools").setup(opts);
-
 end
 
 return {
@@ -58,7 +57,7 @@ return {
 		"saecki/crates.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
 		event = "VeryLazy",
-		tag = "v0.2.1",
+		tag = "v0.3.0",
 		config = true,
 	},
 	{
