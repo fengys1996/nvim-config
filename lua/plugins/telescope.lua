@@ -43,11 +43,11 @@ local opts = {
 };
 
 local keys = {
-	{ "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
-	{ "<C-p>", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
-	{ "<C-b>", "<cmd>lua require('telescope.builtin').buffers()<cr>" },
-	{ "<C-e>", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
-	{ "<C-h>", "<cmd>lua require('telescope.builtin').pickers()<cr>" },
+	{ "<C-f>",     "<cmd>lua require('telescope.builtin').find_files()<cr>" },
+	{ "<C-p>",     "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
+	{ "<C-b>",     "<cmd>lua require('telescope.builtin').buffers()<cr>" },
+	{ "<C-e>",     "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
+	{ "<C-h>",     "<cmd>lua require('telescope.builtin').pickers()<cr>" },
 	{ "<leader>P", "<cmd>Telescope projects<cr>" },
 }
 
