@@ -36,6 +36,8 @@ This is my nvim config written in lua and vim script. Very friendly to coding ru
         brew install --cask font-hack-nerd-font
         ```
 
+    - fish
+
 2. Install nvim (version >= 0.7)
 
     ```shell

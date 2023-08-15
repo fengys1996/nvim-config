@@ -7,6 +7,7 @@ local opts = {
 		end
 	end,
 	open_mapping = [[<c-\>]],
+	shell = "fish",
 	start_in_insert = false,
 };
 
