@@ -8,7 +8,7 @@ return {
 	{
 		-- "shaunsingh/nord.nvim",
 		"Fengys123/nord.nvim",
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -24,7 +24,7 @@ return {
 	-- tokyonight
 	{
 		"folke/tokyonight.nvim",
-		enabled = true,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		-- opts = tokyonight,
