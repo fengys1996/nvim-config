@@ -101,6 +101,7 @@ return {
 	},
 	{
 		"stevearc/dressing.nvim",
+		enabled = true,
 		config = function()
 		end,
 	},
@@ -119,5 +120,16 @@ return {
 		config = function()
 			require("bqf").setup(bqf_opts);
 		end
+	},
+	{
+		"folke/noice.nvim",
+		enabled = false,
+		event = "VeryLazy",
+		opts = {
+		},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		}
 	}
 }
