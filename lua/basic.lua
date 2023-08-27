@@ -9,7 +9,7 @@
 
 -- vim.cmd "colorscheme habamax"
 
-vim.opt.keymap = "dvorak"
+-- vim.opt.keymap = "dvorak"
 vim.opt.updatetime = 500
 
 -- set screen vertical
