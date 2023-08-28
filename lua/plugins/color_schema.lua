@@ -8,7 +8,7 @@ return {
 	{
 		-- "shaunsingh/nord.nvim",
 		"Fengys123/nord.nvim",
-		enabled = true,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -31,6 +31,14 @@ return {
 		config = function()
 			require("tokyonight").setup(tokyonight);
 			vim.cmd([[colorscheme tokyonight-day]])
+		end
+	},
+	-- kanagawa
+	{
+		"rebelot/kanagawa.nvim",
+		enabled = true,
+		config = function()
+			vim.cmd("colorscheme kanagawa-lotus")
 		end
 	}
 }
