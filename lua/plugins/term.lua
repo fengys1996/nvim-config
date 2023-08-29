@@ -8,7 +8,8 @@ local opts = {
 	end,
 	open_mapping = [[<c-\>]],
 	shell = "fish",
-	start_in_insert = false,
+	start_in_insert = true,
+	shade_terminals = false,
 };
 
 return {
