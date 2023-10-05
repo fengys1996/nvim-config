@@ -64,6 +64,14 @@ local imselect = {
 	keep_quiet_on_no_binary = false
 }
 
+local indent_blankline = {
+	enabled = true,
+	debounce = 100,
+	indent = { char = "▏" },
+	whitespace = { highlight = { "Whitespace", "NonText" } },
+	scope = { exclude = { language = { "lua" } } },
+}
+
 return {
 	{
 		"phaazon/hop.nvim",
@@ -133,10 +141,10 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		enabled = false,
+		enabled = true,
 		event = "VeryLazy",
-		config = function()
-		end
+		main = "ibl",
+		opts = indent_blankline,
 	},
 	{
 		"simrat39/symbols-outline.nvim",
