@@ -116,9 +116,6 @@ local opts = {
 		number = true,
 		relativenumber = true,
 		signcolumn = "yes",
-		mappings = {
-			custom_only = false,
-		},
 	},
 	hijack_directories = {
 		enable = true,
