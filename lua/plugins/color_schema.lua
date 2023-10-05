@@ -24,7 +24,7 @@ return {
 	-- tokyonight
 	{
 		"folke/tokyonight.nvim",
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		-- opts = tokyonight,
@@ -36,7 +36,7 @@ return {
 	-- kanagawa
 	{
 		"rebelot/kanagawa.nvim",
-		enabled = true,
+		enabled = false,
 		config = function()
 			vim.cmd("colorscheme kanagawa-lotus")
 		end
