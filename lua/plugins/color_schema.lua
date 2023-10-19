@@ -24,7 +24,7 @@ return {
 	-- tokyonight
 	{
 		"folke/tokyonight.nvim",
-		enabled = true,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		-- opts = tokyonight,
@@ -40,5 +40,25 @@ return {
 		config = function()
 			vim.cmd("colorscheme kanagawa-lotus")
 		end
+	},
+	{
+		"Mofiqul/vscode.nvim",
+		enabled = true,
+		config = function()
+			local c = require('vscode.colors').get_colors()
+			require('vscode').setup({
+				style = 'light',
+				transparent = false,
+				italic_comments = true,
+				disable_nvimtree_bg = true,
+				color_overrides = {
+					vscLineNumber = '#FFFFFF',
+				},
+				group_overrides = {
+					Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+				}
+			})
+			require('vscode').load()
+		end,
 	}
 }
