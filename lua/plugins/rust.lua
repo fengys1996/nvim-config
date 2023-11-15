@@ -8,7 +8,9 @@ local config = function()
 			["rust-analyzer"] = {
 				checkOnSave = {
 					enable = true,
-					command = "check"
+					command = "check",
+					-- allTargets = false,
+					-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 				},
 			},
 		},

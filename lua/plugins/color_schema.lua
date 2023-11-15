@@ -24,7 +24,7 @@ return {
 	-- tokyonight
 	{
 		"folke/tokyonight.nvim",
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		-- opts = tokyonight,
@@ -43,7 +43,7 @@ return {
 	},
 	{
 		"Mofiqul/vscode.nvim",
-		enabled = true,
+		enabled = false,
 		config = function()
 			local c = require('vscode.colors').get_colors()
 			require('vscode').setup({

@@ -141,7 +141,7 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		enabled = true,
+		enabled = false,
 		event = "VeryLazy",
 		main = "ibl",
 		opts = indent_blankline,
