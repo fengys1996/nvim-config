@@ -12,6 +12,8 @@
 -- vim.opt.keymap = "dvorak"
 vim.opt.updatetime = 500
 
+vim.g.history = 100000
+
 -- set screen vertical
 vim.g.screen_vertical = false
 
