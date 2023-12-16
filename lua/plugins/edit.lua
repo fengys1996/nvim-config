@@ -74,8 +74,8 @@ local indent_blankline = {
 
 return {
 	{
-		"phaazon/hop.nvim",
-		tag = "v2.0.0",
+		"smoka7/hop.nvim",
+		tag = "v2.5.0",
 		event = "VeryLazy",
 		keys = {
 			{ "s", "<cmd>HopChar2AC<cr>" },
