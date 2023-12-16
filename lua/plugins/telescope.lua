@@ -61,6 +61,7 @@ return {
 		"ahmedkhalf/project.nvim",
 		config = function()
 			require("project_nvim").setup({
+				manual_mode = true,
 				silent_chdir = false,
 				detection_methods = { "pattern" },
 				patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".sln" },
