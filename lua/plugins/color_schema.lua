@@ -6,7 +6,6 @@ local tokyonight = {
 return {
 	-- nord
 	{
-		-- "shaunsingh/nord.nvim",
 		"Fengys123/nord.nvim",
 		enabled = false,
 		lazy = false,
@@ -24,7 +23,7 @@ return {
 	-- tokyonight
 	{
 		"folke/tokyonight.nvim",
-		enabled = true,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		-- opts = tokyonight,
@@ -60,5 +59,14 @@ return {
 			})
 			require('vscode').load()
 		end,
-	}
+	},
+	{
+		"EdenEast/nightfox.nvim",
+		enabled = true,
+		config = function()
+			-- vim.cmd("colorscheme nightfox")
+			vim.cmd("colorscheme nordfox")
+			-- vim.cmd("colorscheme dawnfox")
+		end,
+	},
 }
