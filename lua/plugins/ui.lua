@@ -107,7 +107,7 @@ return {
 	},
 	{
 		"danilamihailov/beacon.nvim",
-		enabled = false,
+		enabled = true,
 		config = function()
 		end
 	},

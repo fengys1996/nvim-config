@@ -9,7 +9,7 @@ local config = function()
 				checkOnSave = {
 					enable = true,
 					command = "check",
-					-- allTargets = false,
+					allTargets = false,
 					-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 				},
 			},
