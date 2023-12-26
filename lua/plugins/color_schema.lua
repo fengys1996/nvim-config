@@ -6,7 +6,7 @@ local tokyonight = {
 return {
 	-- nord
 	{
-		"Fengys123/nord.nvim",
+		"fengys1996/nord.nvim",
 		enabled = false,
 		lazy = false,
 		priority = 1000,
@@ -61,7 +61,7 @@ return {
 		end,
 	},
 	{
-		"EdenEast/nightfox.nvim",
+		"fengys1996/nightfox.nvim",
 		enabled = true,
 		config = function()
 			-- vim.cmd("colorscheme nightfox")
