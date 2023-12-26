@@ -129,10 +129,12 @@ return {
 		config = true,
 	},
 	{
-		"nvim-zh/better-escape.vim",
-		event = "VeryLazy",
+		"TheBlob42/houdini.nvim",
 		config = function()
-		end
+			require('houdini').setup {
+				mappings = { 'jk' },
+			}
+		end,
 	},
 	{
 		"RRethy/vim-illuminate",

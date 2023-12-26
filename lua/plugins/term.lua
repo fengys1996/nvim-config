@@ -6,7 +6,7 @@ local opts = {
 			return vim.o.columns * 0.5
 		end
 	end,
-	open_mapping = [[<c-\>]],
+	-- open_mapping = [[<c-\>]],
 	shell = "fish",
 	start_in_insert = false,
 	shade_terminals = false,
