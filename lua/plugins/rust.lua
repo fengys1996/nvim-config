@@ -4,9 +4,9 @@ local rust_analyzer_settings = {
 	standalone = false,
 	["rust-analyzer"] = {
 		checkOnSave = {
-			enable = true,
+			enable = false,
 			command = "check",
-			allTargets = false,
+			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 		},
 	},
@@ -28,22 +28,19 @@ local server_on_attach = function(client, bufnr)
 	mapbuf("n", "<leader>ru", "<cmd>RustLsp runnables<CR>", opt)
 
 	-- rust expand macro
-	mapbuf("n", "<leader>re", "<cmd>RustLsp expandMacro", opt)
+	mapbuf("n", "<leader>re", "<cmd>RustLsp expandMacro<CR>", opt)
+
+	mapbuf("n", "<leader>rc", "<cmd>RustLsp flyCheck<CR>", opt)
 end
 
 local server_opt = {
-	autostart = false,
 	settings = rust_analyzer_settings,
 	capabilities = capabilities,
 	on_attach = server_on_attach,
 }
 
 vim.g.rustaceanvim = {
-	tools = {
-		inlay_hints = {
-			auto = true,
-		},
-	},
+	tools = {},
 	server = server_opt,
 }
 
