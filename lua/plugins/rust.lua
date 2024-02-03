@@ -1,59 +1,57 @@
-local config = function()
-	local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-	local server_opt = {
-		autostart = false,
-		settings = {
-			standalone = false,
-			["rust-analyzer"] = {
-				checkOnSave = {
-					enable = true,
-					command = "check",
-					allTargets = false,
-					-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
-				},
-			},
+local rust_analyzer_settings = {
+	standalone = false,
+	["rust-analyzer"] = {
+		checkOnSave = {
+			enable = true,
+			command = "check",
+			allTargets = false,
+			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 		},
-		capabilities = capabilities,
-		on_attach = function(_, bufnr)
-			local function mapbuf(...)
-				vim.api.nvim_buf_set_keymap(bufnr, ...)
-			end
+	},
+}
 
-			require("keymap.lsp").maplsp(mapbuf)
+local server_on_attach = function(client, bufnr)
+	local function mapbuf(...)
+		vim.api.nvim_buf_set_keymap(bufnr, ...)
+	end
 
-			local opt = { noremap = true, silent = true }
+	require("keymap.lsp").maplsp(mapbuf)
 
-			-- hover action keymap
-			mapbuf("n", "gh", "<cmd>lua require('rust-tools').hover_actions.hover_actions()<CR>", opt);
+	local opt = { noremap = true, silent = true }
 
-			-- rust runnables ket map
-			mapbuf("n", "<leader>ru", "<cmd>lua require('rust-tools').runnables.runnables()<CR>", opt)
+	-- hover action keymap
+	mapbuf("n", "gh", "<cmd>RustLsp hover actions<CR>", opt);
 
-			-- rust expand macro
-			mapbuf("n", "<leader>re", "<cmd>lua require('rust-tools').expand_macro.expand_macro()<CR>", opt)
-		end,
-	}
+	-- rust runnables ket map
+	mapbuf("n", "<leader>ru", "<cmd>RustLsp runnables<CR>", opt)
 
-	local opts = {
-		tools = {
-			inlay_hints = {
-				auto = true,
-			},
-		},
-
-		server = server_opt,
-	}
-	require("rust-tools").setup(opts);
+	-- rust expand macro
+	mapbuf("n", "<leader>re", "<cmd>RustLsp expandMacro", opt)
 end
+
+local server_opt = {
+	autostart = false,
+	settings = rust_analyzer_settings,
+	capabilities = capabilities,
+	on_attach = server_on_attach,
+}
+
+vim.g.rustaceanvim = {
+	tools = {
+		inlay_hints = {
+			auto = true,
+		},
+	},
+	server = server_opt,
+}
 
 return {
 	{
-		"simrat39/rust-tools.nvim",
-		event = "VeryLazy",
-		dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/nvim-cmp", "neovim/nvim-lspconfig",
-			"williamboman/mason-lspconfig.nvim", },
-		config = config,
+		'mrcjkb/rustaceanvim',
+		version = '^4', -- Recommended
+		ft = { 'rust' },
 	},
 	{
 		"saecki/crates.nvim",
