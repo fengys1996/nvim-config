@@ -5,6 +5,19 @@ function module.setup()
 
 	require 'lspconfig'.gopls.setup {
 		autostart = false,
+		settings = {
+			gopls = {
+				hints = {
+					assignVariableTypes = true,
+					compositeLiteralFields = true,
+					compositeLiteralTypes = true,
+					constantValues = true,
+					functionTypeParameters = true,
+					parameterNames = true,
+					rangeVariableTypes = true
+				}
+			},
+		},
 		capabilities = capabilities,
 		on_attach = function(_, bufnr)
 			local function mapbuf(...)

@@ -19,8 +19,6 @@ local server_on_attach = function(client, bufnr)
 
 	require("keymap.lsp").maplsp(mapbuf)
 
-	vim.lsp.inlay_hint.enable(0, nil)
-
 	local opt = { noremap = true, silent = true }
 
 	-- hover action keymap
@@ -32,7 +30,7 @@ local server_on_attach = function(client, bufnr)
 	-- rust expand macro
 	mapbuf("n", "<leader>re", "<cmd>RustLsp expandMacro<CR>", opt)
 
-	mapbuf("n", "<leader>rc", "<cmd>RustLsp flyCheck<CR>", opt)
+	mapbuf("n", "<leader>rr", "<cmd>RustLsp flyCheck<CR>", opt)
 end
 
 local server_opt = {

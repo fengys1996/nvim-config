@@ -30,6 +30,7 @@ function module.setup()
 				telemetry = {
 					enable = false,
 				},
+				hint = { enable = true }
 			},
 		},
 		flags = {
