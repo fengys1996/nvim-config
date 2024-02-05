@@ -90,7 +90,14 @@ local bqf_opts = {
 		filterr = 'zN',
 		fzffilter = 'zf'
 	},
-};
+}
+
+local dressing_opt = {
+	input = {
+		insert_only = false,
+		start_in_insert = false,
+	}
+}
 
 return {
 	{
@@ -102,8 +109,7 @@ return {
 	{
 		"stevearc/dressing.nvim",
 		enabled = true,
-		config = function()
-		end,
+		opts = dressing_opt,
 	},
 	{
 		"danilamihailov/beacon.nvim",
