@@ -95,7 +95,7 @@ local bqf_opts = {
 local dressing_opt = {
 	input = {
 		insert_only = false,
-		start_in_insert = false,
+		start_in_insert = true,
 	}
 }
 

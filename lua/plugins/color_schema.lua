@@ -65,8 +65,8 @@ return {
 		enabled = true,
 		config = function()
 			-- vim.cmd("colorscheme nightfox")
-			vim.cmd("colorscheme nordfox")
-			-- vim.cmd("colorscheme dawnfox")
+			-- vim.cmd("colorscheme nordfox")
+			vim.cmd("colorscheme dawnfox")
 		end,
 	},
 }
