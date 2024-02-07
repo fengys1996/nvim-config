@@ -1,7 +1,6 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local rust_analyzer_settings = {
-	standalone = false,
 	["rust-analyzer"] = {
 		checkOnSave = {
 			enable = true,
@@ -34,6 +33,7 @@ local server_on_attach = function(client, bufnr)
 end
 
 local server_opt = {
+	standalone = false,
 	settings = rust_analyzer_settings,
 	capabilities = capabilities,
 	on_attach = server_on_attach,
