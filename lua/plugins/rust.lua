@@ -29,6 +29,8 @@ local server_on_attach = function(client, bufnr)
 	-- rust expand macro
 	mapbuf("n", "<leader>re", "<cmd>RustLsp expandMacro<CR>", opt)
 
+	mapbuf("n", "<leader>rw", "<cmd>RustLsp reloadWorkspace<CR>", opt)
+
 	mapbuf("n", "<leader>rr", "<cmd>RustLsp flyCheck<CR>", opt)
 end
 
