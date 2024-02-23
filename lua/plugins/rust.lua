@@ -48,8 +48,8 @@ vim.g.rustaceanvim = {
 
 return {
 	{
-		'mrcjkb/rustaceanvim',
-		version = '^4', -- Recommended
+		'fengys1996/rustaceanvim',
+		branch = "fix/lsp_detach_buffer",
 		ft = { 'rust' },
 	},
 	{
