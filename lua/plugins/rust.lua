@@ -42,7 +42,10 @@ local server_opt = {
 }
 
 vim.g.rustaceanvim = {
-	tools = {},
+	tools = {
+		executor = "toggleterm",
+		test_executor = "toggleterm",
+	},
 	server = server_opt,
 }
 
