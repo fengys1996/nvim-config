@@ -45,6 +45,7 @@ vim.g.rustaceanvim = {
 	tools = {
 		executor = "toggleterm",
 		test_executor = "toggleterm",
+		reload_workspace_from_cargo_toml = true,
 	},
 	server = server_opt,
 }
