@@ -43,8 +43,8 @@ local server_opt = {
 
 vim.g.rustaceanvim = {
 	tools = {
-		executor = "toggleterm",
-		test_executor = "toggleterm",
+		executor = "termopen",
+		test_executor = "termopen",
 		reload_workspace_from_cargo_toml = true,
 	},
 	server = server_opt,
