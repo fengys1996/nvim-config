@@ -4,7 +4,7 @@ local rust_analyzer_settings = {
 	["rust-analyzer"] = {
 		checkOnSave = {
 			enable = true,
-			command = "check",
+			command = "clippy",
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 		},
