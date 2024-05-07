@@ -22,6 +22,6 @@ end, {
 })
 
 vim.api.nvim_create_user_command('ToggleInlayHint',
-	'lua vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(nil))', {})
+	'lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())', {})
 
 return module
