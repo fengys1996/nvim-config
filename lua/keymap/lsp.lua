@@ -3,11 +3,7 @@ local opt = { noremap = true, silent = true }
 return {
 	maplsp = function(mapbuf)
 		-- code formatting
-		-- if vim.g.nvim7 then
-		-- 	mapbuf('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
-		-- else
 		mapbuf('n', '<leader>f', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opt)
-		-- end
 		-- rename
 		mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
 		-- code action
@@ -23,7 +19,6 @@ return {
 		mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
 		mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
 		-- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
-		-- leader + =
 		-- mapbuf('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
 		-- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
 		-- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
