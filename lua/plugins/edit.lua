@@ -119,11 +119,6 @@ return {
 		end,
 	},
 	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		config = true,
-	},
-	{
 		"windwp/nvim-autopairs",
 		event = "VeryLazy",
 		config = true,
