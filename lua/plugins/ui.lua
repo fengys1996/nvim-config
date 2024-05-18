@@ -40,21 +40,21 @@ local opts = {
 			"filetype",
 		},
 	},
-	tabline = {
-		lualine_b = {
-			{
-				'filename',
-				file_status = true,
-				path = 2,
-				short_target = 40,
-				symbols = {
-					modified = '[+]', -- Text to show when the file is modified.
-					readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
-					unnamed = '[No Name]', -- Text to show for unnamed buffers.
-				}
-			},
-		},
-	},
+	-- tabline = {
+	-- 	lualine_b = {
+	-- 		{
+	-- 			'filename',
+	-- 			file_status = true,
+	-- 			path = 2,
+	-- 			short_target = 40,
+	-- 			symbols = {
+	-- 				modified = '[+]', -- Text to show when the file is modified.
+	-- 				readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
+	-- 				unnamed = '[No Name]', -- Text to show for unnamed buffers.
+	-- 			}
+	-- 		},
+	-- 	},
+	-- },
 };
 
 local bqf_opts = {

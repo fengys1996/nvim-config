@@ -7,6 +7,8 @@
 -- vim.opt:{name}: equals ":set"
 --------------------------------------------------
 
+vim.o.cmdheight = 0
+
 -- vim.cmd "colorscheme habamax"
 
 -- vim.opt.keymap = "dvorak"
@@ -69,7 +71,7 @@ vim.opt.termguicolors = true
 vim.o.timeoutlen = 500
 
 -- always show tableline
-vim.o.showtabline = 2
+vim.o.showtabline = 0
 
 -- disable show vim mode, since using plugin to do
 -- vim.o.showmode = true

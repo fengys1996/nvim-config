@@ -67,7 +67,7 @@ return {
 			-- vim.cmd("colorscheme nightfox")
 			-- vim.cmd("colorscheme nordfox")
 			vim.cmd("colorscheme dawnfox")
-			vim.cmd("highlight WinSeparator guifg=gray")
+			-- vim.cmd("highlight WinSeparator guifg=black")
 		end,
 	},
 }
