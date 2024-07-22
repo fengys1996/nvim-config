@@ -89,13 +89,8 @@ vim.o.mouse = "a"
 
 -- vim.o.guifont = "GoMono_Nerd_Font:h10:b"  'b' mean: bold
 -- font style.  'i' mean: font italic style
-if vim.g.is_linux then
-	vim.o.guifont = "JetBrains_Mono:h9"
-end
-
-if vim.g.is_mac then
-	vim.o.guifont = "JetBrains_Mono:h14"
-end
+-- vim.o.guifont = "JetBrains_Mono:h9"
+vim.o.guifont = "MonaspiceKr_Nerd_Font:h10"
 
 -- config of diagnostic
 vim.diagnostic.config({

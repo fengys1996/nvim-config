@@ -64,6 +64,11 @@ return {
 		"fengys1996/nightfox.nvim",
 		enabled = true,
 		config = function()
+			require("nightfox").setup({
+				options = {
+					transparent = false,
+				}
+			})
 			-- vim.cmd("colorscheme nightfox")
 			-- vim.cmd("colorscheme nordfox")
 			vim.cmd("colorscheme dawnfox")
