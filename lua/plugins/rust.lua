@@ -3,10 +3,13 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local rust_analyzer_settings = {
 	["rust-analyzer"] = {
 		checkOnSave = {
-			enable = true,
+			enable = false,
 			command = "check",
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
+		},
+		procMacro = {
+			enable = true,
 		},
 	},
 }
