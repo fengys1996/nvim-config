@@ -69,9 +69,10 @@ return {
 					transparent = false,
 				}
 			})
+			vim.cmd("colorscheme dayfox")
 			-- vim.cmd("colorscheme nightfox")
 			-- vim.cmd("colorscheme nordfox")
-			vim.cmd("colorscheme dawnfox")
+			-- vim.cmd("colorscheme dawnfox")
 			-- vim.cmd("highlight WinSeparator guifg=black")
 		end,
 	},
