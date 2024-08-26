@@ -3,6 +3,8 @@ local tokyonight = {
 	terminal_colors = true,
 }
 
+vim.cmd("colorscheme habamax")
+
 return {
 	-- nord
 	{
@@ -62,18 +64,27 @@ return {
 	},
 	{
 		"fengys1996/nightfox.nvim",
-		enabled = true,
+		enabled = false,
 		config = function()
 			require("nightfox").setup({
 				options = {
 					transparent = false,
 				}
 			})
-			vim.cmd("colorscheme dayfox")
+			-- vim.cmd("colorscheme dayfox")
 			-- vim.cmd("colorscheme nightfox")
 			-- vim.cmd("colorscheme nordfox")
 			-- vim.cmd("colorscheme dawnfox")
 			-- vim.cmd("highlight WinSeparator guifg=black")
 		end,
+	},
+	{
+		'AlexvZyl/nordic.nvim',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require 'nordic'.load()
+			-- vim.cmd("colorscheme nordic")
+		end
 	},
 }

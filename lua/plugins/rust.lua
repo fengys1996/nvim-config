@@ -2,6 +2,10 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local rust_analyzer_settings = {
 	["rust-analyzer"] = {
+		-- The server path would be overriden by mason-lspconfig.nvim.
+		-- server = {
+		-- 	path = "/home/fys/.cargo/bin/rust-analyzer",
+		-- },
 		checkOnSave = {
 			enable = false,
 			command = "check",
@@ -56,7 +60,7 @@ vim.g.rustaceanvim = {
 return {
 	{
 		'mrcjkb/rustaceanvim',
-		version = '^4',
+		version = '^5',
 		ft = { 'rust' },
 	},
 	{
