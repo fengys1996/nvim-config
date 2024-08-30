@@ -57,6 +57,11 @@ return {
 		opts = opts,
 	},
 	{
+		"j-hui/fidget.nvim",
+		tag = "v1.0.0",
+		opts = {},
+	},
+	{
 		"stevearc/dressing.nvim",
 		enabled = true,
 		opts = dressing_opt,
