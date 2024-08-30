@@ -7,7 +7,7 @@ local rust_analyzer_settings = {
 		-- 	path = "/home/fys/.cargo/bin/rust-analyzer",
 		-- },
 		checkOnSave = {
-			enable = false,
+			enable = true,
 			command = "check",
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },

@@ -64,7 +64,7 @@ return {
 	},
 	{
 		"fengys1996/nightfox.nvim",
-		enabled = false,
+		enabled = true,
 		config = function()
 			require("nightfox").setup({
 				options = {
@@ -83,7 +83,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require 'nordic'.load()
+			-- require 'nordic'.load()
 			-- vim.cmd("colorscheme nordic")
 		end
 	},
