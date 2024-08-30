@@ -5,6 +5,34 @@ local opts = {
 		globalstatus = true,
 		section_separators = { left = " ", right = "" },
 	},
+	sections = {
+		lualine_c = {
+			{
+				'filename',
+				file_status = true,
+				path = 2,
+				short_target = 40,
+				symbols = {
+					modified = '[+]', -- Text to show when the file is modified.
+					readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
+					unnamed = '[No Name]', -- Text to show for unnamed buffers.
+				}
+			},
+		},
+		lualine_x = {
+			"filesize",
+			{
+				"fileformat",
+				symbols = {
+					unix = "LF",
+					dos = "CRLF",
+					mac = "CR",
+				},
+			},
+			"encoding",
+			"filetype",
+		},
+	},
 };
 
 local bqf_opts = {
