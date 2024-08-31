@@ -21,7 +21,7 @@ end, {
 })
 
 vim.api.nvim_create_user_command('ToggleInlayHint',
-	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()), {})
+	'lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())', {})
 
 -- Custom lsp start command  `HaloStart`
 --
@@ -30,6 +30,7 @@ vim.api.nvim_create_user_command('ToggleInlayHint',
 local function start_lsp()
 	if vim.bo.filetype == "rust" then
 		require('rustaceanvim.lsp').start()
+		require('plugins.lsp.rust').enable_auto_attach()
 	else
 		vim.cmd("LspStart")
 	end
@@ -44,6 +45,7 @@ vim.api.nvim_create_user_command('HaloStart', start_lsp, {})
 local function stop_lsp()
 	if vim.bo.filetype == "rust" then
 		require('rustaceanvim.lsp').stop()
+		require('plugins.lsp.rust').disable_auto_attach()
 	else
 		vim.cmd("LspStop")
 	end

@@ -15,8 +15,8 @@ local opts = {
 		},
 		shortcut = {
 			{ desc = '[  Github]', group = 'DashboardShortCut' },
-			{ desc = '[  fys]',    group = 'DashboardShortCut' },
-			{ desc = '[  2.0]',    group = 'DashboardShortCut' },
+			{ desc = '[  fys]', group = 'DashboardShortCut' },
+			{ desc = '[  2.0]', group = 'DashboardShortCut' },
 		},
 	},
 };

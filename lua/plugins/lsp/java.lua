@@ -1,5 +1,6 @@
 local module = {}
 
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local java_opts = {
@@ -19,7 +20,7 @@ local jdtls_opts = {
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
 		end
 
-		require("keymap.lsp").maplsp(mapbuf, "jdtls")
+		require("keymap.lsp").maplsp(mapbuf, "java")
 	end,
 }
 

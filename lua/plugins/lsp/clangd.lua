@@ -1,8 +1,9 @@
 local module = {}
 
-function module.setup()
-	local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+function module.setup()
 	require 'lspconfig'.clangd.setup {
 		autostart = false,
 		capabilities = capabilities,
@@ -11,7 +12,7 @@ function module.setup()
 				vim.api.nvim_buf_set_keymap(bufnr, ...)
 			end
 
-			require("keymap.lsp").maplsp(mapbuf, "clangd")
+			require("keymap.lsp").maplsp(mapbuf, "c")
 		end,
 	}
 end

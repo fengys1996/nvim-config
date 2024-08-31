@@ -1,14 +1,29 @@
 local module = {}
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local enable_auto_attach = false
+
+local function is_auto_attach()
+	return enable_auto_attach
+end
+
+function module.enable_auto_attach()
+	enable_auto_attach = true
+end
+
+function module.disable_auto_attach()
+	enable_auto_attach = false
+end
 
 local rust_analyzer_settings = {
 	["rust-analyzer"] = {
 		-- The server path would be overriden by mason-lspconfig.nvim.
 		-- server = {
-		-- 	path = "/home/fys/.cargo/bin/rust-analyzer",
+		-- 	-- For example, "/home/fys/.cargo/bin/rust-analyzer".
+		-- 	path = "",
 		-- },
 		checkOnSave = {
+			-- If project is very large, it may take a long time, so it
+			-- is recommended to disable it when your project is very large.
 			enable = true,
 			command = "check",
 			-- allTargets = false,
@@ -28,6 +43,9 @@ local server_on_attach = function(_client, bufnr)
 	require("keymap.lsp").maplsp(mapbuf, "rust")
 end
 
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 local server_opt = {
 	standalone = false,
 	settings = rust_analyzer_settings,
@@ -37,9 +55,7 @@ local server_opt = {
 		return require('rustaceanvim.cargo').get_root_dir(filename);
 	end,
 	loodrvscode_settings = true,
-	auto_attach = function()
-		return false
-	end,
+	auto_attach = is_auto_attach,
 }
 
 function module.setup()
