@@ -1,15 +1,14 @@
-module = {}
-
 vim.api.nvim_create_user_command('Proj', 'Telescope projects', {})
 vim.api.nvim_create_user_command('Projm', 'edit ~/.local/share/nvim/project_nvim/project_history', {})
 
-function module.live_grep_in_path(path)
+local function live_grep_in_path(path)
 	local _path = path or vim.fn.input("Dir: ", "", "dir")
 	require("telescope.builtin").live_grep({ search_dirs = { _path } })
 end
 
-vim.api.nvim_create_user_command('Rgpath', 'lua require("command").live_grep_in_path()', {})
+vim.api.nvim_create_user_command('Rgpath', live_grep_in_path, {})
 
+-- Toggle the crates.
 vim.api.nvim_create_user_command('Crates', function(opt)
 	if string.lower(opt.args) == "toggle" then
 		require("crates").toggle()
@@ -22,6 +21,32 @@ end, {
 })
 
 vim.api.nvim_create_user_command('ToggleInlayHint',
-	'lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())', {})
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()), {})
 
-return module
+-- Custom lsp start command  `HaloStart`
+--
+-- Why do we need this?
+-- Since there are some language servers that need to be started in a different way.
+local function start_lsp()
+	if vim.bo.filetype == "rust" then
+		require('rustaceanvim.lsp').start()
+	else
+		vim.cmd("LspStart")
+	end
+end
+
+vim.api.nvim_create_user_command('HaloStart', start_lsp, {})
+
+-- Custom lsp stop command  `HaloStop`
+--
+-- Why do we need this?
+-- Since there are some language servers that need to be stopped in a different way.
+local function stop_lsp()
+	if vim.bo.filetype == "rust" then
+		require('rustaceanvim.lsp').stop()
+	else
+		vim.cmd("LspStop")
+	end
+end
+
+vim.api.nvim_create_user_command('HaloStop', stop_lsp, {})

@@ -24,7 +24,7 @@ function module.setup()
 				vim.api.nvim_buf_set_keymap(bufnr, ...)
 			end
 
-			require("keymap.lsp").maplsp(mapbuf)
+			require("keymap.lsp").maplsp(mapbuf, "gopls")
 		end,
 	}
 end

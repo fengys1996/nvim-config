@@ -20,29 +20,12 @@ local rust_analyzer_settings = {
 	},
 }
 
-local server_on_attach = function(client, bufnr)
+local server_on_attach = function(_client, bufnr)
 	local function mapbuf(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
 
-	require("keymap.lsp").maplsp(mapbuf)
-
-	local opt = { noremap = true, silent = true }
-
-	-- hover action keymap
-	mapbuf("n", "gh", "<cmd>RustLsp hover actions<CR>", opt);
-
-	-- rust runnables ket map
-	mapbuf("n", "<leader>ru", "<cmd>RustLsp runnables<CR>", opt)
-
-	-- rust expand macro
-	mapbuf("n", "<leader>re", "<cmd>RustLsp expandMacro<CR>", opt)
-
-	mapbuf("n", "<leader>rw", "<cmd>RustLsp reloadWorkspace<CR>", opt)
-
-	mapbuf("n", "<leader>rr", "<cmd>RustLsp flyCheck<CR>", opt)
-
-	mapbuf("n", "<leader>rl", "<cmd>lua require('rustaceanvim.lsp').start() <CR>", opt)
+	require("keymap.lsp").maplsp(mapbuf, "rust")
 end
 
 local server_opt = {

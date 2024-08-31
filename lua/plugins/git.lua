@@ -19,7 +19,8 @@ local octo_opts = {
 	issues = {
 		order_by = {
 			-- criteria to sort results of `Octo issue list`
-			field = "CREATED_AT", -- either COMMENTS, CREATED_AT or UPDATED_AT (https://docs.github.com/en/graphql/reference/enums#issueorderfield)
+			-- either COMMENTS, CREATED_AT or UPDATED_AT (https://docs.github.com/en/graphql/reference/enums#issueorderfield)
+			field = "CREATED_AT",
 			direction =
 			"DESC" -- either DESC or ASC (https://docs.github.com/en/graphql/reference/enums#orderdirection)
 		}
@@ -27,7 +28,8 @@ local octo_opts = {
 	pull_requests = {
 		order_by = {
 			-- criteria to sort the results of `Octo pr list`
-			field = "CREATED_AT", -- either COMMENTS, CREATED_AT or UPDATED_AT (https://docs.github.com/en/graphql/reference/enums#issueorderfield)
+			-- either COMMENTS, CREATED_AT or UPDATED_AT (https://docs.github.com/en/graphql/reference/enums#issueorderfield)
+			field = "CREATED_AT",
 			direction =
 			"DESC" -- either DESC or ASC (https://docs.github.com/en/graphql/reference/enums#orderdirection)
 		},

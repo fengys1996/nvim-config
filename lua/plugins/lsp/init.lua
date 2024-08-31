@@ -2,9 +2,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig" },
-		keys = {
-			{ "<leader>rl", ":LspStart<cr>" },
-		},
 		config = function()
 			require("plugins.lsp.lua").setup()
 			require("plugins.lsp.golang").setup()

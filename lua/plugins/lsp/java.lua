@@ -19,7 +19,7 @@ local jdtls_opts = {
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
 		end
 
-		require("keymap.lsp").maplsp(mapbuf)
+		require("keymap.lsp").maplsp(mapbuf, "jdtls")
 	end,
 }
 
