@@ -1,3 +1,5 @@
+local module = {}
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local java_opts = {
@@ -21,12 +23,9 @@ local jdtls_opts = {
 	end,
 }
 
-return {
-	{
-		'nvim-java/nvim-java',
-		config = function()
-			require('java').setup(java_opts)
-			require('lspconfig').jdtls.setup(jdtls_opts)
-		end
-	},
-}
+function module.setup()
+	require('java').setup(java_opts)
+	require('lspconfig').jdtls.setup(jdtls_opts)
+end
+
+return module

@@ -1,3 +1,5 @@
+local module = {}
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local rust_analyzer_settings = {
@@ -39,6 +41,8 @@ local server_on_attach = function(client, bufnr)
 	mapbuf("n", "<leader>rw", "<cmd>RustLsp reloadWorkspace<CR>", opt)
 
 	mapbuf("n", "<leader>rr", "<cmd>RustLsp flyCheck<CR>", opt)
+
+	mapbuf("n", "<leader>rl", "<cmd>lua require('rustaceanvim.lsp').start() <CR>", opt)
 end
 
 local server_opt = {
@@ -46,38 +50,24 @@ local server_opt = {
 	settings = rust_analyzer_settings,
 	capabilities = capabilities,
 	on_attach = server_on_attach,
+	root_dir = function(filename)
+		return require('rustaceanvim.cargo').get_root_dir(filename);
+	end,
+	loodrvscode_settings = true,
+	auto_attach = function()
+		return false
+	end,
 }
 
-vim.g.rustaceanvim = {
-	tools = {
-		executor = "termopen",
-		test_executor = "termopen",
-		reload_workspace_from_cargo_toml = true,
-	},
-	server = server_opt,
-}
-
-return {
-	{
-		'mrcjkb/rustaceanvim',
-		version = '^5',
-		ft = { 'rust' },
-	},
-	{
-		"saecki/crates.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		event = "VeryLazy",
-		tag = "v0.3.0",
-		config = true,
-	},
-	{
-		"Fengys123/nvim-checker",
-		keys = {
-			{ "<leader>cl", ":lua require'nvim-checker'.clippy()<CR>" },
-			{ "<leader>ch", ":lua require'nvim-checker'.check()<CR>" },
-			{ "<leader>ct", ":lua require'nvim-checker'.test()<CR>" },
+function module.setup()
+	vim.g.rustaceanvim = {
+		tools = {
+			executor = "termopen",
+			test_executor = "termopen",
+			reload_workspace_from_cargo_toml = true,
 		},
-		config = function()
-		end
+		server = server_opt,
 	}
-}
+end
+
+return module
