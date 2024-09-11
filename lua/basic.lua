@@ -46,7 +46,7 @@ vim.wo.signcolumn = "yes"
 
 -- right line: If it exceeds, it means that the code is too
 -- long, consider wrapping
--- vim.wo.colorcolumn = "80"
+vim.wo.colorcolumn = "80"
 
 -- search is case insensitive, unless uppercase is included
 vim.o.ignorecase = true
