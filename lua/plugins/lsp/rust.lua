@@ -49,12 +49,13 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local server_opt = {
 	standalone = false,
 	settings = rust_analyzer_settings,
+	default_settings = rust_analyzer_settings,
 	capabilities = capabilities,
 	on_attach = server_on_attach,
 	root_dir = function(filename)
 		return require('rustaceanvim.cargo').get_root_dir(filename);
 	end,
-	loodrvscode_settings = true,
+	load_vscode_settings = true,
 	auto_attach = is_auto_attach,
 }
 

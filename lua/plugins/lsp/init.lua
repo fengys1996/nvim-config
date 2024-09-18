@@ -36,7 +36,11 @@ return {
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
-		config = true,
+		config = function()
+			require("mason").setup({
+				PATH = "append",
+			})
+		end
 	},
 	{
 		"saecki/crates.nvim",
