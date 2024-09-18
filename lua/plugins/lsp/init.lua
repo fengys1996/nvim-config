@@ -12,6 +12,8 @@ return {
 	},
 	{
 		'nvim-java/nvim-java',
+		enabled = false,
+		tag = "v2.0.0",
 		config = function()
 			require('plugins.lsp.java').setup()
 		end
