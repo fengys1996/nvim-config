@@ -87,11 +87,6 @@ vim.o.swapfile = false
 
 vim.o.mouse = "a"
 
--- vim.o.guifont = "GoMono_Nerd_Font:h10:b"  'b' mean: bold
--- font style.  'i' mean: font italic style
--- vim.o.guifont = "JetBrains_Mono:h9"
-vim.o.guifont = "MonaspiceKr_Nerd_Font:h10"
-
 -- config of diagnostic
 vim.diagnostic.config({
 	virtual_text = true,
