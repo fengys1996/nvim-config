@@ -56,6 +56,7 @@ return {
 	},
 	{
 		"tpope/vim-fugitive",
+		tag = "v3.7",
 		event = "VeryLazy",
 		config = function()
 		end,
@@ -71,4 +72,10 @@ return {
 		event = "VeryLazy",
 		config = true,
 	},
+	{
+		"tpope/vim-rhubarb",
+		event = "VeryLazy",
+		config = function()
+		end,
+	}
 }
