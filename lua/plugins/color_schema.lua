@@ -3,7 +3,7 @@ local tokyonight = {
 	terminal_colors = true,
 }
 
-vim.cmd("colorscheme habamax")
+-- vim.cmd("colorscheme habamax")
 
 return {
 	-- nord
@@ -71,7 +71,7 @@ return {
 					transparent = false,
 				}
 			})
-			-- vim.cmd("colorscheme dayfox")
+			vim.cmd("colorscheme dayfox")
 			-- vim.cmd("colorscheme nightfox")
 			-- vim.cmd("colorscheme nordfox")
 			-- vim.cmd("colorscheme dawnfox")

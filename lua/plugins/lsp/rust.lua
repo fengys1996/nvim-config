@@ -24,7 +24,7 @@ local rust_analyzer_settings = {
 		checkOnSave = {
 			-- If project is very large, it may take a long time, so it
 			-- is recommended to disable it when your project is very large.
-			enable = true,
+			enable = false,
 			command = "check",
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
