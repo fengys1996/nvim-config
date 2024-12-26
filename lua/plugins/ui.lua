@@ -106,7 +106,7 @@ return {
 		config = true,
 	},
 	{
-		"Fengys123/nvim-bqf",
+		"fengys1996/nvim-bqf",
 		config = function()
 			require("bqf").setup(bqf_opts);
 		end

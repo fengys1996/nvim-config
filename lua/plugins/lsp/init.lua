@@ -51,15 +51,4 @@ return {
 		tag = "v0.5.2",
 		config = true,
 	},
-	{
-		"Fengys123/nvim-checker",
-		keys = {
-			{ "<leader>cl", ":lua require'nvim-checker'.clippy()<CR>" },
-			{ "<leader>ch", ":lua require'nvim-checker'.check()<CR>" },
-			{ "<leader>ct", ":lua require'nvim-checker'.test()<CR>" },
-		},
-		config = function()
-		end
-	}
-
 }

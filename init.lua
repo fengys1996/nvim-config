@@ -31,4 +31,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-require("command")
+require("cmd.base")

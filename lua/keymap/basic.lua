@@ -107,3 +107,7 @@ map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
 map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
 map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
 map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
+
+map("n", "<leader>cl", ":lua require'cmd.rust'.clippy()<CR>", opt)
+map("n", "<leader>ch", ":lua require'cmd.rust'.check()<CR>", opt)
+map("n", "<leader>ct", ":lua require'cmd.rust'.test()<CR>", opt)

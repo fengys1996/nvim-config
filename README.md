@@ -48,7 +48,7 @@ This is my nvim config written in lua and vim script. Very friendly to coding ru
 3. Clone repository
 
     ```shell
-    git clone https://github.com/Fengys123/nvim-config.git ~/.config/nvim
+    git clone https://github.com/fengys1996/nvim-config.git ~/.config/nvim
     ```
 
 4. When you open neovim for the first time, it will take a while to download the package.
