@@ -1,10 +1,12 @@
-local cc = {}
+-- The module for toggling the colorcolumn in the current buffer.
+
+local m = {}
 
 local config = {
 	colorcolumn = "80",
 }
 
-function cc.toggle()
+function m.toggle()
 	if vim.wo.colorcolumn == "" then
 		vim.wo.colorcolumn = config.colorcolumn
 	else
@@ -12,17 +14,17 @@ function cc.toggle()
 	end
 end
 
-function cc.setup(c)
+function m.setup(c)
 	c = c or {}
 	config = vim.tbl_extend("force", config, c)
 
 	vim.api.nvim_create_user_command(
 		'ColorColumnToggle',
 		function()
-			cc.toggle()
+			m.toggle()
 		end,
 		{}
 	)
 end
 
-return cc
+return m
