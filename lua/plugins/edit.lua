@@ -142,5 +142,5 @@ return {
 		},
 		event = "VeryLazy",
 		opts = symbols,
-	},
+	}
 }
