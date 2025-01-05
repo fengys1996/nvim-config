@@ -32,3 +32,5 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 require("cmd.base")
+
+require("custom.colorcolumn").setup()
