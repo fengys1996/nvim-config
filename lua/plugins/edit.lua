@@ -142,5 +142,12 @@ return {
 		},
 		event = "VeryLazy",
 		opts = symbols,
+	},
+	{
+		"m4xshen/smartcolumn.nvim",
+		opts = {
+			colorcolumn = "80",
+			scope = "line",
+		}
 	}
 }
