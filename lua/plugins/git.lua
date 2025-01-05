@@ -46,7 +46,7 @@ return {
 		"lewis6991/gitsigns.nvim",
 		-- Why this commit?
 		-- See https://github.com/lewis6991/gitsigns.nvim/issues/1127.
-		commit = "5f808b5e4fef30bd8aca1b803b4e555da07fc412",
+		tag = "v0.8.1",
 		event = "VeryLazy",
 		config = function()
 			require('gitsigns').setup(gitsigns_opts)
