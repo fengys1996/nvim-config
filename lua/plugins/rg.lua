@@ -2,6 +2,7 @@ return {
 
 	{
 		"mangelozzi/rgflow.nvim",
+		event = "VeryLazy",
 		config = function()
 			require('rgflow').setup
 			{

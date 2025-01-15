@@ -125,12 +125,13 @@ return {
 		-- highlighting other uses of the word under the cursor using
 		-- either LSP, Tree-sitter, or regex matching.
 		"RRethy/vim-illuminate",
+		enabled = true,
 		event = { "BufReadPost", "BufNewFile" },
 		config = illuminate,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		enabled = true,
+		enabled = false,
 		tag = "v3.8.1",
 		event = "VeryLazy",
 		main = "ibl",

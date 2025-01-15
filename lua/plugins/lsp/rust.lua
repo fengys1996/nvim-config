@@ -21,14 +21,16 @@ local rust_analyzer_settings = {
 		-- 	-- For example, "/home/fys/.cargo/bin/rust-analyzer".
 		-- 	path = "",
 		-- },
-		checkOnSave = {
-			-- If project is very large, it may take a long time, so it
-			-- is recommended to disable it when your project is very large.
-			enable = false,
+		-- If project is very large, it may take a long time, so it
+		-- is recommended to disable it when your project is very large.
+		checkOnSave = false,
+		check = {
 			command = "check",
+			extraArgs = { "-j", "6" },
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 		},
+		numThreads = 4,
 		procMacro = {
 			enable = true,
 		},
