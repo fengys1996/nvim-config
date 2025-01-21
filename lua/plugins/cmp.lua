@@ -84,6 +84,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"hrsh7th/vim-vsnip",
 		"rafamadriz/friendly-snippets",
+		"hrsh7th/cmp-calc",
 	},
 	config = config
 }
