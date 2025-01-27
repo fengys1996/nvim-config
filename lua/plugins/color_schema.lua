@@ -9,7 +9,7 @@ return {
 	-- nord
 	{
 		"fengys1996/nord.nvim",
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -19,7 +19,7 @@ return {
 			vim.g.nord_italic = false
 			vim.g.nord_uniform_diff_background = true
 			vim.g.nord_bold = false
-			vim.cmd([[colorscheme nord]])
+			-- vim.cmd([[colorscheme nord]])
 		end,
 	},
 	-- tokyonight
@@ -71,11 +71,8 @@ return {
 					transparent = false,
 				}
 			})
+			-- options: nightfox, dayfox, nordfox, dawnfox
 			vim.cmd("colorscheme dayfox")
-			-- vim.cmd("colorscheme nightfox")
-			-- vim.cmd("colorscheme nordfox")
-			-- vim.cmd("colorscheme dawnfox")
-			-- vim.cmd("highlight WinSeparator guifg=black")
 		end,
 	},
 	{
