@@ -24,6 +24,10 @@ local keymap = {
 		-- remove buffer
 		["<C-r>"] = actions.delete_buffer + actions.move_to_top,
 	},
+	n = {
+		-- remove buffer
+		["r"] = actions.delete_buffer + actions.move_to_top,
+	}
 }
 
 local tele_opts = {

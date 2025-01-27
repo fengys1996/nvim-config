@@ -37,7 +37,7 @@ local gitsigns_opts = {
 		map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end)
 		map('n', '<leader>hd', gitsigns.diffthis)
 		map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
-		map('n', '<leader>td', gitsigns.toggle_deleted)
+		-- map('n', '<leader>td', gitsigns.toggle_deleted)
 	end
 }
 
