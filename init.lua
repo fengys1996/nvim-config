@@ -31,6 +31,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+-- Options:
+-- nightfox, dayfox, nordfox, dawnfox
+-- nordic
+-- habamax
+-- vscode
+-- tokyonight-day
+-- kanagawa
+vim.o.background = "light"
+vim.cmd("colorscheme kanagawa")
+
 require("cmd.base")
 
 require("custom.colorcolumn").setup()

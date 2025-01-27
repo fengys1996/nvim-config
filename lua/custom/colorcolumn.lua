@@ -19,7 +19,7 @@ function m.setup(c)
 	config = vim.tbl_extend("force", config, c)
 
 	vim.api.nvim_create_user_command(
-		'ColorColumnToggle',
+		'ToggleColorColumn',
 		function()
 			m.toggle()
 		end,
