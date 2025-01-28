@@ -29,7 +29,20 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+	spec = {
+		{ import = "plugins" },
+
+	},
+	change_detection = {
+		enabled = false,
+		notify = false,
+	},
+	checker = {
+		enabled = false,
+		notify = false,
+	},
+})
 
 -- Options:
 -- nightfox, dayfox, nordfox, dawnfox
