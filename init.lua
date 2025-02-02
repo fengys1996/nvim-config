@@ -9,8 +9,6 @@ for _, name in ipairs(core_conf_files) do
 	vim.cmd(source_cmd)
 end
 
-vim.g.nvim7 = (vim.version().minor == 7)
-
 require("basic")
 require("keymap.basic")
 require("neovide")
