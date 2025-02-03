@@ -61,6 +61,15 @@ local load_project_extensions = function()
 	end
 end
 
+local load_telescope_tabs = function()
+	local ok, msg = pcall(require("telescope").load_extension, "telescope-tabs")
+	if not ok then
+		local err_msg = "failed to load telescope tabs, details: " .. msg
+		vim.notify(err_msg, vim.log.levels.ERROR, { title = "Telescope" })
+		return
+	end
+end
+
 local load_fzf_native = function()
 	local ok, msg = pcall(require("telescope").load_extension, "fzf")
 	if not ok then
@@ -99,6 +108,7 @@ local tele_config = function()
 	require("telescope").setup(tele_opts)
 	load_fzf_native()
 	load_project_extensions()
+	load_telescope_tabs()
 end
 
 local project_config = function()
@@ -125,5 +135,22 @@ return {
 	{
 		'nvim-telescope/telescope-fzf-native.nvim',
 		build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+	},
+	{
+		'LukasPietzschmann/telescope-tabs',
+		config = function()
+			require('telescope-tabs').setup({
+				entry_formatter = function(tab_id, _buffer_ids, file_names, _file_paths, is_current)
+					local entry_string = table.concat(file_names, ', ')
+					return string.format('%d: %s%s', tab_id, entry_string, is_current and ' <' or '')
+				end,
+				close_tab_shortcut_i = '<C-r>',
+				close_tab_shortcut_n = 'R',
+			})
+		end,
+		keys = {
+			{ "<leader>ft", "<cmd>Telescope telescope-tabs list_tabs<cr>" },
+		},
+		dependencies = { 'nvim-telescope/telescope.nvim' },
 	}
 }
