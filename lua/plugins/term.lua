@@ -6,16 +6,20 @@ local opts = {
 			return vim.o.columns * 0.5
 		end
 	end,
-	-- open_mapping = [[<c-\>]],
 	shell = "fish",
 	start_in_insert = false,
 	shade_terminals = false,
 };
 
+local keys = {
+	{ "<leader>t", ":ToggleTerm direction=horizontal<CR>" },
+}
+
 return {
 	{
 		'akinsho/toggleterm.nvim',
-		version = "*",
+		version = "v2.13.1",
+		keys = keys,
 		opts = opts,
 	},
 }
