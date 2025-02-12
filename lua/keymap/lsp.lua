@@ -3,7 +3,7 @@ local opt = { noremap = true, silent = true }
 return {
 	maplsp = function(mapbuf, lsp_name)
 		-- code formatting
-		mapbuf('n', '<leader>f', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opt)
+		mapbuf('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opt)
 		-- rename
 		mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
 		-- code action

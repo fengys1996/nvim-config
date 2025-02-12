@@ -49,8 +49,8 @@ require("lazy").setup({
 -- vscode
 -- tokyonight-day
 -- kanagawa
-vim.o.background = "light"
-vim.cmd("colorscheme kanagawa")
+-- vim.o.background = "light"
+vim.cmd("colorscheme dayfox")
 
 require("cmd.base")
 

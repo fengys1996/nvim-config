@@ -12,10 +12,11 @@ return {
 	},
 	{
 		'nvim-java/nvim-java',
-		enabled = false,
-		tag = "v2.0.0",
+		dependencies = { 'neovim/nvim-lspconfig' },
+		enabled = true,
+		tag = "v2.1.0",
 		config = function()
-			require('plugins.lsp.java').setup()
+			require('plugins.lsp.java_').setup()
 		end
 	},
 	{
@@ -38,11 +39,14 @@ return {
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
-		config = function()
-			require("mason").setup({
-				PATH = "append",
-			})
-		end
+		opts = {
+			PATH = "append",
+			registries = {
+				-- https://github.com/nvim-java/nvim-java/issues/315
+				'github:nvim-java/mason-registry',
+				'github:mason-org/mason-registry',
+			}
+		}
 	},
 	{
 		"saecki/crates.nvim",

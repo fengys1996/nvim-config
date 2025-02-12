@@ -7,12 +7,6 @@ local java_opts = {
 	notifications = {
 		dap = false,
 	},
-	root_markers = {
-		'.git',
-	},
-	spring_boot_tools = {
-		enable = false,
-	},
 }
 
 local jdtls_opts = {
