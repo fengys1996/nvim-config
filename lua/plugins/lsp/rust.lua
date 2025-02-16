@@ -75,7 +75,7 @@ local server_opt = {
 	root_dir = function(filename)
 		return require('rustaceanvim.cargo').get_root_dir(filename);
 	end,
-	load_vscode_settings = true,
+	load_vscode_settings = false,
 	auto_attach = is_auto_attach,
 }
 

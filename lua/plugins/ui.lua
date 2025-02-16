@@ -1,40 +1,3 @@
-local opts = {
-	options = {
-		theme = "auto",
-		component_separators = { left = "|", right = "|" },
-		globalstatus = true,
-		section_separators = { left = " ", right = "" },
-	},
-	sections = {
-		lualine_c = {
-			{
-				'filename',
-				file_status = true,
-				path = 2,
-				short_target = 40,
-				symbols = {
-					modified = '[+]', -- Text to show when the file is modified.
-					readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
-					unnamed = '[No Name]', -- Text to show for unnamed buffers.
-				}
-			},
-		},
-		lualine_x = {
-			"filesize",
-			{
-				"fileformat",
-				symbols = {
-					unix = "LF",
-					dos = "CRLF",
-					mac = "CR",
-				},
-			},
-			"encoding",
-			"filetype",
-		},
-	},
-};
-
 local bqf_opts = {
 	func_map = {
 		open = '<CR>',
@@ -76,14 +39,7 @@ local dressing_opt = {
 		start_in_insert = true,
 	}
 }
-
 return {
-	{
-		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
-		dependencies = { "kyazdani42/nvim-web-devicons", "arkav/lualine-lsp-progress", },
-		opts = opts,
-	},
 	{
 		"j-hui/fidget.nvim",
 		tag = "v1.0.0",
@@ -93,12 +49,6 @@ return {
 		"stevearc/dressing.nvim",
 		enabled = true,
 		opts = dressing_opt,
-	},
-	{
-		"danilamihailov/beacon.nvim",
-		enabled = true,
-		config = function()
-		end
 	},
 	{
 		"lewis6991/satellite.nvim",

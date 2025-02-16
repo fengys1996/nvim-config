@@ -1,5 +1,5 @@
 local opts = {
-	ensure_installed = { "lua", "rust", "toml" },
+	ensure_installed = { "lua", "rust", "toml", "java" },
 	auto_install = true,
 	highlight = {
 		enable = true,

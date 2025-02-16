@@ -9,7 +9,7 @@
 
 vim.o.cmdheight = 1
 
--- vim.cmd "colorscheme habamax"
+vim.o.laststatus = 3
 
 -- vim.opt.keymap = "dvorak"
 vim.opt.updatetime = 500
@@ -94,8 +94,3 @@ vim.diagnostic.config({
 	update_in_insert = false,
 	underline = true,
 })
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end

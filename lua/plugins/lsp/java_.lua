@@ -7,6 +7,17 @@ local java_opts = {
 	notifications = {
 		dap = false,
 	},
+	root_markers = {
+		-- 'settings.gradle',
+		-- 'settings.gradle.kts',
+		-- 'pom.xml',
+		-- 'build.gradle',
+		-- 'mvnw',
+		-- 'gradlew',
+		-- 'build.gradle',
+		-- 'build.gradle.kts',
+		'.git',
+	},
 }
 
 local jdtls_opts = {

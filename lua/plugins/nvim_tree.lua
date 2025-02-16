@@ -134,10 +134,10 @@ local opts = {
 		enable = true,
 		show_on_dirs = true,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = "H",
+			info = "I",
+			warning = "W",
+			error = "E",
 		},
 	},
 	filters = {
