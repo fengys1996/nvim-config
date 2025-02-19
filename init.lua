@@ -50,7 +50,7 @@ require("lazy").setup({
 -- tokyonight-day
 -- kanagawa
 -- vim.o.background = "light"
-vim.cmd("colorscheme nordfox")
+vim.cmd("colorscheme everforest")
 
 require("cmd.base")
 
