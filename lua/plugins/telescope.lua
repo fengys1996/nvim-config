@@ -101,6 +101,9 @@ local tele_config = function()
 			live_grep = {
 				theme = "ivy",
 			},
+			oldfiles = {
+				cwd_only = true,
+			}
 		},
 		extensions = {},
 	};
