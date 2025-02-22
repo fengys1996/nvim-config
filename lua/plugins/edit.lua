@@ -65,7 +65,7 @@ local indent_blankline = {
 return {
 	{
 		"smoka7/hop.nvim",
-		tag = "v2.5.0",
+		tag = "v2.7.2",
 		event = "VeryLazy",
 		keys = {
 			{ "s", "<cmd>HopChar2AC<cr>" },
@@ -73,31 +73,26 @@ return {
 		},
 		config = function()
 			local hop = require('hop')
-			local directions = require('hop.hint').HintDirection
+			-- local directions = require('hop.hint').HintDirection
 
 			hop.setup()
 
 			vim.keymap.set('', 'f', function()
-				hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+				hop.hint_char1({ current_line_only = true })
 			end, { remap = true })
 
-			vim.keymap.set('', 'F', function()
-				hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+			vim.keymap.set('', 's', function()
+				hop.hint_char2({ })
+			end, { remap = true })
+
+			vim.keymap.set('', 'S', function()
+				hop.hint_char2({ multi_windows = true })
 			end, { remap = true })
 
 			vim.keymap.set('', 't', function()
 				hop.hint_char1({
-					direction = directions.AFTER_CURSOR,
 					current_line_only = true,
 					hint_offset = -1
-				})
-			end, { remap = true })
-
-			vim.keymap.set('', 'T', function()
-				hop.hint_char1({
-					direction = directions.BEFORE_CURSOR,
-					current_line_only = true,
-					hint_offset = 1
 				})
 			end, { remap = true })
 		end
