@@ -52,7 +52,7 @@ return {
 		"saecki/crates.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
 		event = "VeryLazy",
-		tag = "v0.5.2",
+		tag = "v0.6.0",
 		config = true,
 	},
 }
