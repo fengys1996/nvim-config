@@ -33,6 +33,21 @@ local function nord_config()
 	vim.g.nord_bold = false
 end
 
+local function everforest_config()
+	require("everforest").setup({
+		-- options are "soft", "medium" or "hard".
+		background = "medium",
+		transparent_background_level = 0,
+		italics = false,
+		disable_italic_comments = true,
+		sign_column_background = "none",
+		on_highlights = function(hl, palette)
+			hl.NvimTreeNormal = { fg = palette.none, bg = palette.none, sp = palette.none }
+			hl.NvimTreeEndOfBuffer = { fg = palette.none, bg = palette.none, sp = palette.none }
+		end,
+	})
+end
+
 return {
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -86,5 +101,6 @@ return {
 		"neanias/everforest-nvim",
 		lazy = false,
 		priority = 1000,
+		config = everforest_config
 	},
 }
