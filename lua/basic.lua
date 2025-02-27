@@ -9,6 +9,8 @@
 
 vim.o.cmdheight = 1
 
+vim.o.jumpoptions = "stack"
+
 vim.o.laststatus = 3
 
 -- vim.opt.keymap = "dvorak"
