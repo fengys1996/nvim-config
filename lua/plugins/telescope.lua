@@ -14,6 +14,7 @@ local tele_shortcut_key = {
 	{ "<C-e>",      "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
 	{ "<leader>fe", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
 	{ "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<cr>" },
+	{ "<leader>fs", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>" },
 
 	{ "<C-e>",      "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
 }
