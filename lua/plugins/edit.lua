@@ -34,32 +34,19 @@ local illuminate = function()
 end
 
 local symbols = {
-	highlight_hovered_item = true,
-	auto_preview = false,
-	show_relative_numbers = true,
-	width = 20,
-	keymaps = {
-		close = { "<Esc>", "q" },
-		goto_location = "<Cr>",
-		focus_location = "o",
-		hover_symbol = "<C-space>",
-		toggle_preview = "K",
-		rename_symbol = "r",
-		code_actions = "a",
-		fold = "h",
-		unfold = "l",
-		fold_all = "W",
-		unfold_all = "E",
-		fold_reset = "R",
+	outline_window = {
+		position = "right",
+		show_numbers = true,
+		show_relative_numbers = true,
+		width = 20,
 	},
-}
-
-local indent_blankline = {
-	enabled = true,
-	debounce = 100,
-	indent = { char = "▏" },
-	whitespace = { highlight = { "Whitespace", "NonText" } },
-	scope = { exclude = { language = { "lua" } } },
+	symbol_folding = {
+		autofold_depth = false,
+		auto_unfold = {
+			hovered = true,
+			only = true,
+		},
+	},
 }
 
 return {
@@ -82,7 +69,7 @@ return {
 			end, { remap = true })
 
 			vim.keymap.set('', 's', function()
-				hop.hint_char2({ })
+				hop.hint_char2({})
 			end, { remap = true })
 
 			vim.keymap.set('', 'S', function()
@@ -125,18 +112,10 @@ return {
 		config = illuminate,
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		enabled = false,
-		tag = "v3.8.1",
-		event = "VeryLazy",
-		main = "ibl",
-		opts = indent_blankline,
-	},
-	{
-		"simrat39/symbols-outline.nvim",
+		"hedyhli/outline.nvim",
 		enabled = true,
 		keys = {
-			{ "<A-n>", "<cmd>SymbolsOutline<cr>", mode = { "n", "i", "t" } },
+			{ "<A-n>", "<cmd>Outline<cr>", mode = { "n", "i", "t" } },
 		},
 		event = "VeryLazy",
 		opts = symbols,
