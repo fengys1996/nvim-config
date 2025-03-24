@@ -30,9 +30,15 @@ local rust_analyzer_settings = {
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 		},
-		numThreads = 4,
+		numThreads = 8,
 		procMacro = {
 			enable = true,
+		},
+		lens = {
+			enable = false,
+		},
+		lru = {
+			capacity = 512,
 		},
 	},
 }

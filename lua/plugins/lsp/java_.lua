@@ -18,6 +18,9 @@ local java_opts = {
 		-- 'build.gradle.kts',
 		'.git',
 	},
+	spring_boot_tools = {
+		enable = false,
+	},
 }
 
 local jdtls_opts = {

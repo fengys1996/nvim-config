@@ -92,7 +92,7 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
-		event = "VeryLazy",
+		event = "InsertEnter",
 		config = true,
 	},
 	{
