@@ -26,11 +26,16 @@ local rust_analyzer_settings = {
 		checkOnSave = false,
 		check = {
 			command = "check",
-			extraArgs = { "-j", "6" },
+			-- If false, -p <package> will be passed instead if applicable.
+			workspace = false,
+			-- extraArgs = { "-j", "6" },
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 		},
-		numThreads = 8,
+		-- numThreads = 8,
+		cargo = {
+			targetDir = true,
+		},
 		procMacro = {
 			enable = true,
 		},
