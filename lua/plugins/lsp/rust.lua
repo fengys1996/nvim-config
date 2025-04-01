@@ -23,28 +23,36 @@ local rust_analyzer_settings = {
 		-- },
 		-- If project is very large, it may take a long time, so it
 		-- is recommended to disable it when your project is very large.
-		checkOnSave = false,
+		-- checkOnSave = false,
 		check = {
 			command = "check",
 			-- If false, -p <package> will be passed instead if applicable.
-			workspace = false,
+			-- workspace = false,
 			-- extraArgs = { "-j", "6" },
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 		},
 		-- numThreads = 8,
-		cargo = {
-			targetDir = true,
-		},
-		procMacro = {
-			enable = true,
-		},
-		lens = {
-			enable = false,
-		},
-		lru = {
-			capacity = 512,
-		},
+		-- cargo = {
+		-- 	-- targetDir = true,
+		-- 	buildScripts = {
+		-- 		rebuildOnSave = false,
+		-- 	},
+		-- },
+		-- procMacro = {
+		-- 	enable = true,
+		-- 	-- enable = false,
+		-- },
+		-- lens = {
+		-- 	enable = false,
+		-- },
+		-- lru = {
+		-- 	capacity = 512,
+		-- },
+		-- diagnostics = {
+		-- 	enable = true,
+		-- 	enableExperimental = true,
+		-- },
 	},
 }
 
@@ -88,6 +96,9 @@ local server_opt = {
 	end,
 	load_vscode_settings = false,
 	auto_attach = is_auto_attach,
+	-- cmd = function()
+	-- 	return { '/home/fys/source/rust-analyzer/target/release/rust-analyzer', '--log-file', '/tmp/ra.log' }
+	-- end,
 }
 
 function module.setup()
