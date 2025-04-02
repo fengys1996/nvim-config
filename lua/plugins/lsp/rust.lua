@@ -94,7 +94,7 @@ local server_opt = {
 	root_dir = function(filename)
 		return require('rustaceanvim.cargo').get_root_dir(filename);
 	end,
-	load_vscode_settings = false,
+	load_vscode_settings = true,
 	auto_attach = is_auto_attach,
 	-- cmd = function()
 	-- 	return { '/home/fys/source/rust-analyzer/target/release/rust-analyzer', '--log-file', '/tmp/ra.log' }
