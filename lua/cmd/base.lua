@@ -64,5 +64,5 @@ vim.api.nvim_create_user_command(
 -- Autocmds
 
 -- Format on save for rust, go
-vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.format{async = true}]]
+-- vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.format{async = true}]]
 vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format{async = true}]]
