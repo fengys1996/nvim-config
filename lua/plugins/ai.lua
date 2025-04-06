@@ -19,9 +19,21 @@ local adapters_config = {
 
 return {
 	{
+		'MeanderingProgrammer/render-markdown.nvim',
+		ft = { "markdown", "codecompanion" },
+		dependencies = { 'nvim-treesitter/nvim-treesitter' },
+		opts = {
+			render_modes = true,
+			sign = {
+				enabled = false,
+			},
+		},
+	},
+	{
 		"olimorris/codecompanion.nvim",
 		dependencies = {
-			"j-hui/fidget.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
 		},
 		keys = {
 			{
