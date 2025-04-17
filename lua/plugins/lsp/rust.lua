@@ -33,12 +33,13 @@ local rust_analyzer_settings = {
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
 		},
 		-- numThreads = 8,
-		-- cargo = {
-		-- 	-- targetDir = true,
-		-- 	buildScripts = {
-		-- 		rebuildOnSave = false,
-		-- 	},
-		-- },
+		cargo = {
+			-- autoreload = false,
+			-- 	-- targetDir = true,
+			-- 	buildScripts = {
+			-- 		rebuildOnSave = false,
+			-- 	},
+		},
 		-- procMacro = {
 		-- 	enable = true,
 		-- 	-- enable = false,
@@ -50,8 +51,7 @@ local rust_analyzer_settings = {
 		-- 	capacity = 512,
 		-- },
 		-- diagnostics = {
-		-- 	enable = true,
-		-- 	enableExperimental = true,
+		-- 	enable = false,
 		-- },
 	},
 }
@@ -73,31 +73,28 @@ local server_opt = {
 	default_settings = rust_analyzer_settings,
 	-- capabilities = capabilities,
 	-- https://github.com/hrsh7th/cmp-nvim-lsp/issues/72
-	capabilities =
-	    require("cmp_nvim_lsp").default_capabilities(
-		    {
-			    resolveSupport = {
-				    properties = {
-					    "documentation",
-					    "detail",
-					    "additionalTextEdits",
-					    "sortText",
-					    "filterText",
-					    "insertText",
-					    "insertTextFormat",
-					    "insertTextMode"
-				    }
-			    }
-		    }
-	    ),
+	-- capabilities =
+	--     require("cmp_nvim_lsp").default_capabilities(
+	-- 	    {
+	-- 		    resolveSupport = {
+	-- 			    properties = {
+	-- 				    "documentation",
+	-- 				    "detail",
+	-- 				    "additionalTextEdits",
+	-- 				    "sortText",
+	-- 				    "filterText",
+	-- 				    "insertText",
+	-- 				    "insertTextFormat",
+	-- 				    "insertTextMode"
+	-- 			    }
+	-- 		    }
+	-- 	    }
+	--     ),
 	on_attach = server_on_attach,
-	root_dir = function(filename)
-		return require('rustaceanvim.cargo').get_root_dir(filename);
-	end,
 	load_vscode_settings = true,
 	auto_attach = is_auto_attach,
 	-- cmd = function()
-	-- 	return { '/home/fys/source/rust-analyzer/target/release/rust-analyzer', '--log-file', '/tmp/ra.log' }
+	-- 	return { '/home/fys/projects/rust-analyzer/target/release/rust-analyzer', '--log-file', '/tmp/ra.log' }
 	-- end,
 }
 
@@ -106,7 +103,7 @@ function module.setup()
 		tools = {
 			executor = "termopen",
 			test_executor = "termopen",
-			reload_workspace_from_cargo_toml = true,
+			reload_workspace_from_cargo_toml = false,
 		},
 		server = server_opt,
 	}
