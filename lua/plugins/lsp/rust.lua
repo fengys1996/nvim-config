@@ -63,9 +63,6 @@ local server_on_attach = function(_client, bufnr)
 	require("keymap.lsp").maplsp(mapbuf, "rust")
 end
 
--- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers.
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local server_opt = {
@@ -73,24 +70,6 @@ local server_opt = {
 	settings = rust_analyzer_settings,
 	-- default_settings = rust_analyzer_settings,
 	capabilities = capabilities,
-	-- https://github.com/hrsh7th/cmp-nvim-lsp/issues/72
-	-- capabilities =
-	--     require("cmp_nvim_lsp").default_capabilities(
-	-- 	    {
-	-- 		    resolveSupport = {
-	-- 			    properties = {
-	-- 				    "documentation",
-	-- 				    "detail",
-	-- 				    "additionalTextEdits",
-	-- 				    "sortText",
-	-- 				    "filterText",
-	-- 				    "insertText",
-	-- 				    "insertTextFormat",
-	-- 				    "insertTextMode"
-	-- 			    }
-	-- 		    }
-	-- 	    }
-	--     ),
 	on_attach = server_on_attach,
 	load_vscode_settings = true,
 	auto_attach = is_auto_attach,

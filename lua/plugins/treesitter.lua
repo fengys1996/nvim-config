@@ -1,5 +1,5 @@
 local opts = {
-	ensure_installed = { "lua", "rust", "toml", "java" },
+	ensure_installed = { "lua", "rust", "toml", "java", "go" },
 	auto_install = true,
 	highlight = {
 		enable = true,
@@ -9,7 +9,7 @@ local opts = {
 	rainbow = {
 		enable = true,
 		extended_mode = true,
-		max_file_lines = nil,
+		-- max_file_lines = nil,
 	}
 }
 
@@ -19,6 +19,8 @@ return {
 		version = false,
 		build = ":TSUpdate",
 		event = "BufReadPost",
-		opts = opts,
+		config = function()
+			require("nvim-treesitter.configs").setup(opts)
+		end,
 	},
 }

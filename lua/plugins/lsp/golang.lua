@@ -1,24 +1,10 @@
 local module = {}
 
--- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers.
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 function module.setup()
 	require 'lspconfig'.gopls.setup {
-		autostart = false,
-		settings = {
-			gopls = {
-				hints = {
-					assignVariableTypes = true,
-					compositeLiteralFields = true,
-					compositeLiteralTypes = true,
-					constantValues = true,
-					functionTypeParameters = true,
-					parameterNames = true,
-					rangeVariableTypes = true
-				}
-			},
-		},
+		autostart = true,
 		capabilities = capabilities,
 		on_attach = function(_, bufnr)
 			local function mapbuf(...)
