@@ -56,3 +56,6 @@ vim.cmd("colorscheme dayfox")
 require("cmd.base")
 
 require("custom.colorcolumn").setup()
+
+-- Since https://github.com/neovim/neovim/pull/32383
+vim.cmd("hi link qftext LineNr")
