@@ -23,11 +23,11 @@ local rust_analyzer_settings = {
 		-- },
 		-- If project is very large, it may take a long time, so it
 		-- is recommended to disable it when your project is very large.
-		-- checkOnSave = false,
+		checkOnSave = false,
 		check = {
-			command = "check",
+			-- command = "check",
 			-- If false, -p <package> will be passed instead if applicable.
-			-- workspace = false,
+			workspace = false,
 			-- extraArgs = { "-j", "6" },
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
@@ -41,18 +41,17 @@ local rust_analyzer_settings = {
 			-- 	},
 		},
 		-- procMacro = {
-		-- 	enable = true,
-		-- 	-- enable = false,
-		-- },
-		-- lens = {
 		-- 	enable = false,
 		-- },
-		-- lru = {
-		-- 	capacity = 512,
-		-- },
-		-- diagnostics = {
-		-- 	enable = false,
-		-- },
+		lens = {
+			enable = false,
+		},
+		lru = {
+			capacity = 512,
+		},
+		diagnostics = {
+			enable = false,
+		},
 	},
 }
 
@@ -67,11 +66,13 @@ end
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers.
 -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+
 local server_opt = {
 	standalone = false,
 	settings = rust_analyzer_settings,
-	default_settings = rust_analyzer_settings,
-	-- capabilities = capabilities,
+	-- default_settings = rust_analyzer_settings,
+	capabilities = capabilities,
 	-- https://github.com/hrsh7th/cmp-nvim-lsp/issues/72
 	-- capabilities =
 	--     require("cmp_nvim_lsp").default_capabilities(
