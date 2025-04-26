@@ -27,7 +27,7 @@ local rust_analyzer_settings = {
 		check = {
 			-- command = "check",
 			-- If false, -p <package> will be passed instead if applicable.
-			workspace = false,
+			-- workspace = false,
 			-- extraArgs = { "-j", "6" },
 			-- allTargets = false,
 			-- extraArgs = { "--target", "riscv64gc-unknown-none-elf" },
@@ -43,15 +43,15 @@ local rust_analyzer_settings = {
 		-- procMacro = {
 		-- 	enable = false,
 		-- },
-		lens = {
-			enable = false,
-		},
-		lru = {
-			capacity = 512,
-		},
-		diagnostics = {
-			enable = false,
-		},
+		-- lens = {
+		-- 	enable = false,
+		-- },
+		-- lru = {
+		-- 	capacity = 512,
+		-- },
+		-- diagnostics = {
+		-- 	enable = false,
+		-- },
 	},
 }
 
@@ -83,7 +83,7 @@ function module.setup()
 		tools = {
 			executor = "termopen",
 			test_executor = "termopen",
-			reload_workspace_from_cargo_toml = false,
+			-- reload_workspace_from_cargo_toml = false,
 		},
 		server = server_opt,
 	}

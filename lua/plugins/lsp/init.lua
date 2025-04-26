@@ -41,7 +41,7 @@ return {
 		"williamboman/mason.nvim",
 		cmd = "Mason",
 		opts = {
-			PATH = "append",
+			-- PATH = "append",
 			registries = {
 				-- https://github.com/nvim-java/nvim-java/issues/315
 				'github:nvim-java/mason-registry',
