@@ -24,14 +24,15 @@ return {
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
 		keymap = {
-			preset = 'enter',
+			preset = 'none',
 			['<C-k>'] = { 'select_prev', 'fallback_to_mappings' },
 			['<C-j>'] = { 'select_next', 'fallback_to_mappings' },
 			['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
 			['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
-			['<C-K>'] = { 'show_signature', 'hide_signature', 'fallback' },
-			['<C-e>'] = { 'hide' },
-			['Tab'] = {},
+			['<C-e>'] = { 'hide', "fallback" },
+			['<C-y>'] = { 'accept', "fallback" },
+			['<CR>'] = { 'accept', 'fallback' },
+			['<Tab'] = { },
 		},
 
 		appearance = {
@@ -45,8 +46,13 @@ return {
 			ghost_text = { enabled = false },
 			list = {
 				selection = {
-					preselect = false,
-					auto_insert = true
+					preselect = function(_)
+						local is_nvim_tree = vim.bo.filetype == 'NvimTree'
+						local is_dressing = vim.bo.filetype == 'DressingInput'
+
+						return not is_nvim_tree and not is_dressing
+					end,
+					auto_insert = false
 				},
 			}
 		},
@@ -62,7 +68,30 @@ return {
 		-- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
 		--
 		-- See the fuzzy documentation for more information
-		fuzzy = { implementation = "prefer_rust_with_warning" }
+		fuzzy = { implementation = "prefer_rust_with_warning" },
+
+		cmdline = {
+			enabled = true,
+			keymap = {
+				preset = 'none',
+				['<Tab>'] = {
+					function(cmp)
+						if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then
+							return cmp
+							    .accept()
+						end
+					end,
+					'show_and_insert',
+					'select_next',
+				},
+				['<S-Tab>'] = { 'show_and_insert', 'select_prev' },
+				['<C-j>'] = { 'select_next', 'fallback' },
+				['<C-k>'] = { 'select_prev', 'fallback' },
+				['<C-y>'] = { 'select_and_accept' },
+				['<C-e>'] = { 'cancel' },
+			},
+		},
 	},
+
 	opts_extend = { "sources.default" }
 }

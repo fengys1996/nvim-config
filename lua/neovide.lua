@@ -1,7 +1,10 @@
 if vim.g.is_neovide then
 	vim.g.neovide_cursor_animation_length = 0
 	vim.g.neovide_scroll_animation_far_lines = 0
-	vim.g.neovide_cursor_animate_in_insert_mode = true
+	vim.g.neovide_cursor_animate_in_insert_mode = false
+
+	vim.g.neovide_scroll_animation_far_lines = 0
+	vim.g.neovide_scroll_animation_length = 0
 
 	vim.g.neovide_cursor_trail_size = 0
 

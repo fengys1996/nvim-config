@@ -7,6 +7,7 @@ return {
 			require("plugins.lsp.golang").setup()
 			require("plugins.lsp.erlang").setup()
 			require("plugins.lsp.clangd").setup()
+			require("plugins.lsp.proto").setup()
 		end
 
 	},
@@ -41,7 +42,7 @@ return {
 		"williamboman/mason.nvim",
 		cmd = "Mason",
 		opts = {
-			-- PATH = "append",
+			PATH = "append",
 			registries = {
 				-- https://github.com/nvim-java/nvim-java/issues/315
 				'github:nvim-java/mason-registry',
