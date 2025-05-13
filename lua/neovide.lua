@@ -19,7 +19,7 @@ if vim.g.is_neovide then
 	-- vim.o.guifont = "GoMono_Nerd_Font:h10:b"  'b' mean: bold
 	-- font style.  'i' mean: font italic style
 	-- vim.o.guifont = "JetBrains_Mono:h9"
-	vim.o.guifont = "Monaspicekr_Nerd_Font:h10"
+	-- vim.o.guifont = "Monaspicekr_Nerd_Font:h10"
 	vim.opt.linespace = 2
 
 	-- vim.g.neovide_text_gamma = 0.0

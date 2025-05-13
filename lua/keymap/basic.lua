@@ -11,10 +11,6 @@ local map = vim.api.nvim_set_keymap
 map("n", "q", "", opt)
 map("v", "q", "", opt)
 
--- system copy and paste
-map("n", "<leader>p", '"+p', opt)
-map("v", "<leader>y", '"+y', opt)
-
 -- go up and down
 map("n", "<C-j>", "4j", opt)
 map("n", "<C-k>", "4k", opt)

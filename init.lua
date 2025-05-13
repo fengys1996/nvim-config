@@ -11,7 +11,6 @@ end
 
 require("basic")
 require("keymap.basic")
-require("neovide")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -50,8 +49,8 @@ require("lazy").setup({
 -- tokyonight-day
 -- kanagawa
 -- vim.o.background = "light"
--- vim.cmd("colorscheme everforest")
-vim.cmd("colorscheme kanagawa-lotus")
+vim.cmd("colorscheme dayfox")
+-- vim.cmd("colorscheme kanagawa-lotus")
 
 require("cmd.base")
 
@@ -59,3 +58,6 @@ require("custom.colorcolumn").setup()
 
 -- Since https://github.com/neovim/neovim/pull/32383
 vim.cmd("hi link qftext LineNr")
+
+vim.o.runtimepath = vim.o.runtimepath .. "," .. "/home/fys/.config/nvim-rs"
+require("neovide")
