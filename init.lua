@@ -50,6 +50,7 @@ require("lazy").setup({
 -- kanagawa
 -- vim.o.background = "light"
 vim.cmd("colorscheme dayfox")
+-- vim.cmd("colorscheme everforest")
 -- vim.cmd("colorscheme kanagawa-lotus")
 
 require("cmd.base")
@@ -61,3 +62,4 @@ vim.cmd("hi link qftext LineNr")
 
 vim.o.runtimepath = vim.o.runtimepath .. "," .. "/home/fys/.config/nvim-rs"
 require("neovide")
+require("lspinit")

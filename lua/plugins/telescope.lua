@@ -15,7 +15,9 @@ local tele_shortcut_key = {
 	{ "<leader>fe", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
 	{ "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<cr>" },
 	{ "<leader>fs", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>" },
+	{ "<leader>m", "<cmd>lua require('telescope.builtin').marks()<cr>" },
 
+	{ "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>" },
 	{ "<C-e>",      "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
 }
 
@@ -110,7 +112,7 @@ local tele_config = function()
 	};
 
 	require("telescope").setup(tele_opts)
-	load_fzf_native()
+	-- load_fzf_native()
 	load_project_extensions()
 	load_telescope_tabs()
 end

@@ -49,40 +49,46 @@ local symbols = {
 	},
 }
 
+local config_hop = function()
+	local hop = require('hop')
+	-- local directions = require('hop.hint').HintDirection
+
+	hop.setup()
+
+	vim.keymap.set('', 'f', function()
+		hop.hint_char1({ current_line_only = true })
+	end, { remap = true })
+
+	vim.keymap.set('', 's', function()
+		hop.hint_char2({})
+	end, { remap = true })
+
+	vim.keymap.set('', 'S', function()
+		hop.hint_char2({ multi_windows = true })
+	end, { remap = true })
+
+	vim.keymap.set('', 't', function()
+		hop.hint_char1({
+			current_line_only = true,
+			hint_offset = -1
+		})
+	end, { remap = true })
+end
+
+local config_mark = function()
+	local opt = {
+		default_mappings = true,
+		mappings = {}
+	};
+
+	require 'marks'.setup(opt)
+end
+
 return {
 	{
 		"smoka7/hop.nvim",
 		tag = "v2.7.2",
-		event = "VeryLazy",
-		keys = {
-			{ "s", "<cmd>HopChar2AC<cr>" },
-			{ "S", "<cmd>HopChar2BC<cr>" },
-		},
-		config = function()
-			local hop = require('hop')
-			-- local directions = require('hop.hint').HintDirection
-
-			hop.setup()
-
-			vim.keymap.set('', 'f', function()
-				hop.hint_char1({ current_line_only = true })
-			end, { remap = true })
-
-			vim.keymap.set('', 's', function()
-				hop.hint_char2({})
-			end, { remap = true })
-
-			vim.keymap.set('', 'S', function()
-				hop.hint_char2({ multi_windows = true })
-			end, { remap = true })
-
-			vim.keymap.set('', 't', function()
-				hop.hint_char1({
-					current_line_only = true,
-					hint_offset = -1
-				})
-			end, { remap = true })
-		end
+		config = config_hop,
 	},
 	{
 		"tpope/vim-surround",
@@ -119,5 +125,11 @@ return {
 		},
 		event = "VeryLazy",
 		opts = symbols,
+	},
+	{
+		"chentoast/marks.nvim",
+		enabled = true,
+		event = "VeryLazy",
+		config = config_mark,
 	}
 }

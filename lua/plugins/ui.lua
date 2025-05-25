@@ -47,7 +47,7 @@ return {
 	},
 	{
 		"stevearc/dressing.nvim",
-		enabled = false,
+		enabled = true,
 		opts = dressing_opt,
 	},
 	{

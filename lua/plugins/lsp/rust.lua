@@ -55,12 +55,8 @@ local rust_analyzer_settings = {
 	},
 }
 
-local server_on_attach = function(_client, bufnr)
-	local function mapbuf(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
-
-	require("keymap.lsp").maplsp(mapbuf, "rust")
+local server_on_attach = function(_client, _bufnr)
+	-- do nothing
 end
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
@@ -73,6 +69,19 @@ local server_opt = {
 	on_attach = server_on_attach,
 	load_vscode_settings = true,
 	auto_attach = is_auto_attach,
+	root_dir = function(file_name, default_func)
+		local db_ent = string.find(file_name, "/home/fys/source/greptimedb%-enterprise/")
+		if db_ent then
+			return "/home/fys/source/greptimedb-enterprise/"
+		end
+
+		local db = string.find(file_name, "/home/fys/projects/greptimedb/")
+		if db then
+			return "/home/fys/projects/greptimedb/"
+		end
+
+		return default_func(file_name);
+	end
 	-- cmd = function()
 	-- 	return { '/home/fys/projects/rust-analyzer/target/release/rust-analyzer', '--log-file', '/tmp/ra.log' }
 	-- end,

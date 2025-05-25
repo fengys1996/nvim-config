@@ -1,25 +1,25 @@
 return {
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig" },
-		config = function()
-			require("plugins.lsp.lua").setup()
-			require("plugins.lsp.golang").setup()
-			require("plugins.lsp.erlang").setup()
-			require("plugins.lsp.clangd").setup()
-			require("plugins.lsp.proto").setup()
-		end
-
-	},
-	{
-		'nvim-java/nvim-java',
-		dependencies = { 'neovim/nvim-lspconfig' },
-		enabled = true,
-		tag = "v2.1.0",
-		config = function()
-			require('plugins.lsp.java_').setup()
-		end
-	},
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig" },
+	-- 	config = function()
+	-- 		require("plugins.lsp.lua").setup()
+	-- 		require("plugins.lsp.golang").setup()
+	-- 		require("plugins.lsp.erlang").setup()
+	-- 		require("plugins.lsp.clangd").setup()
+	-- 		require("plugins.lsp.proto").setup()
+	-- 	end
+	--
+	-- },
+	-- {
+	-- 	'nvim-java/nvim-java',
+	-- 	dependencies = { 'neovim/nvim-lspconfig' },
+	-- 	enabled = true,
+	-- 	tag = "v2.1.0",
+	-- 	config = function()
+	-- 		require('plugins.lsp.java_').setup()
+	-- 	end
+	-- },
 	{
 		'mrcjkb/rustaceanvim',
 		-- dir = '/home/fys/source/rustaceanvim',
@@ -42,10 +42,11 @@ return {
 		"williamboman/mason.nvim",
 		cmd = "Mason",
 		opts = {
-			PATH = "append",
+			-- install_root_dir = require("config").language_server_bin_path,
+			-- PATH = "append",
 			registries = {
 				-- https://github.com/nvim-java/nvim-java/issues/315
-				'github:nvim-java/mason-registry',
+				-- 'github:nvim-java/mason-registry',
 				'github:mason-org/mason-registry',
 			}
 		}
