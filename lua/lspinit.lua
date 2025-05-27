@@ -3,6 +3,10 @@ vim.lsp.enable({ 'lua', "go", "clangd", "erlang" })
 local opt = { noremap = true, silent = true }
 
 local function maplsp(mapbuf, lsp_name)
+	if lsp_name == "GitHub Copilot" then
+		return
+	end
+
 	-- goto xxx
 	mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
 	mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
@@ -72,4 +76,3 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 vim.lsp.config('*', {
 	capabilities = capabilities,
 })
-
