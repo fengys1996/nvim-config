@@ -14,6 +14,14 @@ function module.disable_auto_attach()
 	enable_auto_attach = false
 end
 
+local function prefer_roots()
+	return {
+		"/home/fys/source/greptimedb-enterprise/",
+		"/home/fys/projects/greptimedb-enterprise/",
+		"/home/fys/projects/greptimedb/",
+	}
+end
+
 local rust_analyzer_settings = {
 	["rust-analyzer"] = {
 		-- The server path would be overriden by mason-lspconfig.nvim.
@@ -70,14 +78,12 @@ local server_opt = {
 	load_vscode_settings = true,
 	auto_attach = is_auto_attach,
 	root_dir = function(file_name, default_func)
-		local db_ent = string.find(file_name, "/home/fys/source/greptimedb%-enterprise/")
-		if db_ent then
-			return "/home/fys/source/greptimedb-enterprise/"
-		end
-
-		local db = string.find(file_name, "/home/fys/projects/greptimedb/")
-		if db then
-			return "/home/fys/projects/greptimedb/"
+		for _, root in ipairs(prefer_roots()) do
+			-- Escape hyphens for pattern matching
+			local escaped_root = root:gsub("%-", "%%-")
+			if string.find(file_name, escaped_root) then
+				return root
+			end
 		end
 
 		return default_func(file_name);
