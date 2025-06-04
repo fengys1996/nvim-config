@@ -69,3 +69,6 @@ map("t", "<A-l>", [[ <C-\><C-N><C-w>l ]], opt)
 map("n", "<leader>cl", ":lua require'custom.cargo'.clippy()<CR>", opt)
 map("n", "<leader>ch", ":lua require'custom.cargo'.check()<CR>", opt)
 map("n", "<leader>ct", ":lua require'custom.cargo'.test()<CR>", opt)
+
+map("v", "<leader>y", '"+y', opt)
+map("n", "<leader>p", '"+p', opt)
