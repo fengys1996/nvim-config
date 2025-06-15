@@ -47,8 +47,8 @@ return {
 		opts = {
 			adapters = adapters_config,
 			strategies = {
-				chat = { adapter = "copilot" },
-				inline = { adapter = "copilot" },
+				chat = { adapter = "deepseek" },
+				inline = { adapter = "deepseek" },
 			},
 		}
 	}
