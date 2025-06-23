@@ -35,20 +35,11 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
-		keys = {
-			{
-				"<leader>k",
-				function()
-					require("codecompanion").toggle()
-				end,
-				desc = "Toggle Code Companion",
-			},
-		},
 		opts = {
 			adapters = adapters_config,
 			strategies = {
-				chat = { adapter = "deepseek" },
-				inline = { adapter = "deepseek" },
+				chat = { adapter = "copilot" },
+				inline = { adapter = "copilot" },
 			},
 		}
 	}

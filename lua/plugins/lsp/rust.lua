@@ -19,6 +19,7 @@ local function prefer_roots()
 		"/home/fys/source/greptimedb-enterprise/",
 		"/home/fys/projects/greptimedb-enterprise/",
 		"/home/fys/projects/greptimedb/",
+		"/home/fys/projects/ent/",
 	}
 end
 
