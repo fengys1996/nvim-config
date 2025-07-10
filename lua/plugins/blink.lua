@@ -1,7 +1,10 @@
 return {
 	'saghen/blink.cmp',
 	-- optional: provides snippets for the snippet source
-	dependencies = { 'rafamadriz/friendly-snippets' },
+	dependencies = {
+		'rafamadriz/friendly-snippets',
+		'hrsh7th/cmp-buffer',
+	},
 
 	-- use a release tag to download pre-built binaries
 	version = '1.*',
@@ -26,13 +29,22 @@ return {
 		keymap = {
 			preset = 'none',
 			['<C-k>'] = { 'select_prev', 'fallback_to_mappings' },
-			['<C-j>'] = { 'select_next', 'fallback_to_mappings' },
+			['<C-j>'] = {
+				function(cmp)
+					if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then
+						return cmp
+						    .accept()
+					end
+				end,
+				'show_and_insert',
+				'select_next',
+			},
 			['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
 			['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
-			['<C-e>'] = { 'hide', "fallback" },
+			['<C-e>'] = { 'hide', "show" },
 			['<C-y>'] = { 'accept', "fallback" },
 			['<CR>'] = { 'accept', 'fallback' },
-			['<Tab'] = { },
+			['<Tab'] = {},
 		},
 
 		appearance = {
@@ -60,11 +72,18 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { 'lsp', 'path', 'snippets', 'buffer' },
+			default = { 'lsp', 'path', 'snippets', 'cmpbuffer' },
 			providers = {
 				path = {
 					opts = {
 						show_hidden_files_by_default = true,
+					}
+				},
+				cmpbuffer = {
+					name = 'buffer',
+					module = 'blink.compat.source',
+					opts = {
+						keyword_pattern = [[\k\+]],
 					}
 				},
 			}
@@ -79,6 +98,12 @@ return {
 
 		cmdline = {
 			enabled = true,
+			sources = function()
+				local type = vim.fn.getcmdtype()
+				if type == '/' or type == '?' then return { 'cmpbuffer' } end
+				if type == ':' or type == '@' then return { 'cmdline', 'path', 'cmpbuffer' } end
+				return {}
+			end,
 			keymap = {
 				preset = 'none',
 				['<Tab>'] = {
@@ -92,11 +117,21 @@ return {
 					'select_next',
 				},
 				['<S-Tab>'] = { 'show_and_insert', 'select_prev' },
-				['<C-j>'] = { 'select_next', 'fallback' },
+				['<C-j>'] = {
+					function(cmp)
+						if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then
+							return cmp
+							    .accept()
+						end
+					end,
+					'show_and_insert',
+					'select_next',
+				},
 				['<C-k>'] = { 'select_prev', 'fallback' },
 				['<C-y>'] = { 'select_and_accept' },
-				['<C-e>'] = { 'cancel' },
+				['<C-e>'] = { 'hide', "show" },
 			},
+			completion = { menu = { auto_show = true } },
 		},
 	},
 
