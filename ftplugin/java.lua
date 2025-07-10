@@ -1,6 +1,6 @@
 local config = {
 	cmd = { 'jdtls' },
-	on_attach = function(client, bufnr)
+	on_attach = function(_, bufnr)
 		local function mapbuf(...)
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
 		end
