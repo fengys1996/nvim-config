@@ -23,7 +23,7 @@ return {
 		dependencies = { "williamboman/mason.nvim" },
 		opts = {
 			-- rust-analyzer is managed by rustup, different toolchains have different rust-analyzers.
-			ensure_installed = { "lua_ls", "taplo", "gopls", "clangd" }
+			-- ensure_installed = { "lua_ls", "taplo", "gopls", "clangd" }
 		}
 
 	},
