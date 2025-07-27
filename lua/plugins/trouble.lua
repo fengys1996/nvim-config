@@ -1,5 +1,9 @@
 local keys = {
-	{ "<leader>xx", ":TroubleToggle<cr>" },
+	{
+		"<leader>xx",
+		"<cmd>Trouble diagnostics toggle<cr>",
+		desc = "Diagnostics (Trouble)",
+	},
 }
 
 return {

@@ -104,4 +104,9 @@ return {
 		priority = 1000,
 		config = everforest_config
 	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+	},
 }

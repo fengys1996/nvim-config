@@ -49,6 +49,8 @@ require("lazy").setup({
 -- tokyonight-day
 -- kanagawa
 -- vim.o.background = "light"
+-- vim.o.background = "dark"
+-- vim.cmd("colorscheme gruvbox")
 vim.cmd("colorscheme dayfox")
 -- vim.cmd("colorscheme everforest")
 -- vim.cmd("colorscheme kanagawa-lotus")
