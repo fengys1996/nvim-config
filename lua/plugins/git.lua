@@ -44,9 +44,7 @@ local gitsigns_opts = {
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		-- Why this commit?
-		-- See https://github.com/lewis6991/gitsigns.nvim/issues/1127.
-		tag = "v0.8.1",
+		tag = "v1.0.2",
 		event = "VeryLazy",
 		config = function()
 			require('gitsigns').setup(gitsigns_opts)
