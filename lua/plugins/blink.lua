@@ -1,3 +1,24 @@
+local kind_icon = {
+	text = function(ctx)
+		local icon = ctx.kind_icon
+		local source_name = vim.fn.toupper(ctx.source_name)
+		if vim.tbl_contains({ "PATH" }, source_name) then
+			icon = "PAT"
+		end
+		if vim.tbl_contains({ "LSP" }, source_name) then
+			icon = "LSP"
+		end
+		if vim.tbl_contains({ "BUFFER" }, source_name) then
+			icon = "BUF"
+		end
+		if vim.tbl_contains({ "SNIPPETS" }, source_name) then
+			icon = "SNI"
+		end
+
+		return icon .. ctx.icon_gap
+	end,
+};
+
 return {
 	'saghen/blink.cmp',
 	-- optional: provides snippets for the snippet source
@@ -32,7 +53,7 @@ return {
 				function(cmp)
 					if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then
 						return cmp
-						    .accept()
+							.accept()
 					end
 				end,
 				'show_and_insert',
@@ -65,7 +86,14 @@ return {
 					end,
 					auto_insert = false
 				},
-			}
+			},
+			menu = {
+				draw = {
+					components = {
+						kind_icon = kind_icon,
+					}
+				}
+			},
 		},
 
 		-- Default list of enabled providers defined so that you can extend it
@@ -102,7 +130,7 @@ return {
 					function(cmp)
 						if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then
 							return cmp
-							    .accept()
+								.accept()
 						end
 					end,
 					'show_and_insert',
@@ -113,7 +141,7 @@ return {
 					function(cmp)
 						if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then
 							return cmp
-							    .accept()
+								.accept()
 						end
 					end,
 					'show_and_insert',
