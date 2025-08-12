@@ -3,7 +3,6 @@ return {
 	-- optional: provides snippets for the snippet source
 	dependencies = {
 		'rafamadriz/friendly-snippets',
-		'hrsh7th/cmp-buffer',
 	},
 
 	-- use a release tag to download pre-built binaries
@@ -72,18 +71,11 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { 'lsp', 'path', 'snippets', 'cmpbuffer' },
+			default = { 'lsp', 'buffer', 'snippets', 'path' },
 			providers = {
 				path = {
 					opts = {
 						show_hidden_files_by_default = true,
-					}
-				},
-				cmpbuffer = {
-					name = 'buffer',
-					module = 'blink.compat.source',
-					opts = {
-						keyword_pattern = [[\k\+]],
 					}
 				},
 			}
@@ -100,8 +92,8 @@ return {
 			enabled = true,
 			sources = function()
 				local type = vim.fn.getcmdtype()
-				if type == '/' or type == '?' then return { 'cmpbuffer' } end
-				if type == ':' or type == '@' then return { 'cmdline', 'path', 'cmpbuffer' } end
+				if type == '/' or type == '?' then return { 'buffer' } end
+				if type == ':' or type == '@' then return { 'cmdline', 'path', 'buffer' } end
 				return {}
 			end,
 			keymap = {
