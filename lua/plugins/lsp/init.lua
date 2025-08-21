@@ -10,9 +10,11 @@ return {
 		  ft = { 'java' },
 	},
 	{
-		'mrcjkb/rustaceanvim',
-		-- dir = '/home/fys/source/rustaceanvim',
-		version = '^6',
+		-- 'mrcjkb/rustaceanvim',
+		'fengys1996/rustaceanvim',
+		branch = 'fix/standalone-support',
+		-- dir = '/home/fys/projects/rustaceanvim',
+		-- version = '^6',
 		ft = { 'rust' },
 		config = function()
 			require('plugins.lsp.rust').setup()
