@@ -61,7 +61,7 @@ local load_project_extensions = function()
 	local ok, msg = pcall(require("telescope").load_extension, "projects")
 	if not ok then
 		local err_msg = "failed to load projects, details: " .. msg
-		vim.notify(err_msg, vim.log.levels.ERROR, { title = "Telescope" })
+		vim.notify(err_msg, vim.log.levels.ERROR)
 		return
 	end
 end
@@ -70,7 +70,7 @@ local load_telescope_tabs = function()
 	local ok, msg = pcall(require("telescope").load_extension, "telescope-tabs")
 	if not ok then
 		local err_msg = "failed to load telescope tabs, details: " .. msg
-		vim.notify(err_msg, vim.log.levels.ERROR, { title = "Telescope" })
+		vim.notify(err_msg, vim.log.levels.ERROR)
 		return
 	end
 end
@@ -79,7 +79,7 @@ local load_fzf_native = function()
 	local ok, msg = pcall(require("telescope").load_extension, "fzf")
 	if not ok then
 		local err_msg = "failed to load fzf native, details: " .. msg
-		vim.notify(err_msg, vim.log.levels.ERROR, { title = "Telescope" })
+		vim.notify(err_msg, vim.log.levels.ERROR)
 		return
 	end
 end
