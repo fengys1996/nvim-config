@@ -15,6 +15,7 @@ local gitsigns_opts = {
 		changedelete = { text = 's' },
 		untracked    = { text = 's' },
 	},
+	sign_priority = 6,
 	on_attach = function(bufnr)
 		local gitsigns = require('gitsigns')
 
