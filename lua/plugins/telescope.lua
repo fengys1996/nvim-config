@@ -15,7 +15,7 @@ local tele_shortcut_key = {
 	{ "<leader>fe", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
 	{ "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist()<cr>" },
 	{ "<leader>fs", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>" },
-	{ "<leader>m", "<cmd>lua require('telescope.builtin').marks()<cr>" },
+	{ "<leader>m",  "<cmd>lua require('telescope.builtin').marks()<cr>" },
 
 	{ "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>" },
 	{ "<C-e>",      "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
@@ -45,6 +45,8 @@ local make_tele_key_map = function(actions)
 
 			-- remove buffer
 			["<C-r>"] = actions.delete_buffer + actions.move_to_top,
+
+			["<Cs-v>"] = { "<C-r>+", type = "command" },
 		},
 		n = {
 			-- remove buffer
