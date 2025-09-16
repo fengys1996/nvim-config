@@ -113,8 +113,8 @@ local opts = {
 		width = 50,
 		side = "left",
 		preserve_window_proportions = false,
-		number = true,
-		relativenumber = true,
+		number = false,
+		relativenumber = false,
 		signcolumn = "yes",
 	},
 	hijack_directories = {
