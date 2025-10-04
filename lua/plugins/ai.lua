@@ -36,7 +36,9 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = {
-			adapters = adapters_config,
+			adapters = {
+				http = adapters_config,
+			},
 			strategies = {
 				chat = { adapter = "copilot" },
 				inline = { adapter = "copilot" },
