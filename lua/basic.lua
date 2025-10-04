@@ -23,9 +23,6 @@ vim.opt.updatetime = 500
 
 vim.g.history = 100000
 
--- set screen vertical
-vim.g.screen_vertical = false
-
 -- set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -101,3 +98,8 @@ vim.diagnostic.config({
 	update_in_insert = false,
 	underline = true,
 })
+
+-- custom settings as follows:
+
+-- set screen vertical
+vim.g.screen_vertical = false
