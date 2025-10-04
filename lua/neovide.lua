@@ -9,7 +9,7 @@ if vim.g.neovide then
 	vim.g.neovide_cursor_trail_size = 0
 
 	if vim.g.is_mac then
-		vim.g.neovide_input_macos_alt_is_meta = true
+		vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 	end
 
 	vim.g.neovide_hide_mouse_when_typing = false
