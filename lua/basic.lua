@@ -103,3 +103,7 @@ vim.diagnostic.config({
 
 -- set screen vertical
 vim.g.screen_vertical = false
+
+if vim.env.SSH_CLIENT or vim.env.SSH_TTY then
+    vim.g.clipboard = "OSC52"
+end
