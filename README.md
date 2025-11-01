@@ -2,47 +2,40 @@
 
 ## Introduction
 
-This is my nvim config written in lua and vim script. Very friendly to coding rust.
+This is my nvim config written in lua and vim script.
 
 ## Install and setup
 
-1. Install some dependent libs first.
-    - xclip
-
-        ```shell
-        # mac
-        brew install xclip
-        ```
-
+1. Install some optional but recommended tools.
     - BurntSushi/ripgrep
 
         ```shell
-        # mac 
-        brew install ripgrep 
+        # arch linux
+        pacman -S ripgrep 
         ```
 
     - sharkdp/fd
 
         ```shell
-        # mac
-        brew install fd
+        # arch linux
+        pacman -S fd
         ```
 
     - Nerd fonts
 
         ```shell
-        # mac
-        brew tap homebrew/cask-fonts
-        brew install --cask font-hack-nerd-font
+        # arch linux
+        # example for github monaspace nerd font
+        pacman -S otf-monaspace-nerd
         ```
 
     - fish
 
-2. Install nvim (version >= 0.7)
+2. Install nvim
 
     ```shell
-    # mac
-    brew install neovim
+    # arch linux
+    pacman -S neovim
     ```
 
 3. Clone repository
