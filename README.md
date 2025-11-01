@@ -30,6 +30,11 @@ This is my nvim config written in lua and vim script.
         ```
 
     - fish
+    
+        ```shell
+        # arch linux
+        pacman -S fish
+        ```
 
 2. Install nvim
 
