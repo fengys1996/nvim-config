@@ -72,5 +72,3 @@ map("n", "<leader>ct", ":lua require'custom.cargo'.test()<CR>", opt)
 
 map("v", "<leader>y", '"+y', opt)
 map("n", "<leader>p", '"+p', opt)
-
-map("n", "<leader>k", ':CodeCompanionChat Toggle<CR>', opt)

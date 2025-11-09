@@ -7,7 +7,7 @@
 -- vim.opt:{name}: equals ":set"
 --------------------------------------------------
 
-vim.o.cmdheight = 1
+vim.o.cmdheight = 0
 
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -40,8 +40,8 @@ vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 
 -- use relative number
--- vim.wo.number = true
--- vim.wo.relativenumber = true
+vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- hightlight the current row
 vim.wo.cursorline = true
@@ -93,10 +93,10 @@ vim.o.mouse = "a"
 
 -- config of diagnostic
 vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	update_in_insert = false,
-	underline = true,
+    virtual_text = true,
+    signs = true,
+    update_in_insert = false,
+    underline = true,
 })
 
 -- custom settings as follows:

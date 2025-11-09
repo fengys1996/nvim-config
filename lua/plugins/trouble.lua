@@ -12,7 +12,6 @@ return {
 		event = "VeryLazy",
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 		keys = keys,
-		config = function()
-		end,
+        opts = true,
 	},
 }
