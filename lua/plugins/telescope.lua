@@ -101,10 +101,10 @@ local tele_config = function()
         pickers = {
             -- optional themes: dropdown, cursor, ivy
             find_files = {
-                theme = "dropdown",
+                theme = "ivy",
             },
             live_grep = {
-                theme = "dropdown",
+                theme = "ivy",
             },
             oldfiles = {
                 cwd_only = true,
