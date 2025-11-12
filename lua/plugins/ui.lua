@@ -130,7 +130,7 @@ return {
     },
     {
         "kevinhwang91/nvim-bqf",
-        enabled = false,
+        enabled = true,
         ft = "qf",
         config = function()
             require("bqf").setup(bqf_opts);
