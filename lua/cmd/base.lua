@@ -66,3 +66,9 @@ vim.api.nvim_create_user_command(
 -- Format on save for rust, go
 -- vim.cmd [[autocmd BufWritePre *.rs lua vim.lsp.buf.format{async = true}]]
 vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format{async = true}]]
+
+local function clear_diagnostic()
+    vim.diagnostic.reset()
+end
+
+vim.api.nvim_create_user_command("CleanDiagnostic", clear_diagnostic, {})

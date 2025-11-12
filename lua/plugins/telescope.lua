@@ -129,7 +129,7 @@ end
 return {
     {
         "nvim-telescope/telescope.nvim",
-        tag = '0.1.9',
+        tag = 'v0.1.9',
         dependencies = { "nvim-lua/plenary.nvim", "ahmedkhalf/project.nvim", },
         keys = tele_shortcut_key,
         config = tele_config,

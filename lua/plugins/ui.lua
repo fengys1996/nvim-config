@@ -88,6 +88,7 @@ return {
     },
     {
         "fengys1996/nightfox.nvim",
+        -- dir = "/home/fys/projects/nightfox.nvim",
         enabled = true,
         lazy = false,
         priority = 1000,

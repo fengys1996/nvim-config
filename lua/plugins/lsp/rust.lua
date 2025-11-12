@@ -88,10 +88,11 @@ local server_opt = {
 		end
 
 		return default_func(file_name);
-	end
-	-- cmd = function()
-	-- 	return { '/home/fys/projects/rust-analyzer/target/release/rust-analyzer', '--log-file', '/tmp/ra.log' }
-	-- end,
+	end,
+	cmd = function()
+		-- return { '/home/fys/projects/rust-analyzer/target/release/rust-analyzer', '--log-file', '/tmp/ra.log' }
+		return { '/home/fys/soft/rust-analyzer/ra-25-08-25', '--log-file', '/tmp/ra.log' }
+	end,
 }
 
 function module.setup()
