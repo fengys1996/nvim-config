@@ -66,3 +66,15 @@ local function clear_diagnostic()
 end
 
 vim.api.nvim_create_user_command("CleanDiagnostic", clear_diagnostic, {})
+
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+    callback = function()
+        vim.diagnostic.setqflist({
+            open = false,
+            severity = {
+                min = vim.diagnostic.severity.WARN,
+                max = vim.diagnostic.severity.ERROR,
+            },
+        })
+    end,
+})
