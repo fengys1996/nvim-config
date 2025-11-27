@@ -67,14 +67,36 @@ end
 
 vim.api.nvim_create_user_command("CleanDiagnostic", clear_diagnostic, {})
 
-vim.api.nvim_create_autocmd("DiagnosticChanged", {
-    callback = function()
-        vim.diagnostic.setqflist({
-            open = false,
-            severity = {
-                min = vim.diagnostic.severity.WARN,
-                max = vim.diagnostic.severity.ERROR,
-            },
+local function diags()
+    vim.diagnostic.setqflist({
+        severity = {
+            min = vim.diagnostic.severity.WARN,
+            max = vim.diagnostic.severity.ERROR,
+        },
+    })
+end
+
+vim.api.nvim_create_user_command("Diags", diags, {})
+
+local function current_buf_diags()
+    local curr_diags = vim.diagnostic.get(0)
+    if vim.tbl_isempty(curr_diags) then
+        return
+    end
+    local items = {}
+    for _, d in ipairs(curr_diags) do
+        table.insert(items, {
+            bufnr = d.bufnr,
+            lnum = d.lnum + 1, -- quickfix uses 1-based
+            col = d.col + 1,   -- quickfix uses 1-based
+            text = d.message,
+            type = (d.severity == vim.diagnostic.severity.ERROR and "E")
+                or (d.severity == vim.diagnostic.severity.WARN and "W")
+                or "I",
         })
-    end,
-})
+    end
+    vim.fn.setqflist(items)
+    vim.cmd("copen")
+end
+
+vim.api.nvim_create_user_command("DiagsCurrent", current_buf_diags, {})
