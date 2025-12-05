@@ -150,12 +150,6 @@ return {
         event = "VeryLazy",
         opts = symbols,
     },
-    {
-        "chentoast/marks.nvim",
-        enabled = true,
-        event = "VeryLazy",
-        config = config_mark,
-    },
     ---------------------- fold ----------------------
     {
         "kevinhwang91/nvim-ufo",

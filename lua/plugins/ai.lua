@@ -58,6 +58,16 @@ vim.api.nvim_create_user_command("ToggleCopilot", function()
 end, {}
 )
 
+local acp_config = {
+    codex = function()
+        return require("codecompanion.adapters").extend("codex", {
+            defaults = {
+                auth_method = "chatgpt",
+            },
+        })
+    end,
+};
+
 return {
     {
         'MeanderingProgrammer/render-markdown.nvim',
@@ -72,6 +82,7 @@ return {
     },
     {
         "olimorris/codecompanion.nvim",
+		version = "v17.33.0",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
@@ -81,9 +92,10 @@ return {
                 {
                     adapters = {
                         http = adapters_config,
+                        acp = acp_config,
                     },
                     strategies = {
-                        chat = { adapter = "copilot" },
+                        chat = { adapter = "codex" },
                         inline = { adapter = "copilot" },
                     },
                 })
