@@ -10,7 +10,7 @@ local function everforest()
         disable_italic_comments = true,
         sign_column_background = "none",
         on_highlights = function(hl, palette)
-            hl.NvimTreeCursorLine = { fg = palette.None, bg = palette.gray, sp = palette.none }
+            hl.NvimTreeCursorLine = { fg = palette.None, bg = palette.bg1, sp = palette.none }
             hl.NvimTreeNormal = { fg = palette.none, bg = palette.none, sp = palette.none }
             hl.NvimTreeEndOfBuffer = { fg = palette.none, bg = palette.none, sp = palette.none }
         end,
