@@ -95,7 +95,7 @@ return {
                         acp = acp_config,
                     },
                     strategies = {
-                        chat = { adapter = "codex" },
+                        chat = { adapter = "copilot" },
                         inline = { adapter = "copilot" },
                     },
                 })
