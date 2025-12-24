@@ -1,8 +1,8 @@
 return {
     {
-        -- 'mrcjkb/rustaceanvim',
         'fengys1996/rustaceanvim',
         branch = 'fix/standalone-support',
+        -- 'mrcjkb/rustaceanvim',
         -- dir = '/home/fys/projects/rustaceanvim',
         -- version = '^6',
         ft = { 'rust' },
@@ -14,13 +14,8 @@ return {
         "williamboman/mason.nvim",
         cmd = "Mason",
         opts = {
-            -- install_root_dir = require("config").language_server_bin_path,
+            install_root_dir = require("config").language_server_bin_path,
             -- PATH = "append",
-            registries = {
-                -- https://github.com/nvim-java/nvim-java/issues/315
-                'github:nvim-java/mason-registry',
-                'github:mason-org/mason-registry',
-            }
         }
     },
     {

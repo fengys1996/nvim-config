@@ -39,7 +39,7 @@ local function maplsp(bufnr, lsp_name)
         vim.lsp.buf.format({ async = true })
     end, opts)
     -- signature help
-    vim.keymap.set('n', '<leader>ck', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<leader>ch', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
     -- diagnostic
     vim.keymap.set('n', 'gp', function()

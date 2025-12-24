@@ -15,12 +15,7 @@ function module.disable_auto_attach()
 end
 
 local function prefer_roots()
-    return {
-        "/home/fys/source/greptimedb-enterprise/",
-        "/home/fys/projects/greptimedb-enterprise/",
-        "/home/fys/projects/greptimedb/",
-        "/home/fys/projects/ent/",
-    }
+    return require('config').rustaceanvim_prefer_workspace_roots
 end
 
 local rust_analyzer_settings = {
@@ -91,8 +86,7 @@ local server_opt = {
         return default_func(file_name);
     end,
     cmd = function()
-        -- return { '/home/fys/projects/rust-analyzer/target/release/rust-analyzer', '--log-file', '/tmp/ra.log' }
-        return { '/home/fys/soft/rust-analyzer/ra-25-08-25', '--log-file', '/tmp/ra.log' }
+        return { require('config').rust_analyzer_path_backup, '--log-file', '/tmp/ra.log' }
     end,
 }
 
