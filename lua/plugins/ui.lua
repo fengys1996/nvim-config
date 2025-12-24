@@ -112,6 +112,10 @@ return {
         name = "catppuccin",
         priority = 1000,
     },
+    {
+        "olimorris/onedarkpro.nvim",
+        priority = 1000,
+    },
     ---------------------- Others ----------------------
     {
         "j-hui/fidget.nvim",
