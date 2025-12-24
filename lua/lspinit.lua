@@ -41,13 +41,6 @@ local function maplsp(bufnr, lsp_name)
     -- signature help
     vim.keymap.set('n', '<leader>ch', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
-    -- diagnostic
-    vim.keymap.set('n', 'gp', function()
-        vim.diagnostic.jump({ count = -vim.v.count1 })
-    end, opts)
-    vim.keymap.set('n', 'gn', function()
-        vim.diagnostic.jump({ count = vim.v.count1 })
-    end, opts)
     if is_rust_analyzer(lsp_name) then
         -- the special rust-analyzer keymaps
         vim.keymap.set('n', 'gh', '<cmd>RustLsp hover actions<CR>', opts)
