@@ -75,6 +75,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
             return
         end
         maplsp(ev.buf, client.name)
+        -- Disable semantic tokens for all LSP clients to avoid performance issues.
+        -- We use nvim-treesitter for syntax highlighting instead.
+        client.server_capabilities.semanticTokensProvider = nil
     end,
 })
 
