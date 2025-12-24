@@ -108,6 +108,18 @@ local ufo = function()
     })
 end
 
+local big_file = function()
+    require("bigfile").setup {
+        -- 1MB
+        filesize = 1,
+        pattern = { "*" },
+        features = {
+            "lsp",
+            "treesitter",
+        },
+    }
+end
+
 return {
     {
         "smoka7/hop.nvim",
@@ -157,5 +169,10 @@ return {
         event = "BufEnter",
         dependencies = { "kevinhwang91/promise-async" },
         config = ufo,
+    },
+    {
+        "LunarVim/bigfile.nvim",
+        event = "BufEnter",
+        config = big_file,
     }
 }

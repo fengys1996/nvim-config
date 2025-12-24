@@ -10,6 +10,6 @@ m.rustaceanvim_prefer_workspace_roots = {
     "/home/fys/projects/greptimedb/",
     "/home/fys/projects/ent/",
 }
-m.rust_analyzer_path_backup = "/home/fys/.cargo/bin//home/fys/soft/rust-analyzer/ra-25-08-25"
+m.rust_analyzer_path_backup = "/home/fys/soft/rust-analyzer/ra-25-08-25"
 
 return m
