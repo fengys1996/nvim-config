@@ -100,3 +100,9 @@ local function current_buf_diags()
 end
 
 vim.api.nvim_create_user_command("DiagsCurrent", current_buf_diags, {})
+
+local function toggle_diags()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end
+
+vim.api.nvim_create_user_command("ToggleDiags", toggle_diags, {})
