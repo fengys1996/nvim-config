@@ -30,31 +30,24 @@ local function maplsp(bufnr, lsp_name)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
-
     -- rename
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-
     -- code action
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-
     -- code format
     vim.keymap.set('n', '<leader>cf', function()
         vim.lsp.buf.format({ async = true })
     end, opts)
-
     -- signature help
     vim.keymap.set('n', '<leader>ck', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
-
     -- diagnostic
     vim.keymap.set('n', 'gp', function()
         vim.diagnostic.jump({ count = -vim.v.count1 })
     end, opts)
-
     vim.keymap.set('n', 'gn', function()
         vim.diagnostic.jump({ count = vim.v.count1 })
     end, opts)
-
     if is_rust_analyzer(lsp_name) then
         -- the special rust-analyzer keymaps
         vim.keymap.set('n', 'gh', '<cmd>RustLsp hover actions<CR>', opts)
@@ -66,7 +59,6 @@ local function maplsp(bufnr, lsp_name)
     else
         vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
     end
-
     -- not used now!
     -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
     -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
@@ -113,6 +105,4 @@ end, {})
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-vim.lsp.config('*', {
-    capabilities = capabilities,
-})
+vim.lsp.config('*', { capabilities = capabilities })
