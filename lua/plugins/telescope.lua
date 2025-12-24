@@ -1,5 +1,5 @@
 local tele_shortcut_key = {
-    { "<C-h>",      "<cmd>lua require('telescope.builtin').pickers()<cr>" },
+    { "<leader>fh",      "<cmd>lua require('telescope.builtin').pickers()<cr>" },
     { "<leader>P",  "<cmd>Telescope projects<cr>" },
 
     { "<C-f>",      "<cmd>lua require('telescope.builtin').find_files()<cr>" },

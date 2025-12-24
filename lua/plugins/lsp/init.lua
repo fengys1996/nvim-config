@@ -1,14 +1,4 @@
 return {
-    -- {
-    -- 	"neovim/nvim-lspconfig",
-    -- 	dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig" },
-    -- 	config = function()
-    -- 	end
-    -- },
-    {
-        "mfussenegger/nvim-jdtls",
-        ft = { 'java' },
-    },
     {
         -- 'mrcjkb/rustaceanvim',
         'fengys1996/rustaceanvim',
@@ -19,15 +9,6 @@ return {
         config = function()
             require('plugins.lsp.rust').setup()
         end
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = { "williamboman/mason.nvim" },
-        opts = {
-            -- rust-analyzer is managed by rustup, different toolchains have different rust-analyzers.
-            -- ensure_installed = { "lua_ls", "taplo", "gopls", "clangd" }
-        }
-
     },
     {
         "williamboman/mason.nvim",
@@ -47,7 +28,7 @@ return {
         dependencies = "nvim-lua/plenary.nvim",
         event = { "BufRead Cargo.toml" },
         tag = "v0.7.1",
-        config = function ()
+        config = function()
             require('crates').setup({})
             require('crates').hide()
         end

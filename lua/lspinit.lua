@@ -1,78 +1,118 @@
-vim.lsp.enable({ 'lua', "go", "clangd", "erlang" })
+-- Do not auto-start LSP servers on buffer open.
+-- Use `:LspStart` to start and `:LspStop` to stop LSP servers manually.
 
 local opt = { noremap = true, silent = true }
 
-local function maplsp(mapbuf, lsp_name)
-	if lsp_name == "GitHub Copilot" then
-		return
-	end
+local copilot_name = "github copilot"
+local rust_analyzer_name = "rust-analyzer"
 
-	-- goto xxx
-	mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-	mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
-	mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
-	mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
-	mapbuf('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
-
-	-- rename
-	mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
-
-	-- code action
-	mapbuf('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
-
-	-- code format
-	mapbuf('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opt)
-
-	-- signature help
-	mapbuf('n', '<leader>ck', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
-
-	-- diagnostic
-	mapbuf('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
-	mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
-	mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
-
-	if lsp_name == "rust-analyzer" then
-		mapbuf("n", "gh", "<cmd>RustLsp hover actions<CR>", opt);
-		mapbuf("n", "<leader>ru", "<cmd>RustLsp runnables<CR>", opt)
-		mapbuf("n", "<leader>re", "<cmd>RustLsp expandMacro<CR>", opt)
-		mapbuf("n", "<leader>rr", "<cmd>RustLsp flyCheck<CR>", opt)
-		-- flycheck is used frequently, so add another keymap for it
-		mapbuf("n", "<leader>j", "<cmd>RustLsp flyCheck<CR>", opt)
-		-- Not commonlly used
-		-- mapbuf("n", "<leader>rw", "<cmd>RustLsp reloadWorkspace<CR>", opt)
-	else
-		mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover() <CR>', opt)
-	end
-
-
-	-- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
-	-- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-	-- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-	-- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
+local is_copilot = function(lsp_name)
+    return lsp_name:lower() == copilot_name:lower()
 end
 
+local is_rust_analyzer = function(lsp_name)
+    return lsp_name:lower() == rust_analyzer_name:lower()
+end
+
+local function maplsp(bufnr, lsp_name)
+    if is_copilot(lsp_name) then
+        return
+    end
+
+    local opts = {
+        buffer = bufnr,
+        silent = true,
+    }
+
+    -- goto some
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+
+    -- rename
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+
+    -- code action
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+
+    -- code format
+    vim.keymap.set('n', '<leader>cf', function()
+        vim.lsp.buf.format({ async = true })
+    end, opts)
+
+    -- signature help
+    vim.keymap.set('n', '<leader>ck', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
+
+    -- diagnostic
+    vim.keymap.set('n', 'gp', function()
+        vim.diagnostic.jump({ count = -vim.v.count1 })
+    end, opts)
+
+    vim.keymap.set('n', 'gn', function()
+        vim.diagnostic.jump({ count = vim.v.count1 })
+    end, opts)
+
+    if is_rust_analyzer(lsp_name) then
+        -- the special rust-analyzer keymaps
+        vim.keymap.set('n', 'gh', '<cmd>RustLsp hover actions<CR>', opts)
+        vim.keymap.set('n', '<leader>ru', '<cmd>RustLsp runnables<CR>', opts)
+        vim.keymap.set('n', '<leader>re', '<cmd>RustLsp expandMacro<CR>', opts)
+        vim.keymap.set('n', '<leader>rr', '<cmd>RustLsp flyCheck<CR>', opts)
+        -- not used now!
+        -- vim.keymap.set('n', '<leader>rw', '<cmd>RustLsp reloadWorkspace<CR>', opts)
+    else
+        vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
+    end
+
+    -- not used now!
+    -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    -- vim.keymap.set('n', '<space>wl', function()
+    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    -- end, opts)
+end
+
+-- Setup some when LSP attaches to a buffer.
 vim.api.nvim_create_autocmd('LspAttach', {
-	callback = function(ev)
-		local bufnr = ev.buf
-		local client_id = ev.data.client_id
-		local client = vim.lsp.get_client_by_id(client_id)
-
-		if client == nil then
-			return
-		end
-
-		local name = client.name
-
-		local function mapbuf(...)
-			vim.api.nvim_buf_set_keymap(bufnr, ...)
-		end
-
-		maplsp(mapbuf, name)
-	end,
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client == nil then
+            return
+        end
+        maplsp(ev.buf, client.name)
+    end,
 })
+
+-- Create a user command to enable lsp.
+vim.api.nvim_create_user_command("LspStart", function()
+    -- since use rustaceanvim for rust, so handle it separately.
+    if vim.bo.filetype == "rust" then
+        require('rustaceanvim.lsp').start()
+        require('plugins.lsp.rust').enable_auto_attach()
+        return
+    end
+    vim.lsp.enable({ 'lua', "go", "clangd", "erlang" })
+end, {})
+
+
+-- Create a user command to disable lsp.
+vim.api.nvim_create_user_command("LspStop", function()
+    -- since use rustaceanvim for rust, so handle it separately.
+    if vim.bo.filetype == "rust" then
+        require('rustaceanvim.lsp').stop()
+        require('plugins.lsp.rust').disable_auto_attach()
+        return
+    end
+    for _, client in ipairs(vim.lsp.get_clients()) do
+        client:stop()
+    end
+end, {})
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 vim.lsp.config('*', {
-	capabilities = capabilities,
+    capabilities = capabilities,
 })
