@@ -29,18 +29,17 @@ local function maplsp(bufnr, lsp_name)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<leader>rt', vim.lsp.buf.type_definition, opts)
     -- rename
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     -- code action
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<leader>ra', vim.lsp.buf.code_action, opts)
     -- code format
-    vim.keymap.set('n', '<leader>cf', function()
+    vim.keymap.set('n', '<leader>rf', function()
         vim.lsp.buf.format({ async = true })
     end, opts)
     -- signature help
-    vim.keymap.set('n', '<leader>ch', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, opts)
     if is_rust_analyzer(lsp_name) then
         -- the special rust-analyzer keymaps
         vim.keymap.set('n', 'gh', '<cmd>RustLsp hover actions<CR>', opts)
