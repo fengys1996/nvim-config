@@ -115,6 +115,16 @@ return {
     {
         "olimorris/onedarkpro.nvim",
         priority = 1000,
+        config = function()
+            require("onedarkpro").setup({
+                colors = {
+                    cursorline = "#D9D9D9"
+                },
+                options = {
+                    cursorline = true
+                }
+            })
+        end
     },
     ---------------------- Others ----------------------
     {

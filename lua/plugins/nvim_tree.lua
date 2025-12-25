@@ -27,6 +27,8 @@ local function on_attach(bufnr)
 	vim.keymap.set('n', 'F', api.live_filter.clear, opts('Clean Filter'))
 	vim.keymap.set('n', 'f', api.live_filter.start, opts('Filter'))
 	vim.keymap.set('n', 'I', api.tree.change_root_to_node, opts('CD'))
+
+    vim.cmd("highlight NvimTreeCursorLine guibg=#D9D9D9")
 end
 
 local opts = {
