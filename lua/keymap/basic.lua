@@ -45,7 +45,7 @@ else
 	map("n", "<leader>gd", ":Gvdiffsplit<CR>", opt)
 end
 map("n", "<leader>gb", ":Git blame<CR>", opt)
-map("n", "<leader>G", ":G<CR>", opt)
+map("n", "<leader>G", ":tab G<CR>", opt)
 
 -- jump between windows: alt + hjkl
 map("n", "<A-h>", "<C-w>h", opt)
