@@ -39,7 +39,7 @@ local function maplsp(bufnr, lsp_name)
         vim.lsp.buf.format({ async = true })
     end, opts)
     -- signature help
-    vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
     if is_rust_analyzer(lsp_name) then
         -- the special rust-analyzer keymaps
         vim.keymap.set('n', 'gh', '<cmd>RustLsp hover actions<CR>', opts)
