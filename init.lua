@@ -6,9 +6,9 @@ require("lazy_c")
 -- vim.o.background = "light"
 -- vim.o.background = "background"
 
-vim.cmd("colorscheme onelight")
+-- vim.cmd("colorscheme onelight")
 -- vim.cmd("colorscheme everforest")
--- vim.cmd("colorscheme dayfox")
+vim.cmd("colorscheme dayfox")
 -- vim.cmd("colorscheme gruvbox")
 
 -- Since https://github.com/neovim/neovim/pull/32383
