@@ -38,14 +38,14 @@ map("n", "<A-S>", ":sp<CR>", opt)
 -- close current window
 map("n", "<A-c>", "<C-w>c", opt)
 
-map("n", "<leader>rl", ":LspStart<CR>", opt)
 if vim.g.screen_vertical then
-	map("n", "<leader>gd", ":Ghdiffsplit<CR>", opt)
+    map("n", "<leader>gd", ":Ghdiffsplit<CR>", opt)
 else
-	map("n", "<leader>gd", ":Gvdiffsplit<CR>", opt)
+    map("n", "<leader>gd", ":Gvdiffsplit<CR>", opt)
 end
 map("n", "<leader>gb", ":Git blame<CR>", opt)
 map("n", "<leader>G", ":tab G<CR>", opt)
+map("n", "<leader>g", ":G<CR>", opt)
 
 -- jump between windows: alt + hjkl
 map("n", "<A-h>", "<C-w>h", opt)
