@@ -112,10 +112,24 @@ local tele_config = function()
         },
     };
 
+
     require("telescope").setup(tele_opts)
     load_fzf_native()
     load_project_extensions()
     load_telescope_tabs()
+
+    vim.api.nvim_create_user_command(
+        "Tl",
+        function(opts)
+            vim.cmd("Telescope " .. opts.args)
+        end,
+        {
+            nargs = "*",
+            complete = function(_, _)
+                return vim.fn.getcompletion("Telescope ", "cmdline")
+            end,
+        }
+    )
 end
 
 return {
