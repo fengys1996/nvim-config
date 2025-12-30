@@ -1,5 +1,5 @@
 local tele_shortcut_key = {
-    { "<leader>fh",      "<cmd>lua require('telescope.builtin').pickers()<cr>" },
+    { "<leader>fh", "<cmd>lua require('telescope.builtin').pickers()<cr>" },
     { "<leader>P",  "<cmd>Telescope projects<cr>" },
 
     { "<C-f>",      "<cmd>lua require('telescope.builtin').find_files()<cr>" },
@@ -110,41 +110,29 @@ local tele_config = function()
                 cwd_only = true,
             }
         },
-        extensions = {},
     };
 
     require("telescope").setup(tele_opts)
-    -- load_fzf_native()
+    load_fzf_native()
     load_project_extensions()
     load_telescope_tabs()
-end
-
-local project_config = function()
-    require("project_nvim").setup({
-        manual_mode = true,
-        silent_chdir = false,
-    })
 end
 
 return {
     {
         "nvim-telescope/telescope.nvim",
-        tag = 'v0.1.9',
-        dependencies = { "nvim-lua/plenary.nvim", "ahmedkhalf/project.nvim", },
+        tag = 'v0.2.0',
+        dependencies = { "nvim-lua/plenary.nvim", "ahmedkhalf/project.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
         keys = tele_shortcut_key,
         config = tele_config,
     },
-    {
-        "ahmedkhalf/project.nvim",
-        config = project_config,
-    },
     -- Install native telescope sorter to significantly improve sorting performance.
     {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = 'make'
     },
     {
-        'LukasPietzschmann/telescope-tabs',
+        "LukasPietzschmann/telescope-tabs",
         config = function()
             require('telescope-tabs').setup({
                 entry_formatter = function(tab_id, _buffer_ids, file_names, _file_paths, is_current)
