@@ -68,33 +68,7 @@ local acp_config = {
     end,
 };
 
--- Autocommand to toggle render-markdown based on filetype
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "codecompanion",
-    callback = function()
-        require("render-markdown").enable()
-    end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function()
-        require("render-markdown").disable()
-    end,
-})
-
 return {
-    {
-        'MeanderingProgrammer/render-markdown.nvim',
-        ft = { "markdown", "codecompanion" },
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        opts = {
-            enabled = false,
-            render_modes = true,
-            sign = {
-                enabled = false,
-            },
-        },
-    },
     {
         "olimorris/codecompanion.nvim",
 		version = "v17.33.0",

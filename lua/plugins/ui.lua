@@ -77,6 +77,22 @@ local lualine_opts = {
     },
 };
 
+-- Enable markdown render in codecompanion filetype by default.
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "codecompanion",
+    callback = function()
+        require("render-markdown").buf_enable()
+    end,
+})
+
+-- Disable markdown render in markdown filetype by default.
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        require("render-markdown").buf_disable()
+    end,
+})
+
 return {
     ---------------------- Color schema ----------------------
     {
@@ -155,5 +171,17 @@ return {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = lualine_opts,
-    }
+    },
+    ---------------------- markdown ----------------------
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        ft = { "markdown", "codecompanion" },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        opts = {
+            render_modes = true,
+            sign = {
+                enabled = false,
+            },
+        },
+    },
 }
