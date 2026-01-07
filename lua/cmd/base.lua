@@ -17,36 +17,6 @@ vim.api.nvim_create_user_command('ToggleCrates', toggle_crates, {})
 vim.api.nvim_create_user_command('ToggleInlayHint',
     'lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())', {})
 
--- Custom lsp start command  `HaloStart`
---
--- Why do we need this?
--- Since there are some language servers that need to be started in a different way.
-local function start_lsp()
-    if vim.bo.filetype == "rust" then
-        require('rustaceanvim.lsp').start()
-        require('plugins.lsp.rust').enable_auto_attach()
-    else
-        vim.cmd("LspStart")
-    end
-end
-
-vim.api.nvim_create_user_command('HaloStart', start_lsp, {})
-
--- Custom lsp stop command  `HaloStop`
---
--- Why do we need this?
--- Since there are some language servers that need to be stopped in a different way.
-local function stop_lsp()
-    if vim.bo.filetype == "rust" then
-        require('rustaceanvim.lsp').stop()
-        require('plugins.lsp.rust').disable_auto_attach()
-    else
-        vim.cmd("LspStop")
-    end
-end
-
-vim.api.nvim_create_user_command('HaloStop', stop_lsp, {})
-
 vim.api.nvim_create_user_command(
     'Browse',
     function(opts)
