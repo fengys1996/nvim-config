@@ -53,6 +53,11 @@ map("n", "<A-j>", "<C-w>j", opt)
 map("n", "<A-k>", "<C-w>k", opt)
 map("n", "<A-l>", "<C-w>l", opt)
 
+map("n", "<A-H>", "<C-w>H", opt)
+map("n", "<A-J>", "<C-w>J", opt)
+map("n", "<A-K>", "<C-w>K", opt)
+map("n", "<A-L>", "<C-w>L", opt)
+
 -- adjust the width and height of the window
 map("n", "<C-=>", ":vertical resize +2<CR>", opt)
 map("n", "<C-->", ":vertical resize -2<CR>", opt)
