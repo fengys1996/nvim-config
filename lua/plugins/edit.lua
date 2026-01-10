@@ -156,10 +156,10 @@ return {
     {
         "hedyhli/outline.nvim",
         enabled = true,
+        lazy = true,
         keys = {
             { "<A-n>", "<cmd>Outline<cr>", mode = { "n", "i", "t" } },
         },
-        event = "VeryLazy",
         opts = symbols,
     },
     ---------------------- fold ----------------------

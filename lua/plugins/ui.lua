@@ -97,7 +97,7 @@ return {
     ---------------------- Color schema ----------------------
     {
         "ellisonleao/gruvbox.nvim",
-        enabled = true,
+        enabled = false,
         lazy = false,
         priority = 1000,
         config = true
@@ -112,7 +112,7 @@ return {
     },
     {
         "rebelot/kanagawa.nvim",
-        enabled = true,
+        enabled = false,
         lazy = false,
         priority = 1000,
         config = true
@@ -125,11 +125,13 @@ return {
     },
     {
         "catppuccin/nvim",
+        enabled = false,
         name = "catppuccin",
         priority = 1000,
     },
     {
         "olimorris/onedarkpro.nvim",
+        enabled = false,
         priority = 1000,
         config = function()
             require("onedarkpro").setup({
