@@ -76,7 +76,7 @@ end
 return {
     {
         "lewis6991/gitsigns.nvim",
-        tag = "v1.0.2",
+        tag = "v2.0.0",
         event = "VeryLazy",
         config = function()
             require('gitsigns').setup(gitsigns_opts)
