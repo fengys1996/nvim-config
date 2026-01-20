@@ -85,9 +85,9 @@ local server_opt = {
 
         return default_func(file_name);
     end,
-    cmd = function()
-        return { require('config').rust_analyzer_path_backup, '--log-file', '/tmp/ra.log' }
-    end,
+    -- cmd = function()
+    --     return { require('config').rust_analyzer_path_backup, '--log-file', '/tmp/ra.log' }
+    -- end,
 }
 
 function module.setup()
