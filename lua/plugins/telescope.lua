@@ -5,7 +5,7 @@ local tele_shortcut_key = {
     { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
 
     { "<C-p>",      "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
-    { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
+    { "<leader>fj", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
 
     { "<C-b>",      "<cmd>lua require('telescope.builtin').buffers()<cr>" },
     { "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>" },
