@@ -20,6 +20,7 @@ local tele_shortcut_key = {
     { "<C-e>",      "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
 
     { "<C-t>",      "<cmd>Telescope tabs tabs<cr>" },
+    { "<leader>rU", "<cmd>Telescope rust_runnables<cr>" },
 }
 
 local make_tele_key_map = function(actions)
@@ -67,6 +68,13 @@ local load_fzf_native = function()
     end
 end
 
+local function load_extension(name)
+    local ok, msg = pcall(require("telescope").load_extension, name)
+    if not ok then
+        vim.notify("failed to load telescope extension '" .. name .. "', details: " .. msg, vim.log.levels.ERROR)
+    end
+end
+
 local tele_config = function()
     local actions = require "telescope.actions"
 
@@ -94,13 +102,16 @@ local tele_config = function()
             }
         },
         extensions = {
-            tabs = {}
+            tabs = {},
+            rust_runnables = {},
         }
     };
 
 
     require("telescope").setup(tele_opts)
     load_fzf_native()
+    load_extension("rust_runnables")
+    load_extension("tabs")
 
     vim.api.nvim_create_user_command(
         "Tl",
