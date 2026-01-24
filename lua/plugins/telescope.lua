@@ -1,6 +1,5 @@
 local tele_shortcut_key = {
     { "<leader>fh", "<cmd>lua require('telescope.builtin').pickers()<cr>" },
-    { "<leader>P",  "<cmd>Telescope projects<cr>" },
 
     { "<C-f>",      "<cmd>lua require('telescope.builtin').find_files()<cr>" },
     { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
@@ -19,6 +18,8 @@ local tele_shortcut_key = {
 
     { "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>" },
     { "<C-e>",      "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
+
+    { "<C-t>",      "<cmd>Telescope tabs tabs<cr>" },
 }
 
 local make_tele_key_map = function(actions)
@@ -57,24 +58,6 @@ local make_tele_key_map = function(actions)
     return keymap
 end
 
-local load_project_extensions = function()
-    local ok, msg = pcall(require("telescope").load_extension, "projects")
-    if not ok then
-        local err_msg = "failed to load projects, details: " .. msg
-        vim.notify(err_msg, vim.log.levels.ERROR)
-        return
-    end
-end
-
-local load_telescope_tabs = function()
-    local ok, msg = pcall(require("telescope").load_extension, "telescope-tabs")
-    if not ok then
-        local err_msg = "failed to load telescope tabs, details: " .. msg
-        vim.notify(err_msg, vim.log.levels.ERROR)
-        return
-    end
-end
-
 local load_fzf_native = function()
     local ok, msg = pcall(require("telescope").load_extension, "fzf")
     if not ok then
@@ -110,13 +93,14 @@ local tele_config = function()
                 cwd_only = true,
             }
         },
+        extensions = {
+            tabs = {}
+        }
     };
 
 
     require("telescope").setup(tele_opts)
     load_fzf_native()
-    load_project_extensions()
-    load_telescope_tabs()
 
     vim.api.nvim_create_user_command(
         "Tl",
@@ -144,22 +128,5 @@ return {
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = 'make'
-    },
-    {
-        "LukasPietzschmann/telescope-tabs",
-        config = function()
-            require('telescope-tabs').setup({
-                entry_formatter = function(tab_id, _buffer_ids, file_names, _file_paths, is_current)
-                    local entry_string = table.concat(file_names, ', ')
-                    return string.format('%d: %s%s', tab_id, entry_string, is_current and ' <' or '')
-                end,
-                close_tab_shortcut_i = '<C-r>',
-                close_tab_shortcut_n = 'R',
-            })
-        end,
-        keys = {
-            { "<leader>ft", "<cmd>Telescope telescope-tabs list_tabs<cr>" },
-        },
-        dependencies = { 'nvim-telescope/telescope.nvim' },
     }
 }
