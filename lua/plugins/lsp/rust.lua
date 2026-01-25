@@ -85,6 +85,13 @@ local server_opt = {
 
         return default_func(file_name);
     end,
+    -- There is no need to explicitly configure lspmux, as the lspmux service
+    -- will be automatically detected.
+    -- lspmux = {
+    --     enable = true,
+    --     host = '127.0.0.1',
+    --     port = 27631,
+    -- },
     -- cmd = function()
     --     return { require('config').rust_analyzer_path_backup, '--log-file', '/tmp/ra.log' }
     -- end,
