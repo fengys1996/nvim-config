@@ -1,10 +1,10 @@
 return {
     {
-        -- 'fengys1996/rustaceanvim',
-        -- branch = 'fix/standalone-support',
+        'fengys1996/rustaceanvim',
+        branch = 'fix/standalone-mode',
         -- dir = '/home/fys/projects/rustaceanvim',
-        'mrcjkb/rustaceanvim',
-        version = '^7',
+        -- 'mrcjkb/rustaceanvim',
+        -- version = '^7',
         ft = { 'rust' },
         config = function()
             require('plugins.lsp.rust').setup()

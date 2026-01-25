@@ -75,15 +75,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- Create a user command to enable lsp.
-vim.api.nvim_create_user_command("LspStart", function()
+local function lsp_start()
     -- since use rustaceanvim for rust, so handle it separately.
     if vim.bo.filetype == "rust" then
-        require('rustaceanvim.lsp').start()
-        require('plugins.lsp.rust').enable_auto_attach()
+        require("rustaceanvim.lsp").start()
+        require("plugins.lsp.rust").enable_auto_attach()
         return
     end
-    vim.lsp.enable({ 'lua', "go", "clangd", "erlang" })
-end, {})
+    vim.lsp.enable({ "lua", "go", "clangd", "erlang" })
+end
+
+vim.api.nvim_create_user_command("LspStart", lsp_start, {})
+
+vim.keymap.set("n", "<leader>rt", lsp_start, { desc = "LSP start (smart)" })
 
 
 -- Create a user command to disable lsp.
