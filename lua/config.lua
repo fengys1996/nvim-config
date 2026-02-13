@@ -15,10 +15,10 @@ if vim.g.is_linux then
 end
 
 if vim.g.is_mac then
-    m.language_server_bin_path = "/User/fengyangsen/.local/share/nvim/mason/"
-    m.nvim_rs_path = "/User/fengyangsen/.config/nvim-rs"
+    m.language_server_bin_path = "/Users/fengyangsen/.local/share/nvim/mason/"
+    m.nvim_rs_path = "/Users/fengyangsen/.config/nvim-rs"
     m.rustaceanvim_prefer_workspace_roots = {}
-    m.rust_analyzer_path_backup = "/User/fengyangsen/soft/rust-analyzer/ra-25-08-25"
+    m.rust_analyzer_path_backup = "/Users/fengyangsen/soft/rust-analyzer/ra-25-08-25"
 end
 
 return m
