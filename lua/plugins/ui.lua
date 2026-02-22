@@ -4,7 +4,7 @@ local function everforest()
         -- - soft
         -- - medium
         -- - hard
-        background = "medium",
+        background = "hard",
         transparent_background_level = 0,
         italics = false,
         disable_italic_comments = true,
