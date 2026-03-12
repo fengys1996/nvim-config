@@ -92,9 +92,16 @@ local server_opt = {
     --     host = '127.0.0.1',
     --     port = 27631,
     -- },
-    -- cmd = function()
-    --     return { require('config').rust_analyzer_path_backup, '--log-file', '/tmp/ra.log' }
-    -- end,
+    cmd = function()
+        return { require('config').rust_analyzer_path_backup, '--log-file', '/tmp/ra.log' }
+        -- local c = {
+        --     "/home/fys/.cargo/bin/lspmux",
+        --     "client",
+        --     "--server-path",
+        --     "/home/fys/soft/rust-analyzer/ra-25-08-25",
+        -- }
+        -- return c
+    end,
 }
 
 function module.setup()

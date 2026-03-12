@@ -7,8 +7,8 @@ local illuminate = function()
     illuminate.configure({
         -- ordered by priority
         providers = {
-            'lsp',
-            'treesitter',
+            -- 'lsp',
+            -- 'treesitter',
             'regex',
         },
         -- milliseconds
@@ -36,6 +36,7 @@ end
 local symbols = {
     outline_window = {
         position = "right",
+        split_command = "rightbelow vsplit",
         show_numbers = true,
         show_relative_numbers = true,
         width = 20,
