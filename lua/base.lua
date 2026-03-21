@@ -40,13 +40,13 @@ vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 
 -- use relative number
-vim.wo.number = true
-vim.wo.relativenumber = true
+-- vim.wo.number = true
+-- vim.wo.relativenumber = true
 
 -- hightlight the current row
-vim.wo.cursorline = true
+-- vim.wo.cursorline = true
 
-vim.wo.signcolumn = "yes"
+vim.wo.signcolumn = "no"
 
 -- right line: If it exceeds, it means that the code is too
 -- long, consider wrapping

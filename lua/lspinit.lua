@@ -1,8 +1,6 @@
 -- Do not auto-start LSP servers on buffer open.
 -- Use `:LspStart` to start and `:LspStop` to stop LSP servers manually.
 
-local opt = { noremap = true, silent = true }
-
 local copilot_name = "github copilot"
 local rust_analyzer_name = "rust-analyzer"
 
@@ -41,8 +39,12 @@ local function maplsp(bufnr, lsp_name)
     -- signature help
     vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', 'go', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', 'gn', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', 'gp', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', 'gn', function()
+        vim.diagnostic.jump({ count = 1 })
+    end, opts)
+    vim.keymap.set('n', 'gp', function()
+        vim.diagnostic.jump({ count = -1 })
+    end, opts)
     if is_rust_analyzer(lsp_name) then
         -- the special rust-analyzer keymaps
         vim.keymap.set('n', 'gh', '<cmd>RustLsp hover actions<CR>', opts)

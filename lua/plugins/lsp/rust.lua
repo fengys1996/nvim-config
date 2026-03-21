@@ -1,24 +1,30 @@
 local module = {}
 
-local enable_auto_attach = false
+local auto_attach = false
 
 local function is_auto_attach()
-    return enable_auto_attach
+    return auto_attach
 end
 
 function module.enable_auto_attach()
-    enable_auto_attach = true
+    auto_attach = true
 end
 
 function module.disable_auto_attach()
-    enable_auto_attach = false
+    auto_attach = false
 end
 
 local function prefer_roots()
-    return require('config').rustaceanvim_prefer_workspace_roots
+    -- Speed up Cargo workspace root detection and correctly identify the root
+    -- in projects with Git submodules.
+    return {
+        "/home/fys/projects/greptimedb-enterprise/",
+        "/home/fys/projects/greptimedb/",
+        -- Add paths to your frequently used Cargo projects here.
+    }
 end
 
-local rust_analyzer_settings = {
+local ra_settings = {
     ["rust-analyzer"] = {
         -- The server path would be overriden by mason-lspconfig.nvim.
         -- server = {
@@ -60,16 +66,18 @@ local rust_analyzer_settings = {
     },
 }
 
-local server_on_attach = function(_client, _bufnr)
+local server_on_attach = function(_, _)
     -- do nothing
 end
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+-- It seems a stable rust-analyzer build (2025-08-25).
+-- local stable_ra = "/home/fys/soft/rust-analyzer/ra-25-08-25"
+
 local server_opt = {
     standalone = false,
-    settings = rust_analyzer_settings,
-    -- default_settings = rust_analyzer_settings,
+    settings = ra_settings,
     capabilities = capabilities,
     on_attach = server_on_attach,
     load_vscode_settings = true,
@@ -85,23 +93,29 @@ local server_opt = {
 
         return default_func(file_name);
     end,
-    -- There is no need to explicitly configure lspmux, as the lspmux service
-    -- will be automatically detected.
-    -- lspmux = {
-    --     enable = true,
-    --     host = '127.0.0.1',
-    --     port = 27631,
-    -- },
+    lspmux = {
+        enable = false,
+    },
     cmd = function()
-        return { require('config').rust_analyzer_path_backup, '--log-file', '/tmp/ra.log' }
-        -- local c = {
-        --     "/home/fys/.cargo/bin/lspmux",
-        --     "client",
-        --     "--server-path",
-        --     "/home/fys/soft/rust-analyzer/ra-25-08-25",
-        -- }
-        -- return c
-    end,
+        if vim.fn.executable("lspmux") == 1 then
+            return {
+                vim.fn.exepath("lspmux"),
+                "client",
+                "--server-path",
+                vim.fn.exepath("rust-analyzer")
+            }
+        else
+            return {
+                vim.fn.exepath("rust-analyzer")
+                -- Or
+                -- stable_ra
+                -- Configure the log file for making it easier to debug the server
+                -- if needed.
+                -- '--log-file',
+                -- '/tmp/ra.log'
+            }
+        end
+    end
 }
 
 function module.setup()
