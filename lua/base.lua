@@ -44,7 +44,7 @@ vim.o.sidescrolloff = 8
 -- vim.wo.relativenumber = true
 
 -- hightlight the current row
--- vim.wo.cursorline = true
+vim.wo.cursorline = true
 
 vim.wo.signcolumn = "no"
 
