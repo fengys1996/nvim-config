@@ -131,7 +131,7 @@ return {
     },
     {
         "olimorris/onedarkpro.nvim",
-        enabled = false,
+        enabled = true,
         priority = 1000,
         config = function()
             require("onedarkpro").setup({
@@ -143,6 +143,14 @@ return {
                 }
             })
         end
+    },
+    {
+        "loctvl842/monokai-pro.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("monokai-pro").setup()
+        end,
     },
     ---------------------- Others ----------------------
     {

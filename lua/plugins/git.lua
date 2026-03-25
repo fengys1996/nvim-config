@@ -76,6 +76,7 @@ end
 return {
     {
         "lewis6991/gitsigns.nvim",
+        enabled = true,
         tag = "v2.0.0",
         event = "VeryLazy",
         config = function()
