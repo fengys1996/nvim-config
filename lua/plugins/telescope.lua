@@ -136,6 +136,7 @@ return {
         config = tele_config,
     },
     -- Install native telescope sorter to significantly improve sorting performance.
+    -- Note: if in freebsd, you should use gmake to build it.
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = 'make'
