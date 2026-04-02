@@ -110,11 +110,11 @@ local server_opt = {
             return {
                 vim.fn.exepath("rust-analyzer")
                 -- Or
-                -- stable_ra
+                -- stable_ra,
                 -- Configure the log file for making it easier to debug the server
                 -- if needed.
                 -- '--log-file',
-                -- '/tmp/ra.log'
+                -- '/tmp/ra.log',
             }
         end
     end

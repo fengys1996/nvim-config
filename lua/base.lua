@@ -46,7 +46,7 @@ vim.o.sidescrolloff = 8
 -- hightlight the current row
 vim.wo.cursorline = true
 
-vim.wo.signcolumn = "no"
+vim.wo.signcolumn = "yes"
 
 -- right line: If it exceeds, it means that the code is too
 -- long, consider wrapping

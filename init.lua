@@ -3,7 +3,7 @@ require("base")
 require("keymap.basic")
 require("lazy_c")
 
--- vim.o.background = "light"
+vim.o.background = "light"
 -- vim.o.background = "background"
 
 -- common theme:
@@ -11,7 +11,8 @@ require("lazy_c")
 -- - everforest
 -- - onelight
 -- - gruvbox
-vim.cmd("colorscheme monokai-pro-light")
+-- - monokai-pro-light
+vim.cmd("colorscheme dayfox")
 
 -- Since https://github.com/neovim/neovim/pull/32383
 -- vim.cmd("hi link qftext LineNr")
