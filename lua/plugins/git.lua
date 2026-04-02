@@ -1,61 +1,65 @@
-local gitsigns_opts = {
-    signs = {
-        add          = { text = '+' },
-        change       = { text = '~' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '-' },
-        untracked    = { text = '┆' },
-    },
-    signs_staged = {
-        add          = { text = 's' },
-        change       = { text = 's' },
-        delete       = { text = 's' },
-        topdelete    = { text = 's' },
-        changedelete = { text = 's' },
-        untracked    = { text = 's' },
-    },
-    sign_priority = 6,
-    on_attach = function(bufnr)
-        local gitsigns = require('gitsigns')
+local gitsigns_attach = function(bufnr)
+    local gitsigns = require('gitsigns')
 
-        local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-        end
-
-        -- Navigation
-        map('n', ']c', function()
-            if vim.wo.diff then
-                vim.cmd.normal({ ']c', bang = true })
-            else
-                gitsigns.nav_hunk('next')
-            end
-        end)
-
-        map('n', '[c', function()
-            if vim.wo.diff then
-                vim.cmd.normal({ '[c', bang = true })
-            else
-                gitsigns.nav_hunk('prev')
-            end
-        end)
-
-        -- Actions
-        map('n', '<leader>hs', gitsigns.stage_hunk)
-        map('n', '<leader>hr', gitsigns.reset_hunk)
-        map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-        map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-        map('n', '<leader>hS', gitsigns.stage_buffer)
-        map('n', '<leader>hu', gitsigns.reset_hunk)
-        map('n', '<leader>hR', gitsigns.reset_buffer)
-        map('n', '<leader>hp', gitsigns.preview_hunk)
-        map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end)
-        map('n', '<leader>hd', gitsigns.diffthis)
-        map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
-        -- map('n', '<leader>td', gitsigns.toggle_deleted)
+    local function map(mode, l, r, opts)
+        opts = opts or {}
+        opts.buffer = bufnr
+        vim.keymap.set(mode, l, r, opts)
     end
+
+    map('n', ']c', function()
+        if vim.wo.diff then
+            vim.cmd.normal({ ']c', bang = true })
+        else
+            gitsigns.nav_hunk('next')
+        end
+    end)
+
+    map('n', '[c', function()
+        if vim.wo.diff then
+            vim.cmd.normal({ '[c', bang = true })
+        else
+            gitsigns.nav_hunk('prev')
+        end
+    end)
+
+    map('n', '<leader>hn', function()
+        if vim.wo.diff then
+            vim.cmd.normal({ '<leader>hn', bang = true })
+        else
+            gitsigns.nav_hunk('next')
+        end
+    end)
+
+    map('n', '<leader>hh', function()
+        if vim.wo.diff then
+            vim.cmd.normal({ '<leader>hh', bang = true })
+        else
+            gitsigns.nav_hunk('prev')
+        end
+    end)
+
+    map('n', '<leader>hs', gitsigns.stage_hunk)
+    map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+    map('n', '<leader>hS', gitsigns.stage_buffer)
+
+    map('n', '<leader>hr', gitsigns.reset_hunk)
+    map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+    map('n', '<leader>hR', gitsigns.reset_buffer)
+
+    map('n', '<leader>hp', gitsigns.preview_hunk)
+
+    map('n', '<leader>hd', gitsigns.diffthis)
+    map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+
+    map('n', '<leader>hq', gitsigns.setqflist)
+    map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
+end
+
+local gitsigns_opts = {
+    sign_priority = 6,
+    signcolumn = false,
+    on_attach = gitsigns_attach,
 }
 
 local diffview = function()
@@ -64,10 +68,10 @@ local diffview = function()
         keymaps = {
             disable_defaults = false,
             file_panel = {
-                { "n", "<A-m>",      actions.toggle_files,                  { desc = "Toggle the file panel." } },
+                { "n", "<A-m>", actions.toggle_files, { desc = "Toggle the file panel." } },
             },
             view = {
-                { "n", "<A-m>",      actions.toggle_files,                  { desc = "Toggle the file panel." } },
+                { "n", "<A-m>", actions.toggle_files, { desc = "Toggle the file panel." } },
             },
         }
     })
@@ -77,7 +81,7 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         enabled = true,
-        tag = "v2.0.0",
+        tag = "v2.1.0",
         event = "VeryLazy",
         config = function()
             require('gitsigns').setup(gitsigns_opts)
