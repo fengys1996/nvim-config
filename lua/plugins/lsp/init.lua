@@ -15,7 +15,7 @@ return {
         cmd = "Mason",
         opts = {
             install_root_dir = require("config").language_server_bin_path,
-            PATH = "append",
+            -- PATH = "append",
         }
     },
     {

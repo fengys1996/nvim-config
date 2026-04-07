@@ -101,10 +101,6 @@ local opts = {
 		update_root = false,
 		ignore_list = {},
 	},
-	system_open = {
-		cmd = nil,
-		args = {},
-	},
 	diagnostics = {
 		enable = true,
 		show_on_dirs = true,
