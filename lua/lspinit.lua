@@ -40,10 +40,16 @@ local function maplsp(bufnr, lsp_name)
     vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', 'go', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', 'gn', function()
-        vim.diagnostic.jump({ count = 1 })
+        vim.diagnostic.jump({
+            count = 1,
+            severity = { min = vim.diagnostic.severity.WARN },
+        })
     end, opts)
     vim.keymap.set('n', 'gp', function()
-        vim.diagnostic.jump({ count = -1 })
+        vim.diagnostic.jump({
+            count = -1,
+            severity = { min = vim.diagnostic.severity.WARN },
+        })
     end, opts)
     if is_rust_analyzer(lsp_name) then
         -- the special rust-analyzer keymaps
