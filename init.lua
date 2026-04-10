@@ -23,10 +23,5 @@ require("custom.colorcolumn").setup()
 vim.o.runtimepath = vim.o.runtimepath .. "," .. require("config").nvim_rs_path
 require("neovide")
 require("lspinit")
+require("ts")
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "rust",
-    callback = function(args)
-        vim.treesitter.start(args.buf, "rust")
-    end,
-})
