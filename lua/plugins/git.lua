@@ -11,7 +11,7 @@ local gitsigns_attach = function(bufnr)
         if vim.wo.diff then
             vim.cmd.normal({ ']c', bang = true })
         else
-            gitsigns.nav_hunk('next')
+            gitsigns.nav_hunk('next', { target = "all" })
         end
     end)
 
@@ -19,24 +19,16 @@ local gitsigns_attach = function(bufnr)
         if vim.wo.diff then
             vim.cmd.normal({ '[c', bang = true })
         else
-            gitsigns.nav_hunk('prev')
+            gitsigns.nav_hunk('prev', { target = "all" })
         end
     end)
 
-    map('n', '<leader>hn', function()
-        if vim.wo.diff then
-            vim.cmd.normal({ '<leader>hn', bang = true })
-        else
-            gitsigns.nav_hunk('next')
-        end
+    map('n', 'gj', function()
+        gitsigns.nav_hunk('next')
     end)
 
-    map('n', '<leader>hh', function()
-        if vim.wo.diff then
-            vim.cmd.normal({ '<leader>hh', bang = true })
-        else
-            gitsigns.nav_hunk('prev')
-        end
+    map('n', 'gk', function()
+        gitsigns.nav_hunk('prev')
     end)
 
     map('n', '<leader>hs', gitsigns.stage_hunk)
@@ -54,6 +46,8 @@ local gitsigns_attach = function(bufnr)
 
     map('n', '<leader>hq', gitsigns.setqflist)
     map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
+
+    map('n', '<leader>ht', function() gitsigns.toggle_signs() end)
 end
 
 local gitsigns_opts = {
