@@ -186,7 +186,6 @@ return {
     {
         'MeanderingProgrammer/render-markdown.nvim',
         ft = { "markdown", "codecompanion" },
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
         opts = {
             render_modes = true,
             sign = {

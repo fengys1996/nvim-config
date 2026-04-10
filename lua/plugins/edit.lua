@@ -149,8 +149,6 @@ return {
         end,
     },
     {
-        -- highlighting other uses of the word under the cursor using
-        -- either LSP, Tree-sitter, or regex matching.
         "RRethy/vim-illuminate",
         enabled = true,
         event = { "BufReadPost", "BufNewFile" },
