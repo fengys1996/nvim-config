@@ -111,6 +111,13 @@ return {
         config = true
     },
     {
+        "sainnhe/gruvbox-material",
+        enabled = true,
+        lazy = false,
+        priority = 1000,
+        config = true
+    },
+    {
         "rebelot/kanagawa.nvim",
         enabled = false,
         lazy = false,
