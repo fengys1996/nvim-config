@@ -24,4 +24,4 @@ vim.o.runtimepath = vim.o.runtimepath .. "," .. require("config").nvim_rs_path
 require("neovide")
 require("lspinit")
 require("ts")
-require('vim._core.ui2').enable()
+require('vim._core.ui2').enable({})
