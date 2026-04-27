@@ -52,7 +52,7 @@ end
 
 local gitsigns_opts = {
     sign_priority = 6,
-    signcolumn = false,
+    signcolumn = true,
     on_attach = gitsigns_attach,
 }
 
