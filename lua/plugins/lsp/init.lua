@@ -1,7 +1,7 @@
 return {
     {
         'fengys1996/rustaceanvim',
-        branch = 'ys/main-bak/0427',
+        branch = 'ys/main',
         -- dir = '/home/fys/projects/rustaceanvim',
         -- 'mrcjkb/rustaceanvim',
         -- version = '^9',
@@ -28,4 +28,9 @@ return {
             require('crates').hide()
         end
     },
+    {
+        'mrjones2014/codesettings.nvim',
+        lazy = false,
+        opts = {},
+    }
 }
