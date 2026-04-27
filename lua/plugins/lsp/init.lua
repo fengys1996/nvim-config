@@ -1,7 +1,7 @@
 return {
     {
         'fengys1996/rustaceanvim',
-        branch = 'fix/standalone-mode',
+        branch = 'ys/main',
         -- dir = '/home/fys/projects/rustaceanvim',
         -- 'mrcjkb/rustaceanvim',
         -- version = '^7',
