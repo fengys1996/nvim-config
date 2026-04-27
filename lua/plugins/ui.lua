@@ -112,7 +112,7 @@ return {
     },
     {
         "sainnhe/gruvbox-material",
-        enabled = true,
+        enabled = false,
         lazy = false,
         priority = 1000,
         config = true
@@ -138,7 +138,7 @@ return {
     },
     {
         "olimorris/onedarkpro.nvim",
-        enabled = true,
+        enabled = false,
         priority = 1000,
         config = function()
             require("onedarkpro").setup({
@@ -199,19 +199,6 @@ return {
                 enabled = false,
             },
         },
-    },
-    -- no-neck-pain and zen-mode, who is better?
-    {
-        "shortcuts/no-neck-pain.nvim",
-        version = "*",
-    },
-    {
-        "folke/zen-mode.nvim",
-        opts = {
-            -- your configurafion comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
     },
     {
         'stevearc/oil.nvim',

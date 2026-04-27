@@ -75,7 +75,7 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 -- It seems a stable rust-analyzer build (2025-08-25).
 -- local stable_ra = "/home/fys/soft/rust-analyzer/ra-25-08-25"
 
-local enable_lspmux = false
+local enable_rad = true
 
 local server_opt = {
     standalone = false,
@@ -99,12 +99,10 @@ local server_opt = {
         enable = false,
     },
     cmd = function()
-        if enable_lspmux and vim.fn.executable("lspmux") == 1 then
+        if enable_rad and vim.fn.executable("rad") == 1 then
             return {
-                vim.fn.exepath("lspmux"),
+                vim.fn.exepath("rad"),
                 "client",
-                "--server-path",
-                vim.fn.exepath("rust-analyzer")
             }
         else
             return {
