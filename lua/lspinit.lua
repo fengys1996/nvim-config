@@ -84,7 +84,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-vim.lsp.config('*', {
+vim.lsp.config('rust-analyzer', {
     before_init = function(_, config)
         local codesettings = require('codesettings')
         codesettings.with_local_settings(config.name, config)
