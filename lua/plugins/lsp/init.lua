@@ -1,10 +1,10 @@
 return {
     {
         'fengys1996/rustaceanvim',
-        branch = 'ys/main',
+        branch = 'ys/main-bak/0427',
         -- dir = '/home/fys/projects/rustaceanvim',
         -- 'mrcjkb/rustaceanvim',
-        -- version = '^7',
+        -- version = '^9',
         ft = { 'rust' },
         config = function()
             require('plugins.lsp.rust').setup()
