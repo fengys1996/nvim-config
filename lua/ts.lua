@@ -5,6 +5,8 @@ if sysname == "FreeBSD" then
     path = "/usr/local/lib/libtree-sitter-rust.so"
 elseif sysname == "Linux" then
     path = "/usr/lib/libtree-sitter-rust.so"
+elseif sysname == "Darwin" then
+    path = "/usr/local/lib/libtree-sitter-rust.dylib"
 end
 
 if path and vim.fn.filereadable(path) == 1 then
