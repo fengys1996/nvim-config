@@ -76,3 +76,38 @@ local function toggle_diags()
 end
 
 vim.api.nvim_create_user_command("ToggleDiags", toggle_diags, {})
+
+vim.api.nvim_create_user_command("ReloadAllBuffers", function()
+    local reloaded = 0
+
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(buf) then
+            local bo = vim.bo[buf]
+
+            -- Only reload normal editable file buffers.
+            -- Skip special buffers such as:
+            -- terminal, help, quickfix, telescope, neo-tree, fugitive, etc.
+            local is_normal_buffer =
+                bo.buftype == ""
+                and bo.buflisted
+                and bo.modifiable
+
+            -- Avoid overwriting unsaved user changes.
+            local is_safe_to_reload = not bo.modified
+
+            if is_normal_buffer and is_safe_to_reload then
+                vim.api.nvim_buf_call(buf, function()
+                    -- Reload buffer only if the file changed on disk.
+                    vim.cmd("silent! checktime")
+                end)
+
+                reloaded = reloaded + 1
+            end
+        end
+    end
+
+    vim.notify(
+        string.format("Reloaded %d buffers", reloaded),
+        vim.log.levels.INFO
+    )
+end, {})
