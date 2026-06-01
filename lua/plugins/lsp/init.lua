@@ -30,7 +30,7 @@ return {
     },
     {
         'mrjones2014/codesettings.nvim',
-        lazy = false,
+        lazy = true,
         opts = {},
     }
 }

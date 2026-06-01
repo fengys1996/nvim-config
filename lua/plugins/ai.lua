@@ -71,6 +71,7 @@ local acp_config = {
 return {
     {
         "olimorris/codecompanion.nvim",
+        enabled = false,
 		version = "v17.33.0",
         lazy = true,
         dependencies = {

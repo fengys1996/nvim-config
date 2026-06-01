@@ -51,29 +51,8 @@ local symbols = {
 }
 
 local config_hop = function()
-    local hop = require('hop')
-    -- local directions = require('hop.hint').HintDirection
-
+    local hop = require("hop")
     hop.setup()
-
-    vim.keymap.set('', 'f', function()
-        hop.hint_char1({ current_line_only = true })
-    end, { remap = true })
-
-    vim.keymap.set('', 's', function()
-        hop.hint_char2({})
-    end, { remap = true })
-
-    vim.keymap.set('', 'S', function()
-        hop.hint_char2({ multi_windows = true })
-    end, { remap = true })
-
-    vim.keymap.set('', 't', function()
-        hop.hint_char1({
-            current_line_only = true,
-            hint_offset = -1
-        })
-    end, { remap = true })
 end
 
 local config_mark = function()
@@ -125,6 +104,43 @@ return {
     {
         "smoka7/hop.nvim",
         tag = "v2.7.2",
+        keys = {
+            {
+                "f",
+                function()
+                    require("hop").hint_char1({ current_line_only = true })
+                end,
+                mode = { "n", "x", "o" },
+                desc = "Hop char current line",
+            },
+            {
+                "s",
+                function()
+                    require("hop").hint_char2({})
+                end,
+                mode = { "n", "x", "o" },
+                desc = "Hop 2 chars",
+            },
+            {
+                "S",
+                function()
+                    require("hop").hint_char2({ multi_windows = true })
+                end,
+                mode = { "n", "x", "o" },
+                desc = "Hop 2 chars multi-window",
+            },
+            {
+                "t",
+                function()
+                    require("hop").hint_char1({
+                        current_line_only = true,
+                        hint_offset = -1,
+                    })
+                end,
+                mode = { "n", "x", "o" },
+                desc = "Hop till char current line",
+            },
+        },
         config = config_hop,
     },
     {

@@ -110,7 +110,7 @@ return {
     },
     {
         "neanias/everforest-nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         config = everforest
     },
@@ -137,6 +137,7 @@ return {
     },
     {
         "loctvl842/monokai-pro.nvim",
+        enabled = false,
         lazy = false,
         priority = 1000,
         config = function()
@@ -146,12 +147,14 @@ return {
     ---------------------- Others ----------------------
     {
         "j-hui/fidget.nvim",
+        lazy = true,
         tag = "v1.6.1",
         opts = {},
     },
     {
         "stevearc/dressing.nvim",
         enabled = true,
+        lazy = true,
         opts = dressing_opt,
     },
     {
@@ -183,6 +186,7 @@ return {
     },
     {
         'stevearc/oil.nvim',
+        enabled = false,
         opts = {},
         dependencies = { "nvim-tree/nvim-web-devicons" },
         keys = {

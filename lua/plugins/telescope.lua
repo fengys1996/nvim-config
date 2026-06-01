@@ -131,7 +131,7 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         tag = 'v0.2.1',
-        dependencies = { "nvim-lua/plenary.nvim", "ahmedkhalf/project.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
         keys = tele_shortcut_key,
         config = tele_config,
     },

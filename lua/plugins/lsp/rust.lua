@@ -34,6 +34,9 @@ local ra_settings = {
         -- If project is very large, it may take a long time, so it
         -- is recommended to disable it when your project is very large.
         checkOnSave = false,
+        files = {
+            watcher = "server",
+        },
         check = {
             -- command = "check",
             -- If false, -p <package> will be passed instead if applicable.
@@ -75,7 +78,7 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 -- It seems a stable rust-analyzer build (2025-08-25).
 -- local stable_ra = "/home/fys/soft/rust-analyzer/ra-25-08-25"
 
-local enable_rad = true
+local enable_rad = false
 
 local server_opt = {
     standalone = false,
