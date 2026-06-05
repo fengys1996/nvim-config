@@ -147,14 +147,12 @@ return {
     ---------------------- Others ----------------------
     {
         "j-hui/fidget.nvim",
-        lazy = true,
         tag = "v1.6.1",
         opts = {},
     },
     {
         "stevearc/dressing.nvim",
         enabled = true,
-        lazy = true,
         opts = dressing_opt,
     },
     {
@@ -173,6 +171,7 @@ return {
     ---------------------- lualine ----------------------
     {
         'nvim-lualine/lualine.nvim',
+        enabled = true,
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = lualine_opts,
     },
