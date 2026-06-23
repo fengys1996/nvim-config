@@ -78,7 +78,7 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 -- It seems a stable rust-analyzer build (2025-08-25).
 -- local stable_ra = "/home/fys/soft/rust-analyzer/ra-25-08-25"
 
-local enable_rad = false
+local enable_rad = true
 
 local server_opt = {
     standalone = false,
