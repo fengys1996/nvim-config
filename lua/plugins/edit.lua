@@ -90,8 +90,10 @@ end
 
 local big_file = function()
     require("bigfile").setup {
-        -- 1MB
-        filesize = 1,
+        -- 2MB
+        -- size of the file in MiB, the plugin round file sizes to the closest
+        -- MiB
+        filesize = 2,
         pattern = { "*" },
         features = {
             "lsp",
