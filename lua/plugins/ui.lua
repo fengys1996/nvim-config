@@ -96,7 +96,7 @@ return {
     },
     {
         "sainnhe/gruvbox-material",
-        enabled = false,
+        enabled = true,
         lazy = false,
         priority = 1000,
         config = true
