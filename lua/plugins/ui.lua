@@ -136,6 +136,13 @@ return {
         end
     },
     {
+        'projekt0n/github-nvim-theme',
+        config = function()
+            require('github-theme').setup({
+            })
+        end
+    },
+    {
         "loctvl842/monokai-pro.nvim",
         enabled = false,
         lazy = false,

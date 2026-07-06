@@ -14,7 +14,7 @@ vim.o.background = "light"
 -- - onelight
 -- - gruvbox
 -- - monokai-pro-light
-vim.cmd("colorscheme gruvbox-material")
+vim.cmd("colorscheme github_light")
 
 -- Since https://github.com/neovim/neovim/pull/32383
 -- vim.cmd("hi link qftext LineNr")
