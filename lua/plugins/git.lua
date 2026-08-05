@@ -96,7 +96,7 @@ return {
     },
     {
         "sindrets/diffview.nvim",
-        enabled = false,
+        enabled = true,
         event = "VeryLazy",
         config = diffview,
     },
