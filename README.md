@@ -62,5 +62,3 @@ This is my nvim config written in lua and vim script.
 ## Recommended GUI
 
 - [alacritty](https://github.com/alacritty/alacritty)
-
-- [neovide](https://github.com/neovide/neovide)
