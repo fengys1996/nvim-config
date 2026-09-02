@@ -1,18 +1,3 @@
--- local function open_win_config_func()
---     local scr_w = vim.opt.columns:get()
---     local scr_h = vim.opt.lines:get()
---     local tree_w = 80
---     local tree_h = math.floor(tree_w * scr_h / scr_w)
---     return {
--- 	border = "double",
--- 	relative = "editor",
--- 	width = tree_w,
--- 	height = tree_h,
--- 	col = (scr_w - tree_w) / 2,
--- 	row = (scr_h - tree_h) / 2
---     }
--- end
-
 local function on_attach(bufnr)
 	local api = require('nvim-tree.api')
 
@@ -28,6 +13,11 @@ local function on_attach(bufnr)
 	vim.keymap.set('n', '<C-h>', api.node.open.horizontal, opts('Open: Horizontal Split'))
 	vim.keymap.set('n', 'h', api.node.open.horizontal, opts('Open: Horizontal Split'))
 	vim.keymap.set('n', 'i', api.filter.git.ignored.toggle, opts('Toggle Git Ignore'))
+	vim.keymap.set('n', 'C', api.filter.git.clean.toggle, opts('Toggle Git Clean'))
+	vim.keymap.set('n', '[c', api.node.navigate.git.prev, opts('Prev Git'))
+	vim.keymap.set('n', ']c', api.node.navigate.git.next, opts('Next Git'))
+	vim.keymap.set({ 'n', 'x' }, 'm', api.marks.toggle, opts('Toggle Bookmark'))
+	vim.keymap.set('n', 'M', api.filter.no_bookmark.toggle, opts('Toggle Filter: No Bookmark'))
 	vim.keymap.set('n', '.', api.filter.dotfiles.toggle, opts('Toggle Dotfiles'))
 	vim.keymap.set('n', 'R', api.tree.reload, opts('Refresh'))
 	vim.keymap.set('n', 'a', api.fs.create, opts('Create'))
@@ -36,11 +26,17 @@ local function on_attach(bufnr)
 	vim.keymap.set('n', 'x', api.fs.cut, opts('Cut'))
 	vim.keymap.set('n', 'c', api.fs.copy.node, opts('Copy'))
 	vim.keymap.set('n', 'p', api.fs.paste, opts('Paste'))
+	vim.keymap.set('n', 'y', api.fs.copy.filename, opts('Copy Name'))
+	vim.keymap.set('n', 'Y', api.fs.copy.relative_path, opts('Copy Relative Path'))
+	vim.keymap.set('n', 'gy', api.fs.copy.absolute_path, opts('Copy Absolute Path'))
+	vim.keymap.set('n', 'ge', api.fs.copy.basename, opts('Copy Basename'))
 	vim.keymap.set('n', 's', api.node.run.system, opts('Run System'))
 	vim.keymap.set('n', 'w', api.tree.collapse_all, opts('Collapse'))
 	vim.keymap.set('n', 'e', api.tree.expand_all, opts('Expand All'))
+	vim.keymap.set('n', 'L', api.node.open.toggle_group_empty, opts('Toggle Group Empty'))
 	vim.keymap.set('n', 'F', api.filter.live.clear, opts('Clean Filter'))
 	vim.keymap.set('n', 'f', api.filter.live.start, opts('Filter'))
+	vim.keymap.set('n', 'g?', api.tree.toggle_help, opts('Help'))
 	vim.keymap.set('n', 'I', api.tree.change_root_to_node, opts('CD'))
 end
 
@@ -56,16 +52,17 @@ local opts = {
 	update_cwd = true,
 	renderer = {
 		icons = {
+			git_placement = "right_align",
 			glyphs = {
 				default = "",
 				symlink = "",
 				git = {
 					unstaged = "",
-					staged = "S",
+					staged = "✓",
 					unmerged = "",
 					renamed = "➜",
 					deleted = "",
-					untracked = "U",
+					untracked = "?",
 					ignored = "◌",
 				},
 				folder = {
