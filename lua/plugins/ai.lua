@@ -1,15 +1,3 @@
-local set_complete_keymap = function()
-    vim.keymap.set('i', '<C-n>', '<Plug>(copilot-next)')
-    vim.keymap.set('i', '<C-p>', '<Plug>(copilot-previous)')
-    vim.keymap.set('i', '<C-y>', '<Plug>(copilot-accept-word)')
-end
-
-local unset_complete_keymap = function()
-    vim.keymap.del('i', '<C-n>')
-    vim.keymap.del('i', '<C-p>')
-    vim.keymap.del('i', '<C-y>')
-end
-
 local set_cc_keymap = function()
     vim.keymap.set("n", "<leader>k", ':CodeCompanionChat Toggle<CR>')
 end
@@ -36,22 +24,6 @@ local adapters_config = {
     copilot = copilot_setup,
     deepseek = ds_setup,
 }
-
-local is_enable = false
-
-local toggle_complete = function()
-    if is_enable then
-        unset_complete_keymap()
-        vim.g.copilot_enabled = false
-        is_enable = false
-        print("copilot disabled ")
-    else
-        set_complete_keymap()
-        vim.g.copilot_enabled = true
-        is_enable = true
-        print("copilot enabled")
-    end
-end
 
 vim.api.nvim_create_user_command("ToggleCopilot", function()
     toggle_complete()
@@ -92,13 +64,5 @@ return {
                 })
             set_cc_keymap()
         end
-    },
-    {
-        "github/copilot.vim",
-        event = "VeryLazy",
-        config = function()
-            set_complete_keymap()
-            vim.g.copilot_enabled = false
-        end,
-    },
+    }
 }
