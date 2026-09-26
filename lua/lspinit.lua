@@ -1,5 +1,4 @@
--- Do not auto-start LSP servers on buffer open.
--- Use `:LspStart` to start and `:LspStop` to stop LSP servers manually.
+-- Rust LSP starts manually; Start/Stop also toggle automatic attachment of new files.
 
 local copilot_name = "github copilot"
 local rust_analyzer_name = "rust-analyzer"
@@ -70,6 +69,8 @@ local function maplsp(bufnr, lsp_name)
     -- end, opts)
 end
 
+-- TODO: On LspDetach, remove these buffer-local mappings when no relevant LSP
+-- remains, restoring the global <leader>rt start mapping. LspAttach restores them.
 -- Setup some when LSP attaches to a buffer.
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
@@ -95,8 +96,14 @@ vim.lsp.config('rust-analyzer', {
 local function lsp_start()
     -- since use rustaceanvim for rust, so handle it separately.
     if vim.bo.filetype == "rust" then
-        require("rustaceanvim.lsp").start()
         require("plugins.lsp.rust").enable_auto_attach()
+        local rust_lsp = require("rustaceanvim.lsp")
+        -- Let rustaceanvim discover projects and reuse clients for all loaded Rust buffers.
+        for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+            if vim.api.nvim_buf_is_loaded(bufnr) and vim.bo[bufnr].filetype == "rust" then
+                rust_lsp.start(bufnr)
+            end
+        end
         return
     end
     vim.lsp.enable({ "lua", "go", "clangd", "erlang" })
@@ -111,8 +118,12 @@ vim.keymap.set("n", "<leader>rt", lsp_start, { desc = "LSP start (smart)" })
 vim.api.nvim_create_user_command("LspStop", function()
     -- since use rustaceanvim for rust, so handle it separately.
     if vim.bo.filetype == "rust" then
-        require('rustaceanvim.lsp').stop()
         require('plugins.lsp.rust').disable_auto_attach()
+        -- Stop the connection without waiting for a busy RA. With rad, the backend
+        -- stays managed by rad; without rad, this terminates rust-analyzer itself.
+        for _, client in ipairs(vim.lsp.get_clients({ name = 'rust-analyzer' })) do
+            client:stop(true)
+        end
         return
     end
     for _, client in ipairs(vim.lsp.get_clients()) do
