@@ -81,7 +81,7 @@ return {
     ---------------------- Color schema ----------------------
     {
         "ellisonleao/gruvbox.nvim",
-        enabled = false,
+        enabled = true,
         lazy = false,
         priority = 1000,
         config = true
@@ -190,7 +190,7 @@ return {
     ---------------------- markdown ----------------------
     {
         'MeanderingProgrammer/render-markdown.nvim',
-        enabled = false,
+        enabled = true,
         ft = { "markdown", "codecompanion" },
         opts = {
             enabled = false,
