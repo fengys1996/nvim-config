@@ -108,3 +108,67 @@ vim.api.nvim_create_user_command("ReloadAllBuffers", function()
         vim.log.levels.INFO
     )
 end, {})
+
+-- Copy the working-tree path, including files shown by Git diff plugins.
+local function copy_file_path(relative)
+    local bufnr = vim.api.nvim_get_current_buf()
+    local name = vim.api.nvim_buf_get_name(bufnr)
+    local path
+
+    if name:match("^fugitive://") then
+        if vim.fn.exists("*FugitiveReal") == 1 then
+            path = vim.fn.FugitiveReal(name)
+        end
+    elseif name:match("^diffview://") then
+        local ok, lib = pcall(require, "diffview.lib")
+        if ok then
+            for _, view in ipairs(lib.views) do
+                local files = view.cur_entry and view.cur_entry.layout:files() or {}
+                for _, file in ipairs(files) do
+                    if file.bufnr == bufnr then
+                        path = file.absolute_path
+                        break
+                    end
+                end
+                if path then
+                    break
+                end
+            end
+        end
+    elseif vim.bo.buftype == "" then
+        path = name
+    end
+
+    if not path or path == "" or path:match("^%a[%w+.-]*://") or vim.fn.isdirectory(path) == 1 then
+        vim.notify("Current buffer has no file path", vim.log.levels.WARN)
+        return
+    end
+
+    path = vim.fn.fnamemodify(path, ":p")
+    if relative then
+        local base = vim.fn.getcwd()
+        local prefix = ""
+        local suffix = vim.fs.relpath(base, path)
+        while not suffix do
+            local parent = vim.fs.dirname(base)
+            if not parent or parent == base then
+                vim.notify("Cannot make path relative to current directory", vim.log.levels.WARN)
+                return
+            end
+            base = parent
+            prefix = prefix .. "../"
+            suffix = vim.fs.relpath(base, path)
+        end
+        path = prefix .. suffix
+    end
+    vim.fn.setreg("+", path, "v")
+    vim.notify("Copied: " .. path)
+end
+
+vim.api.nvim_create_user_command("CopyAbsolutePath", function()
+    copy_file_path(false)
+end, { desc = "Copy absolute file path" })
+
+vim.api.nvim_create_user_command("CopyRelativePath", function()
+    copy_file_path(true)
+end, { desc = "Copy file path relative to current directory" })
