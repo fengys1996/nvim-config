@@ -57,7 +57,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- forbid wrap
-vim.wo.wrap = false
+vim.o.wrap = true
+vim.wo.wrap = true
 
 vim.o.autoread = true
 vim.bo.autoread = true
