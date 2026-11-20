@@ -196,6 +196,7 @@ return {
             enabled = false,
         },
     },
+    { "e-q/okcolors.nvim", name = "okcolors" },
     {
         'stevearc/oil.nvim',
         enabled = false,

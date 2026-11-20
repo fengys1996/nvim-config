@@ -6,7 +6,7 @@ require("lazy_c")
 -- options:
 -- - light
 -- - dark
-vim.o.background = "dark"
+vim.o.background = "light"
 
 -- common theme:
 -- - dayfox
@@ -14,7 +14,7 @@ vim.o.background = "dark"
 -- - onelight
 -- - gruvbox
 -- - monokai-pro-light
-vim.cmd("colorscheme everforest")
+vim.cmd("colorscheme okcolors-sharp")
 
 -- Since https://github.com/neovim/neovim/pull/32383
 -- vim.cmd("hi link qftext LineNr")
