@@ -31,6 +31,22 @@ local illuminate = function()
         large_file_overrides = nil,
         min_count_to_highlight = 2,
     })
+
+    local function reference_command(name, jump)
+        vim.api.nvim_create_user_command(name, function(opts)
+            local arg = opts.args
+            if arg ~= "" and arg ~= "true" and arg ~= "false" then
+                error(name .. " expects true or false")
+            end
+            jump(arg == "true")
+        end, { nargs = "?" })
+    end
+
+    reference_command("IllNext", illuminate.goto_next_reference)
+    reference_command("IllPre", illuminate.goto_prev_reference)
+    vim.api.nvim_create_user_command("IllToggle", "IlluminateToggle", {})
+    vim.api.nvim_create_user_command("IllFreeze", illuminate.freeze_buf, {})
+    vim.api.nvim_create_user_command("IllUnfreeze", illuminate.unfreeze_buf, {})
 end
 
 local symbols = {
@@ -170,6 +186,7 @@ return {
         "RRethy/vim-illuminate",
         enabled = true,
         event = { "BufReadPost", "BufNewFile" },
+        cmd = { "IllNext", "IllPre", "IllToggle", "IllFreeze", "IllUnfreeze" },
         config = illuminate,
     },
     {
