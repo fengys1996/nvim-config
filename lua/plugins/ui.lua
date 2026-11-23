@@ -196,7 +196,11 @@ return {
             enabled = false,
         },
     },
-    { "e-q/okcolors.nvim", name = "okcolors" },
+    {   
+        "fengys1996/okcolors.nvim",
+        name = "okcolors",
+        commit = "6b0e824ad6207735f0a3a85adf49a550d100eefb",
+    },
     {
         'stevearc/oil.nvim',
         enabled = false,
