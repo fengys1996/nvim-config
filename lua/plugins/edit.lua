@@ -47,6 +47,29 @@ local illuminate = function()
     vim.api.nvim_create_user_command("IllToggle", "IlluminateToggle", {})
     vim.api.nvim_create_user_command("IllFreeze", illuminate.freeze_buf, {})
     vim.api.nvim_create_user_command("IllUnfreeze", illuminate.unfreeze_buf, {})
+    vim.api.nvim_create_user_command("IllToLocallist", function()
+        local bufnr = vim.api.nvim_get_current_buf()
+        local references = require("illuminate.reference").buf_get_references(bufnr)
+        if #references == 0 then
+            vim.notify("No Illuminate references in this buffer")
+            return
+        end
+
+        local items = {}
+        for _, reference in ipairs(references) do
+            local start = reference[1]
+            local lnum = start[1] + 1
+            table.insert(items, {
+                bufnr = bufnr,
+                lnum = lnum,
+                col = start[2] + 1,
+                text = vim.fn.getline(lnum),
+            })
+        end
+
+        vim.fn.setloclist(0, {}, " ", { title = "Illuminate references", items = items })
+        vim.cmd("lopen")
+    end, {})
 end
 
 local symbols = {
@@ -186,7 +209,7 @@ return {
         "RRethy/vim-illuminate",
         enabled = true,
         event = { "BufReadPost", "BufNewFile" },
-        cmd = { "IllNext", "IllPre", "IllToggle", "IllFreeze", "IllUnfreeze" },
+        cmd = { "IllNext", "IllPre", "IllToggle", "IllFreeze", "IllUnfreeze", "IllToLocallist" },
         config = illuminate,
     },
     {
