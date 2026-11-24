@@ -168,11 +168,6 @@ return {
         opts = dressing_opt,
     },
     {
-        "lewis6991/satellite.nvim",
-        enabled = false,
-        config = true,
-    },
-    {
         "kevinhwang91/nvim-bqf",
         enabled = true,
         ft = "qf",

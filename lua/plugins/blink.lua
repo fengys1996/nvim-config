@@ -74,6 +74,8 @@ return {
         },
 
         completion = {
+            -- Keep focus in the original split after accepting a rename completion.
+            accept = { dot_repeat = false },
             documentation = { auto_show = false },
             ghost_text = { enabled = false },
             list = {
