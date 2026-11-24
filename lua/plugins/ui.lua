@@ -199,7 +199,7 @@ return {
     {   
         "fengys1996/okcolors.nvim",
         name = "okcolors",
-        commit = "6b0e824ad6207735f0a3a85adf49a550d100eefb",
+        commit = "ddba19244178c7b50f699f9832de4b8b61e5f5a6",
     },
     {
         'stevearc/oil.nvim',
